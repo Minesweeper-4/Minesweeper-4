@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Engine
+﻿namespace Minesweeper.Engine
 {
+    using Minesweeper.Interfaces;
+    using System;
+    using System.Collections.Generic;
+
     class Command : ICommand
     {
         private const char SplitCommandSymbol = ' ';
 
         private string name;
-        private IList<int> parameters;
+        private IList<string> parameters;
 
         public Command(string input)
         {
@@ -31,7 +29,7 @@ namespace Minesweeper.Engine
             }
         }
 
-        public IList<int> Parameters
+        public IList<string> Parameters
         {
             get
             {
@@ -51,12 +49,12 @@ namespace Minesweeper.Engine
             if (indexOfFirstSeparator != -1)
             {
                 this.Name = input.Substring(0, indexOfFirstSeparator);
-                this.Parameters = input.Substring(indexOfFirstSeparator + 1).Split(new[] { SplitCommandSymbol }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList<int>();
+                this.Parameters = input.Substring(indexOfFirstSeparator + 1).Split(new[] { SplitCommandSymbol }, StringSplitOptions.RemoveEmptyEntries);
             }
             else
             {
                 this.Name = input;
-                //this.Parameters = new List<int>();
+                this.Parameters = new List<string>();
             }
         }
     }

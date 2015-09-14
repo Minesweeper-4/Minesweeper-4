@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Engine
+﻿namespace Minesweeper.Engine
 {
+    using System;
+
     public class MinesweeperEngine
     {
         public MinesweeperEngine()
@@ -31,6 +27,7 @@ namespace Minesweeper.Engine
                 case "top":
                     Console.WriteLine("Top");
                     break;
+                case "start":
                 case "restart":
                     //playground = CreateWhiteBoard();
                     //boomBoard = CreateBombBoard();
@@ -42,8 +39,24 @@ namespace Minesweeper.Engine
                     Console.WriteLine("Good bye!");
                     break;
                 case "turn":
-                    Console.WriteLine(command.Parameters[0]);
-                    Console.WriteLine(command.Parameters[1]);
+                    if (command.Parameters.Count != 2)
+                    {
+                        Console.WriteLine("Invalid number of arguments!");
+                        break;
+                    }
+                    int rowIndex;
+                    int colIndex;
+                    bool rowIsProvided = int.TryParse(command.Parameters[0], out rowIndex);
+                    bool columnIsProvided = int.TryParse(command.Parameters[1], out colIndex);
+
+                    if (!(rowIsProvided && columnIsProvided))
+                    {
+                        Console.WriteLine("Invalid row and column!");
+                        break;
+                    }
+
+                    Console.WriteLine(rowIndex + " " + colIndex);
+
                     //if (boomBoard[rowIndex, columnIndex] != '*')
                     //{
                     //    if (boomBoard[rowIndex, columnIndex] == '-')
