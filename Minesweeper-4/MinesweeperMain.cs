@@ -7,26 +7,20 @@
 
     public class MinesweeperMain
     {
-
         static void Main(string[] args)
         {
+            const int MAX_REVEALED_CELLS = 35;
+            bool boomed = false;
+            bool welcomeFlag = true;
+            bool flag = false;
+            int counter = 0;
+            int rowIndex = 0;
+            int columnIndex = 0;
             string selectedCommand = string.Empty;
             char[,] playground = CreateWhiteBoard();
             char[,] boomBoard = CreateBombBoard();
-            int counter = 0;
-            bool boomed = false;
-
-
             List<ScoreRecord> champions = new List<ScoreRecord>(6);
-            int rowIndex = 0;
 
-
-
-            int columnIndex = 0;
-            bool welcomeFlag = true;
-            const int MAX_REVEALED_CELLS = 35;
-            bool flag = false;
-            
             do
             {
                 if (welcomeFlag)
@@ -36,19 +30,20 @@
                     PrintBoard(playground);
                     welcomeFlag = false;
                 }
+
                 Console.Write("Enter row and column: ");
                 selectedCommand = Console.ReadLine().Trim();
+
                 if (selectedCommand.Length >= 3)
                 {
                     if (int.TryParse(selectedCommand[0].ToString(), out rowIndex) &&
                     int.TryParse(selectedCommand[2].ToString(), out columnIndex) &&
-                        rowIndex <= playground.GetLength(0) && columnIndex <= playground.GetLength(1))
+                        rowIndex < playground.GetLength(0) && columnIndex <= playground.GetLength(1))
                     {
-
-
                         selectedCommand = "turn";
                     }
                 }
+
                 switch (selectedCommand)
                 {
                     case "top":
@@ -92,6 +87,7 @@
                         Console.WriteLine("\nIllegal move!\n");
                         break;
                 }
+
                 if (boomed)
                 {
                     PrintBoard(boomBoard);
@@ -99,12 +95,14 @@
                         "Please enter your name for the top scoreboard: ",counter);
                     string personName = Console.ReadLine();
                     ScoreRecord record = new ScoreRecord(personName, counter);
+
                     if (champions.Count <5)
                     {
                         champions.Add(record);
 
 
                     }
+
                     else
                     {
                         for (int i = 0; i < champions.Count; i++)
@@ -117,12 +115,18 @@
                             }
                         }
                     }
+
                     champions.Sort(delegate(ScoreRecord r1, ScoreRecord r2)
-                    { return r2.PersonName.CompareTo(r1.PersonName); });
+                    {
+                        return r2.PersonName.CompareTo(r1.PersonName);
+                    });
+
                     champions.Sort(delegate(ScoreRecord r1,ScoreRecord r2)
-                    {return r2.ScorePoints.CompareTo(r1.ScorePoints);  });
+                    {
+                        return r2.ScorePoints.CompareTo(r1.ScorePoints); 
+                    });
+
                     PrintScoreBoard(champions);
-                    
 					
 					playground = CreateWhiteBoard();
                     boomBoard = CreateBombBoard();
@@ -130,6 +134,7 @@
                     boomed = false;
                     welcomeFlag = true;
                 }
+
                 if (flag)
                 {
                     Console.WriteLine("\nYou revealed all 35 cells.");
@@ -153,9 +158,11 @@
             Console.WriteLine("Press any key to exit.");
             Console.Read();
         }
+
         private static void PrintScoreBoard(List<ScoreRecord> topRecords)
         {
             Console.WriteLine("\nScoreboard:");
+
             if (topRecords.Count > 0)
             {
                 for (int i = 0; i < topRecords.Count; i++)
@@ -169,18 +176,21 @@
                 Console.WriteLine("No records to display!\n");
             }
         }
+
         private static void MakeAMove(char[,] board,char[,] boomBoard, int rowIndex, int columnIndex)
         {
             char howManyBombs = CalculateHowManyBombs(boomBoard, rowIndex, columnIndex);
             boomBoard[rowIndex, columnIndex] = howManyBombs;
             board[rowIndex, columnIndex] = howManyBombs;
         }
+
         private static void PrintBoard(char[,] board)
         {
             int boardRows = board.GetLength(0);
             int boardColumns = board.GetLength(1);
             Console.WriteLine("\n    0 1 2 3 4 5 6 7 8 9");
             Console.WriteLine("   ---------------------");
+
             for (int i = 0; i < boardRows; i++)
             {
                 Console.Write("{0} | ", i);
@@ -193,6 +203,7 @@
             }
             Console.WriteLine("   ---------------------\n");
         }
+
         private static char[,] CreateWhiteBoard()
         {
             int boardRows = 5;
@@ -207,9 +218,6 @@
             }
 
             return board;
-
-
-
         }
 
         private static char[,] CreateBombBoard()
@@ -223,9 +231,6 @@
                 for (int j = 0; j < boardColumns; j++)
                 {
                     board[i, j] = '-';
-
-
-
                 }
             }
 
@@ -250,11 +255,11 @@
                     column = boardColumns;
                 }
 
-
                 else
                 {
                     column++;
                 }
+
                 board[row,column-1] = '*';
             }
 
@@ -276,8 +281,6 @@
                         board[i, j] = number;
                     }
                 }
-
-
             }
         }
 
@@ -295,43 +298,57 @@
             if (rowIndex + 1 < boardRows)
             {
                 if (board[rowIndex + 1, columnIndex] == '*')
-                { counted++; }
-
-
-
+                {
+                    counted++;
+                }
             }
+
             if (columnIndex - 1 >= 0)
             {
                 if (board[rowIndex, columnIndex - 1] == '*')
                 { counted++; }
             }
+
             if (columnIndex + 1 < boardColumns)
             {
                 if (board[rowIndex, columnIndex + 1] == '*')
-                { counted++; }
+                {
+                    counted++;
+                }
             }
+
             if ((rowIndex - 1 >= 0) && (columnIndex - 1 >= 0))
             {
                 if (board[rowIndex - 1, columnIndex - 1] == '*')
-                { counted++; }
+                {
+                    counted++; 
+                }
             }
+
             if ((rowIndex - 1 >= 0) && (columnIndex + 1 < boardColumns))
             {
                 if (board[rowIndex - 1, columnIndex + 1] == '*')
-                { counted++; }
+                { 
+                    counted++; 
+                }
             }
+
             if ((rowIndex + 1 < boardRows) && (columnIndex - 1 >= 0))
             {
                 if (board[rowIndex + 1, columnIndex - 1] == '*')
-                { counted++; }
+                { 
+                    counted++; 
+                }
             }
+
             if ((rowIndex + 1 < boardRows) && (columnIndex + 1 < boardColumns))
             {
                 if (board[rowIndex + 1, columnIndex + 1] == '*')
-                { counted++; }
-
-
+                { 
+                    counted++; 
+                }
             }
+
             return char.Parse(counted.ToString());
         }
 
