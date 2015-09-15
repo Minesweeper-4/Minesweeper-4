@@ -8,8 +8,8 @@ namespace Minesweeper.Interfaces
 {
     interface IPlayer
     {
-        public string NickName { get; set; }
+        string NickName { get; set; }
 
-        public int Scores { get; set; }        
+        int Scores { get; set; }        
     }
 }

@@ -72,9 +72,11 @@
   <ItemGroup>
     <Compile Include="Data\Cell.cs" />
     <Compile Include="Data\Matrix.cs" />
+    <Compile Include="Data\Player.cs" />
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Engine\MinesweeperEngine.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="MinesweeperMain.cs" />
     <Compile Include="ScoreRecord.cs" />
   </ItemGroup>
