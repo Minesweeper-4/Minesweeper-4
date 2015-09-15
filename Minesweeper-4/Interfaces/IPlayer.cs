@@ -1,6 +1,6 @@
 ﻿namespace Minesweeper.Interfaces
 {
-    interface IPlayer
+    public interface IPlayer
     {
         string NickName { get; set; }
 

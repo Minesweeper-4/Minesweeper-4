@@ -5,12 +5,13 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Minesweeper.Interfaces;
 
-    public class Matrix
+    public class Matrix :  IMatrix
     {
         private int rows;
         private int cols;
-        private Cell[,] field;
+        private ICell[,] field;
 
         public Matrix(int rows, int cols)
         {
@@ -43,7 +44,7 @@
             }
         }
 
-        public Cell[,] Field
+        public ICell[,] Field
         {
             get
             {

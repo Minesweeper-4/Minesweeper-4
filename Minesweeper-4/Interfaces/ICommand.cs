@@ -2,7 +2,7 @@
 
 namespace Minesweeper.Interfaces
 {
-    interface ICommand
+    public interface ICommand
     {
         string Name { get; }
 
