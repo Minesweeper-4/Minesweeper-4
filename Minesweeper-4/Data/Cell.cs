@@ -11,6 +11,7 @@
     {
         private bool isOpen;
         private bool isBoomb;
+        private int numberOfMines;
 
         public Cell()
         {
@@ -41,6 +42,19 @@
             set
             {
                 this.isBoomb = value;
+            }
+        }
+
+
+        public int NumberOfMines
+        {
+            get
+            {
+                return this.numberOfMines;
+            }
+            set
+            {
+                this.numberOfMines = value;
             }
         }
     }
