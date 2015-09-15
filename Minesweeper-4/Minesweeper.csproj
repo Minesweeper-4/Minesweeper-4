@@ -82,7 +82,8 @@
     <Compile Include="Engine\MinesweeperEngine.cs" />
     <Compile Include="Interfaces\IMatrix.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
-    <Compile Include="Logic\Draw\IPrinter.cs" />
+    <Compile Include="Logic\Draw\Printer.cs" />
+    <Compile Include="Logic\Draw\StandardPrinter.cs" />
     <Compile Include="Logic\MatrixLogic.cs" />
     <Compile Include="MinesweeperMain.cs" />
     <Compile Include="ScoreRecord.cs" />
