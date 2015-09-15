@@ -1,6 +1,8 @@
 ﻿namespace Minesweeper.Engine
 {
     using System;
+    using Minesweeper.Data;
+    using Minesweeper.Logic;
 
     public class MinesweeperEngine
     {
@@ -28,6 +30,28 @@
                     Console.WriteLine("Top");
                     break;
                 case "start":
+                    var matrixLogic = new MatrixLogic();
+                    var matrix = new Matrix(5, 10).Field;
+                    matrixLogic.InitBoard(matrix);
+
+                    int boardRows = matrix.GetLength(0);
+            int boardColumns = matrix.GetLength(1);
+            Console.WriteLine("\n    0 1 2 3 4 5 6 7 8 9");
+            Console.WriteLine("   ---------------------");
+
+            for (int i = 0; i < boardRows; i++)
+            {
+                Console.Write("{0} | ", i);
+                for (int j = 0; j < boardColumns; j++)
+                {
+                    Console.Write(string.Format("{0} ",matrix[i, j].CurrentSymbol));
+                }
+                Console.Write("|");
+                Console.WriteLine();
+            }
+            Console.WriteLine("   ---------------------\n");
+
+                    break;
                 case "restart":
                     //playground = CreateWhiteBoard();
                     //boomBoard = CreateBombBoard();

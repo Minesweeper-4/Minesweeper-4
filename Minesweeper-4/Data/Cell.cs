@@ -13,8 +13,11 @@
         private bool isBoomb;
         private char currentSymbol;
 
-        public Cell()
+        public Cell(char symbol)
         {
+            this.CurrentSymbol = symbol;
+            this.isOpen = false;
+            this.IsBoomb = false;
         }
 
         public bool IsOpen

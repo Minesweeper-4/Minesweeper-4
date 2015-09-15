@@ -82,6 +82,7 @@
     <Compile Include="Engine\MinesweeperEngine.cs" />
     <Compile Include="Interfaces\IMatrix.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Logic\MatrixLogic.cs" />
     <Compile Include="MinesweeperMain.cs" />
     <Compile Include="ScoreRecord.cs" />
   </ItemGroup>

@@ -8,13 +8,13 @@
 
     public class MinesweeperMain
     {
-        static void Main2()
+        static void Main()
         {
             var game = new MinesweeperEngine();
             game.Start();
         }
 
-        static void Main(string[] args)
+        static void Main2(string[] args)
         {
             const int MAX_REVEALED_CELLS = 35;
             bool boomed = false;
