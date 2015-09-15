@@ -21,12 +21,7 @@
         {
             get
             {
-                return this.rows;
-            }
-
-            set
-            {
-                this.rows = value;
+                return this.Field.GetLength(0);
             }
         }
 
@@ -34,12 +29,7 @@
         {
             get
             {
-                return this.cols;
-            }
-
-            set
-            {
-                this.cols = value;
+                return this.Field.GetLength(1);
             }
         }
 

@@ -8,10 +8,10 @@
     public class MinesweeperEngine
     {
         private readonly MatrixLogic matrixLogic = new MatrixLogic();
-        //private readonly Matrix matrix; // = new Matrix();
         private readonly Printer printer = new StandardPrinter();
         private readonly MatrixDirector director = new MatrixDirector();
         private readonly SmallMatrixBuilder builder = new SmallMatrixBuilder();
+        private Matrix matrix; // = new Matrix();
 
         public MinesweeperEngine()
         {
@@ -38,7 +38,8 @@
                     break;
                 case "start":
                     director.Construct(builder);
-                    //var matrix = builder.GetMatrix();
+                    matrix = builder.GetMatrix();
+                    printer.Print(matrix);
                     break;
                 case "restart":
                     break;
@@ -63,8 +64,8 @@
                         break;
                     }
 
-                    //matrixLogic.MakeAMove(matrix.Field, rowIndex, colIndex);
-                    //printer.Print(matrix);
+                    matrixLogic.MakeAMove(matrix.Field, rowIndex, colIndex);
+                    printer.Print(matrix);
 
                     break;
 
