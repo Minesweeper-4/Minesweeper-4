@@ -4,16 +4,21 @@
 
     class Player : IPlayer
     {
+        public Player(string nickName)
+        {
+            this.NickName = nickName;
+            this.Scores = 0;
+        }
 
         public string NickName
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.NickName;
             }
-            set
+            private set
             {
-                throw new System.NotImplementedException();
+                this.NickName = value;
             }
         }
 
@@ -21,11 +26,11 @@
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.Scores;
             }
             set
             {
-                throw new System.NotImplementedException();
+                this.Scores = value;
             }
         }
     }
