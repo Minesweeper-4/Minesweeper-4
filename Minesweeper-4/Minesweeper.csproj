@@ -70,6 +70,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Cell.cs" />
+    <Compile Include="Data\Matrix.cs" />
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Engine\MinesweeperEngine.cs" />
@@ -77,7 +79,6 @@
     <Compile Include="ScoreRecord.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
