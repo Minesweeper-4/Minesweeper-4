@@ -30,6 +30,11 @@
             return matrix;
         }
 
+        public static void MakeAMove(ICell[,] board, int rowIndex, int colIndex)
+        {
+            char surroundingBombsCount = CalculateHowManyBombs(board, rowIndex, colIndex);
+        }
+
         private ICell[,] AddBombs(ICell[,] matrix)
         {
             int boardColumns = matrix.GetLength(1);
@@ -64,6 +69,74 @@
             }
 
             return matrix;
+        }
+
+        private static char CalculateHowManyBombs(ICell[,] board, int rowIndex, int columnIndex)
+        {
+            int counted = 0;
+            int boardRows = board.GetLength(0);
+            int boardColumns = board.GetLength(1);
+
+            if (rowIndex - 1 >= 0)
+            {
+                if (board[rowIndex - 1, columnIndex].CurrentSymbol == '*')
+                { counted++; }
+            }
+            if (rowIndex + 1 < boardRows)
+            {
+                if (board[rowIndex + 1, columnIndex].CurrentSymbol == '*')
+                {
+                    counted++;
+                }
+            }
+
+            if (columnIndex - 1 >= 0)
+            {
+                if (board[rowIndex, columnIndex - 1].CurrentSymbol == '*')
+                { counted++; }
+            }
+
+            if (columnIndex + 1 < boardColumns)
+            {
+                if (board[rowIndex, columnIndex + 1].CurrentSymbol == '*')
+                {
+                    counted++;
+                }
+            }
+
+            if ((rowIndex - 1 >= 0) && (columnIndex - 1 >= 0))
+            {
+                if (board[rowIndex - 1, columnIndex - 1].CurrentSymbol == '*')
+                {
+                    counted++;
+                }
+            }
+
+            if ((rowIndex - 1 >= 0) && (columnIndex + 1 < boardColumns))
+            {
+                if (board[rowIndex - 1, columnIndex + 1].CurrentSymbol == '*')
+                {
+                    counted++;
+                }
+            }
+
+            if ((rowIndex + 1 < boardRows) && (columnIndex - 1 >= 0))
+            {
+                if (board[rowIndex + 1, columnIndex - 1].CurrentSymbol == '*')
+                {
+                    counted++;
+                }
+            }
+
+            if ((rowIndex + 1 < boardRows) && (columnIndex + 1 < boardColumns))
+            {
+                if (board[rowIndex + 1, columnIndex + 1].CurrentSymbol == '*')
+                {
+                    counted++;
+                }
+            }
+
+            return char.Parse(counted.ToString());
         }
     }
 }
