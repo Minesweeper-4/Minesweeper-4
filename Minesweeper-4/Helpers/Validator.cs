@@ -24,7 +24,7 @@
             }
         }
 
-        public void ValidateIntRange(int value, int minValue, int maxValue, string parameterName)
+        public static void ValidateIntRange(int value, int minValue, int maxValue, string parameterName)
         {
             if (value < minValue || maxValue < value)
             {
