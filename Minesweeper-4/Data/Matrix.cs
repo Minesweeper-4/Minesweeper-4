@@ -7,7 +7,7 @@
     using System.Threading.Tasks;
     using Minesweeper.Interfaces;
 
-    public class Matrix :  IMatrix
+    public class Matrix : IMatrix
     {
         private int rows;
         private int cols;
@@ -64,7 +64,7 @@
             while (randomNumbers.Count < numberOfBombs)
             {
                 Random random = new Random();
-                int randomNumber = random.Next(50);
+                int randomNumber = random.Next(this.Cols * this.Rows);
                 if (!randomNumbers.Contains(randomNumber))
                 {
                     randomNumbers.Add(randomNumber);
