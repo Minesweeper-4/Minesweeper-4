@@ -11,6 +11,7 @@
             builder.SetField();
             builder.InitCells();
             builder.SetBombs();
+            builder.SetNumberOfMines();
         }
     }
 }

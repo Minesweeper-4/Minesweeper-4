@@ -81,18 +81,18 @@
 
         }
 
-        public void SetNumberOfSurroundingMines()
+        public void SetNumberOfMines()
         {
             for (int row = 0; row < this.Rows; row++)
             {
                 for (int col = 0; col < this.Cols; col++)
                 {
-
+                    this.Field[row, col].NumberOfMines = GetNumberOfMines(row, col);
                 }
             }
         }
 
-        private int getCellSurroundingMines(int cellRow, int cellCol)
+        private int GetNumberOfMines(int cellRow, int cellCol)
         {
             var minRow = Math.Max(0, cellRow - 1);
             var maxRow = Math.Min(cellRow + 1, this.Cols - 1);

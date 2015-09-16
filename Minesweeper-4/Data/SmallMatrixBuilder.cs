@@ -29,5 +29,10 @@ namespace Minesweeper.Data
         {
             return this.Matrix;
         }
+
+        public override void SetNumberOfMines()
+        {
+            base.Matrix.SetNumberOfMines();
+        }
     }
 }

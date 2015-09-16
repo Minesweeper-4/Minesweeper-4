@@ -10,10 +10,11 @@ namespace Minesweeper.Logic.Draw
     class StandardPrinter : Printer
     {
         private const char UnrevealedCellCharacter = '?';
+        private const char BombCharacter = '*';
 
         public StandardPrinter()
         {
-               
+
         }
 
         public override void Print(IMatrix matrix)
@@ -22,32 +23,37 @@ namespace Minesweeper.Logic.Draw
 
             var numberOfRows = matrix.Field.GetLength(0);
             var numberOfCols = matrix.Field.GetLength(1);
-            var currentRow = new StringBuilder();
+            var output = new StringBuilder();
 
-            currentRow.AppendLine("    0 1 2 3 4 5 6 7 8 9");
-            currentRow.AppendLine("   ---------------------");
+            output.AppendLine("    0 1 2 3 4 5 6 7 8 9");
+            output.AppendLine("   ---------------------");
 
             for (int row = 0; row < numberOfRows; row++)
             {
-                currentRow.AppendFormat("{0} | ", row);
+                output.AppendFormat("{0} | ", row);
 
                 for (int col = 0; col < numberOfCols; col++)
                 {
-                    if (!matrix.Field[row, col].IsOpen)
+                    var currentCell = matrix.Field[row, col];
+
+                    if (!currentCell.IsOpen)
                     {
-                        currentRow.AppendFormat("{0} ", UnrevealedCellCharacter);
+                        output.AppendFormat("{0} ", UnrevealedCellCharacter);
+                    }
+                    else if (!currentCell.IsBoomb)
+                    {
+                        output.AppendFormat("{0} ", currentCell.NumberOfMines);
                     }
                     else
                     {
-                        currentRow.AppendFormat("{0} ", '1');
-
+                        output.AppendFormat("{0} ", BombCharacter);
                     }
                 }
 
-                currentRow.Append("|\n");
+                output.Append("|\n");
             }
-            currentRow.Append("   ---------------------\n");
-            Console.WriteLine(currentRow.ToString());
+            output.Append("   ---------------------\n");
+            Console.WriteLine(output.ToString());
         }
     }
 }

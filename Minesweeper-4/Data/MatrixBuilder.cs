@@ -25,5 +25,6 @@
         public abstract void SetField();
         public abstract void InitCells();
         public abstract void SetBombs();
+        public abstract void SetNumberOfMines();
     }
 }
