@@ -4,33 +4,36 @@
 
     public class Player : IPlayer
     {
-        public Player(string nickName, int scores = 0)
+        private int score;
+        private string nickname;
+
+        public Player(string nickName, int scores)
         {
             this.Nickname = nickName;
-            this.Scores = scores;
+            this.Score = scores;
         }
 
         public string Nickname
         {
             get
             {
-                return this.Nickname;
+                return this.nickname;
             }
             set
             {
-                this.Nickname = value;
+                this.nickname = value;
             }
         }
 
-        public int Scores
+        public int Score
         {
             get
             {
-                return this.Scores;
+                return this.score;
             }
             set
             {
-                this.Scores = value;
+                this.score = value;
             }
         }
     }

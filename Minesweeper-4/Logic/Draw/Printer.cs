@@ -4,6 +4,6 @@
 
     public abstract class Printer
     {
-        public abstract void Print(IMatrix matrix);
+        public abstract void Print(IMatrix matrix, IPlayer player);
     }
 }

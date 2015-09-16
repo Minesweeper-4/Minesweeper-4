@@ -78,6 +78,7 @@
     <Compile Include="Data\Player\PlayerCreator.cs" />
     <Compile Include="Data\SmallMatrixBuilder.cs" />
     <Compile Include="Engine\Command.cs" />
+    <Compile Include="Engine\EngineValidator.cs" />
     <Compile Include="Helpers\GlobalErrorMessages.cs" />
     <Compile Include="Helpers\Validator.cs" />
     <Compile Include="Interfaces\ICell.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Logic\Draw\Printer.cs" />
     <Compile Include="Logic\Draw\StandardPrinter.cs" />
-    <Compile Include="Logic\MatrixLogic.cs" />
     <Compile Include="MinesweeperMain.cs" />
     <Compile Include="ScoreRecord.cs" />
   </ItemGroup>

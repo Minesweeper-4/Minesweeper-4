@@ -17,7 +17,7 @@ namespace Minesweeper.Logic.Draw
 
         }
 
-        public override void Print(IMatrix matrix)
+        public override void Print(IMatrix matrix, IPlayer player)
         {
             Console.Clear();
 
@@ -25,6 +25,8 @@ namespace Minesweeper.Logic.Draw
             var numberOfCols = matrix.Field.GetLength(1);
             var output = new StringBuilder();
 
+            output.AppendLine("Score: " + player.Score);
+            output.AppendLine();
             output.AppendLine("    0 1 2 3 4 5 6 7 8 9");
             output.AppendLine("   ---------------------");
 

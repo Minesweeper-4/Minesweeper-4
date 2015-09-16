@@ -4,6 +4,6 @@
     {
         string Nickname { get; set; }
 
-        int Scores { get; set; } 
+        int Score { get; set; } 
     }
 }
