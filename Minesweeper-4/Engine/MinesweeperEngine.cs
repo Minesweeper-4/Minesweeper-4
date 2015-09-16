@@ -3,9 +3,14 @@
     using System;
     using Minesweeper.Data;
     using Minesweeper.Logic;
+    using Minesweeper.Logic.Draw;
 
     public class MinesweeperEngine
     {
+        private readonly MatrixLogic matrixLogic = new MatrixLogic();
+        private readonly Matrix matrix = new Matrix(5, 10);
+        private readonly Printer printer = new StandardPrinter();
+
         public MinesweeperEngine()
         {
 
@@ -30,35 +35,13 @@
                     Console.WriteLine("Top");
                     break;
                 case "start":
-                    var matrixLogic = new MatrixLogic();
-                    var matrix = new Matrix(5, 10).Field;
-                    matrixLogic.InitBoard(matrix);
-
-                    int boardRows = matrix.GetLength(0);
-                    int boardColumns = matrix.GetLength(1);
-                    Console.WriteLine("\n    0 1 2 3 4 5 6 7 8 9");
-                    Console.WriteLine("   ---------------------");
-
-                    for (int i = 0; i < boardRows; i++)
-                    {
-                        Console.Write("{0} | ", i);
-                        for (int j = 0; j < boardColumns; j++)
-                        {
-                            Console.Write(string.Format("{0} ", matrix[i, j].CurrentSymbol));
-                        }
-                        Console.Write("|");
-                        Console.WriteLine();
-                    }
-                    Console.WriteLine("   ---------------------\n");
+                    matrixLogic.InitBoard(matrix.Field);
+                    printer.Print(matrix);
 
                     break;
                 case "restart":
-                    //playground = CreateWhiteBoard();
-                    //boomBoard = CreateBombBoard();
-                    //PrintBoard(playground);
-                    //boomed = false;
-                    //welcomeFlag = false;
                     break;
+
                 case "exit":
                     Console.WriteLine("Good bye!");
                     break;
@@ -79,31 +62,11 @@
                         break;
                     }
 
-                    Console.WriteLine(rowIndex + " " + colIndex);
+                    matrixLogic.MakeAMove(matrix.Field, rowIndex, colIndex);
+                    printer.Print(matrix);
 
-                    //if (boomBoard[rowIndex, columnIndex] != '*')
-                    //{
-                    //    if (boomBoard[rowIndex, columnIndex] == '-')
-                    //    {
-                    //        MakeAMove(playground, boomBoard, rowIndex, columnIndex);
-                    //        counter++;
-                    //    }
-                    //    if (MAX_REVEALED_CELLS == counter)
-                    //    {
-                    //        flag = true;
-                    //    }
-                    //    else
-                    //    {
-                    //        PrintBoard(playground);
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    boomed = true;
-
-
-                    //}
                     break;
+
                 case "mode":
                     if (command.Parameters.Count != 1)
                     {

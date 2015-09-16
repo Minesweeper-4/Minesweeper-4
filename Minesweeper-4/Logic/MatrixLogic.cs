@@ -30,9 +30,10 @@
             return matrix;
         }
 
-        public static void MakeAMove(ICell[,] board, int rowIndex, int colIndex)
+        public void MakeAMove(ICell[,] board, int rowIndex, int colIndex)
         {
-            char surroundingBombsCount = CalculateHowManyBombs(board, rowIndex, colIndex);
+            //char surroundingBombsCount = CalculateSurrounding(board, rowIndex, colIndex);
+            board[rowIndex, colIndex].IsOpen = true;
         }
 
         private ICell[,] AddBombs(ICell[,] matrix)
@@ -71,7 +72,7 @@
             return matrix;
         }
 
-        private static char CalculateHowManyBombs(ICell[,] board, int rowIndex, int columnIndex)
+        private char CalculateSurrounding(ICell[,] board, int rowIndex, int columnIndex)
         {
             int counted = 0;
             int boardRows = board.GetLength(0);
@@ -79,12 +80,12 @@
 
             if (rowIndex - 1 >= 0)
             {
-                if (board[rowIndex - 1, columnIndex].CurrentSymbol == '*')
+                if (board[rowIndex - 1, columnIndex].IsBoomb)
                 { counted++; }
             }
             if (rowIndex + 1 < boardRows)
             {
-                if (board[rowIndex + 1, columnIndex].CurrentSymbol == '*')
+                if (board[rowIndex + 1, columnIndex].IsBoomb)
                 {
                     counted++;
                 }
@@ -92,13 +93,13 @@
 
             if (columnIndex - 1 >= 0)
             {
-                if (board[rowIndex, columnIndex - 1].CurrentSymbol == '*')
+                if (board[rowIndex, columnIndex - 1].IsBoomb)
                 { counted++; }
             }
 
             if (columnIndex + 1 < boardColumns)
             {
-                if (board[rowIndex, columnIndex + 1].CurrentSymbol == '*')
+                if (board[rowIndex, columnIndex + 1].IsBoomb)
                 {
                     counted++;
                 }
@@ -106,7 +107,7 @@
 
             if ((rowIndex - 1 >= 0) && (columnIndex - 1 >= 0))
             {
-                if (board[rowIndex - 1, columnIndex - 1].CurrentSymbol == '*')
+                if (board[rowIndex - 1, columnIndex - 1].IsBoomb)
                 {
                     counted++;
                 }
@@ -114,7 +115,7 @@
 
             if ((rowIndex - 1 >= 0) && (columnIndex + 1 < boardColumns))
             {
-                if (board[rowIndex - 1, columnIndex + 1].CurrentSymbol == '*')
+                if (board[rowIndex - 1, columnIndex + 1].IsBoomb)
                 {
                     counted++;
                 }
@@ -122,7 +123,7 @@
 
             if ((rowIndex + 1 < boardRows) && (columnIndex - 1 >= 0))
             {
-                if (board[rowIndex + 1, columnIndex - 1].CurrentSymbol == '*')
+                if (board[rowIndex + 1, columnIndex - 1].IsBoomb)
                 {
                     counted++;
                 }
@@ -130,7 +131,7 @@
 
             if ((rowIndex + 1 < boardRows) && (columnIndex + 1 < boardColumns))
             {
-                if (board[rowIndex + 1, columnIndex + 1].CurrentSymbol == '*')
+                if (board[rowIndex + 1, columnIndex + 1].IsBoomb)
                 {
                     counted++;
                 }

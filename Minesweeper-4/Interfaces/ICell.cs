@@ -2,8 +2,7 @@
 {
     public interface ICell
     {
-        bool IsOpen { get; }
+        bool IsOpen { get; set; }
         bool IsBoomb { get; set; }
-        char CurrentSymbol { get; set; }
     }
 }

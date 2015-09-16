@@ -11,11 +11,9 @@
     {
         private bool isOpen;
         private bool isBoomb;
-        private char currentSymbol;
 
         public Cell(char symbol)
         {
-            this.CurrentSymbol = symbol;
             this.isOpen = false;
             this.IsBoomb = false;
         }
@@ -43,19 +41,6 @@
             set
             {
                 this.isBoomb = value;
-            }
-        }
-
-        public char CurrentSymbol
-        {
-            get
-            {
-                return this.currentSymbol;
-            }
-
-            set
-            {
-                this.currentSymbol = value;
             }
         }
     }
