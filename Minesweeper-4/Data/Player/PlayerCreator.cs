@@ -7,12 +7,12 @@
     {
         private const int InitialPlayerScores = 0;
 
-        public IPlayer CreateNewPlayer(string nickname = "Guest")
+        public Player CreateNewPlayer(string nickname = "Guest")
         {
             return new Player(nickname, InitialPlayerScores);
         }
 
-        public IPlayer CreatePlayer(string nickname, int scores)
+        public Player CreatePlayer(string nickname, int scores)
         {
             return new Player(nickname, scores);
         }

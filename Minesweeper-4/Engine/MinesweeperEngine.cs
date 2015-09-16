@@ -6,13 +6,14 @@
     using Minesweeper.Logic.Draw;
     using Minesweeper.Interfaces;
     using Minesweeper.Data.Player;
+    using Minesweeper.Logic.Scores;
 
     public class MinesweeperEngine
     {
         private readonly Printer printer = new StandardPrinter();
         private readonly MatrixDirector director = new MatrixDirector();
         private readonly SmallMatrixBuilder builder = new SmallMatrixBuilder();
-        private IPlayer player;
+        private Player player;
 
         private Matrix matrix;
 
@@ -107,6 +108,7 @@
             if (currentCell.IsBoomb)
             {                
                 HandleGameOver();
+                return;
             }
             else
             {
@@ -120,7 +122,18 @@
         {
             printer.PrintMatrix(matrix, player);
             Console.WriteLine("Game Over!");
-            throw new NotImplementedException();
+            EnterScoreRecordHandler();
+        }
+
+        private void EnterScoreRecordHandler()
+        {
+            Console.Write("Enter your nickname: ");
+            this.player.Nickname = Console.ReadLine();
+
+            var scoresHandler = new ScoresHandler("records.xml");
+            scoresHandler.LoadFromFile();
+            scoresHandler.AddReccord(this.player);
+            scoresHandler.SaveToFile();
         }
 
         private bool ValidateInput(Command command)

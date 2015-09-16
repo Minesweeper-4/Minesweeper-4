@@ -88,11 +88,14 @@
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Logic\Draw\Printer.cs" />
     <Compile Include="Logic\Draw\StandardPrinter.cs" />
+    <Compile Include="Logic\Scores\IScoresHandler.cs" />
+    <Compile Include="Logic\Scores\ScoresHandler.cs" />
     <Compile Include="MinesweeperMain.cs" />
     <Compile Include="ScoreRecord.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="resources\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
