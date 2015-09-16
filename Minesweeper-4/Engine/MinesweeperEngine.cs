@@ -38,7 +38,7 @@
             switch (command.Name)
             {
                 case "top":
-                    Console.WriteLine("Top");
+                    printer.PrintLine("Top");
                     break;
                 case "start":
                     HandleSrartCommand(command);
@@ -47,7 +47,7 @@
                     HandleRestartCommand(command);
                     break;
                 case "exit":
-                    Console.WriteLine("Good bye!");
+                    printer.PrintLine("Good bye");
                     break;
                 case "turn":
                     HandleTurnCommand(command);
@@ -55,7 +55,7 @@
                 case "mode":
                     if (command.Parameters.Count != 1)
                     {
-                        Console.WriteLine("Invalid mode!");
+                        printer.PrintLine("Invalid mode!");
                     }
 
                     if (command.Parameters[0] == "standard")
@@ -68,12 +68,12 @@
                     }
                     else
                     {
-                        Console.WriteLine("Invalid mode!");
+                        printer.PrintLine("Invalid mode!");
                     }
 
                     break;
                 default:
-                    Console.WriteLine("\nIllegal move!\n");
+                    printer.PrintLine("\nIllegal move!\n");
                     break;
 
             }
@@ -83,7 +83,7 @@
         {
             director.Construct(builder);
             matrix = builder.GetMatrix();
-            printer.Print(matrix, player);
+            printer.PrintMatrix(matrix, player);
         }
 
         private void HandleRestartCommand(Command command)
@@ -93,21 +93,12 @@
 
         private void HandleTurnCommand(Command command)
         {
-            if (command.Parameters.Count != 2)
+            if (!ValidateInput(command))
             {
-                Console.WriteLine("Invalid number of arguments!");
                 return;
             }
-            int rowIndex;
-            int colIndex;
-            bool rowIsProvided = int.TryParse(command.Parameters[0], out rowIndex);
-            bool columnIsProvided = int.TryParse(command.Parameters[1], out colIndex);
-
-            if (!(rowIsProvided && columnIsProvided))
-            {
-                Console.WriteLine("Invalid row and column!");
-                return;
-            }
+            int rowIndex = int.Parse(command.Parameters[0]);
+            int colIndex = int.Parse(command.Parameters[1]);
 
             var currentCell = matrix.Field[rowIndex, colIndex];
             currentCell.IsOpen = true;
@@ -122,14 +113,52 @@
                 this.player.Score++;
             }
 
-            printer.Print(matrix, player);
+            printer.PrintMatrix(matrix, player);
         }
 
         private void HandleGameOver()
         {
-            printer.Print(matrix, player);
+            printer.PrintMatrix(matrix, player);
             Console.WriteLine("Game Over!");
             throw new NotImplementedException();
+        }
+
+        private bool ValidateInput(Command command)
+        {
+            if (command.Parameters.Count != 2)
+            {
+                printer.PrintLine("Invalid number of arguments!");
+                return false;
+            }
+
+            int rowIndex;
+            int colIndex;
+
+            try
+            {
+                rowIndex = int.Parse(command.Parameters[0]);
+                colIndex = int.Parse(command.Parameters[1]);
+            }
+            catch (Exception)
+            {
+                printer.PrintLine("Invalid row and column!");
+                return false;
+            }
+
+            int maxRow = matrix.Rows;
+            int maxCol = matrix.Cols;
+
+            bool isRowInRange = (0 <= rowIndex) && (rowIndex < maxRow);
+            bool isColInRange = (0 <= colIndex) && (colIndex < maxCol);
+
+            if (!(isRowInRange && isColInRange))
+            {
+                printer.PrintLine("Row or column are outside of the range of the matrix");
+                return false;
+            }
+            
+
+            return true;
         }
     }
 }

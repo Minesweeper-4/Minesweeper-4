@@ -17,7 +17,7 @@ namespace Minesweeper.Logic.Draw
 
         }
 
-        public override void Print(IMatrix matrix, IPlayer player)
+        public override void PrintMatrix(IMatrix matrix, IPlayer player)
         {
             Console.Clear();
 
@@ -56,6 +56,11 @@ namespace Minesweeper.Logic.Draw
             }
             output.Append("   ---------------------\n");
             Console.WriteLine(output.ToString());
+        }
+
+        public override void PrintLine(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }
