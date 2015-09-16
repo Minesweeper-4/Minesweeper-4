@@ -1,11 +1,10 @@
-﻿using Minesweeper.Interfaces;
-namespace Minesweeper.Data
+﻿namespace Minesweeper.Data
 {
-    public class SmallMatrixBuilder : MatrixBuilder
+    public class MediumMatrixBuilder : MatrixBuilder
     {
         public override void SetField()
         {
-            this.Matrix.Field = new Cell[5, 5];
+            this.Matrix.Field = new Cell[10, 10];
         }
 
         public override void InitCells()

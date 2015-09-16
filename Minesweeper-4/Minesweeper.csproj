@@ -70,10 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\BigMatrixBuilder.cs" />
     <Compile Include="Data\Cell.cs" />
     <Compile Include="Data\Matrix.cs" />
     <Compile Include="Data\MatrixBuilder.cs" />
     <Compile Include="Data\MatrixDirector.cs" />
+    <Compile Include="Data\MediumMatrixBuilder.cs" />
     <Compile Include="Data\Player\Player.cs" />
     <Compile Include="Data\Player\PlayerCreator.cs" />
     <Compile Include="Data\SmallMatrixBuilder.cs" />

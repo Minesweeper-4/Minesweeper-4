@@ -27,8 +27,8 @@ namespace Minesweeper.Logic.Draw
 
             output.AppendLine("Score: " + player.Score);
             output.AppendLine();
-            output.AppendLine("    0 1 2 3 4 5 6 7 8 9");
-            output.AppendLine("   ---------------------");
+            output.Append(AddRowIndexator(numberOfRows));
+            output.Append(AddDashes(numberOfRows));
 
             for (int row = 0; row < numberOfRows; row++)
             {
@@ -54,13 +54,41 @@ namespace Minesweeper.Logic.Draw
 
                 output.Append("|\n");
             }
-            output.Append("   ---------------------\n");
+            output.Append(AddDashes(numberOfRows));
             Console.WriteLine(output.ToString());
         }
 
         public override void PrintLine(string message)
         {
             Console.WriteLine(message);
+        }
+
+        private StringBuilder AddRowIndexator(int rows)
+        {
+            var output = new StringBuilder();
+            output.Append(" ");
+            output.Append(" ");
+            output.Append(" ");
+
+            for (int i = 0; i < rows; i++)
+            {
+                output.AppendFormat(" {0}", i);
+            }
+
+            output.AppendLine();
+            return output;
+        }
+
+        private StringBuilder AddDashes(int rows)
+        {
+            var output = new StringBuilder();
+            output.Append(" ");
+            output.Append(" ");
+            output.Append(" ");
+
+            output.AppendLine(new string('-', (rows * 2) + 2));
+
+            return output;
         }
     }
 }
