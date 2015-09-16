@@ -12,7 +12,7 @@
         private bool isOpen;
         private bool isBoomb;
 
-        public Cell(char symbol)
+        public Cell()
         {
             this.isOpen = false;
             this.IsBoomb = false;

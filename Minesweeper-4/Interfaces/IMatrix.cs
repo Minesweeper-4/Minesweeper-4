@@ -4,6 +4,6 @@
     {
         int Rows { get; }
         int Cols { get; }
-        ICell[,] Field { get; }
+        ICell[,] Field { get; set; }
     }
 }

@@ -11,24 +11,24 @@
         {
         }
 
-        public ICell[,] InitBoard(ICell[,] matrix)
-        {
-            int rows = matrix.GetLength(0);
-            int cols = matrix.GetLength(1);
+        //public ICell[,] InitBoard(ICell[,] matrix)
+        //{
+        //    int rows = matrix.GetLength(0);
+        //    int cols = matrix.GetLength(1);
 
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    var currentCell = new Cell('?');
-                    matrix[i, j] = currentCell;
-                }
-            }
+        //    for (int i = 0; i < rows; i++)
+        //    {
+        //        for (int j = 0; j < cols; j++)
+        //        {
+        //            var currentCell = new Cell();
+        //            matrix[i, j] = currentCell;
+        //        }
+        //    }
 
-            matrix = AddBombs(matrix);
+        //    matrix = AddBombs(matrix);
 
-            return matrix;
-        }
+        //    return matrix;
+        //}
 
         public void MakeAMove(ICell[,] board, int rowIndex, int colIndex)
         {
@@ -36,41 +36,41 @@
             board[rowIndex, colIndex].IsOpen = true;
         }
 
-        private ICell[,] AddBombs(ICell[,] matrix)
-        {
-            int boardColumns = matrix.GetLength(1);
-            List<int> randomNumbers = new List<int>();
+        //private ICell[,] AddBombs(ICell[,] matrix)
+        //{
+        //    int boardColumns = matrix.GetLength(1);
+        //    List<int> randomNumbers = new List<int>();
 
-            while (randomNumbers.Count < 15)
-            {
-                Random random = new Random();
-                int randomNumber = random.Next(50);
-                if (!randomNumbers.Contains(randomNumber))
-                {
-                    randomNumbers.Add(randomNumber);
-                }
-            }
+        //    while (randomNumbers.Count < 15)
+        //    {
+        //        Random random = new Random();
+        //        int randomNumber = random.Next(50);
+        //        if (!randomNumbers.Contains(randomNumber))
+        //        {
+        //            randomNumbers.Add(randomNumber);
+        //        }
+        //    }
 
-            foreach (int number in randomNumbers)
-            {
-                int row = (number / boardColumns);
-                int column = (number % boardColumns);
-                if (column == 0 && number != 0)
-                {
-                    row--;
-                    column = boardColumns;
-                }
+        //    foreach (int number in randomNumbers)
+        //    {
+        //        int row = (number / boardColumns);
+        //        int column = (number % boardColumns);
+        //        if (column == 0 && number != 0)
+        //        {
+        //            row--;
+        //            column = boardColumns;
+        //        }
 
-                else
-                {
-                    column++;
-                }
+        //        else
+        //        {
+        //            column++;
+        //        }
 
-                matrix[row, column - 1].IsBoomb = true;
-            }
+        //        matrix[row, column - 1].IsBoomb = true;
+        //    }
 
-            return matrix;
-        }
+        //    return matrix;
+        //}
 
         private char CalculateSurrounding(ICell[,] board, int rowIndex, int columnIndex)
         {

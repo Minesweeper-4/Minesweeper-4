@@ -13,9 +13,8 @@
         private int cols;
         private ICell[,] field;
 
-        public Matrix(int rows, int cols)
+        public Matrix()
         {
-            this.Field = new Cell[rows, cols];
         }
 
         public int Rows
@@ -51,10 +50,45 @@
                 return this.field;
             }
 
-            private set
+            set
             {
                 this.field = value;
             }
+        }
+
+        public void SetBombs(int numberOfBombs)
+        {
+            int boardColumns = this.Field.GetLength(1);
+            List<int> randomNumbers = new List<int>();
+
+            while (randomNumbers.Count < numberOfBombs)
+            {
+                Random random = new Random();
+                int randomNumber = random.Next(50);
+                if (!randomNumbers.Contains(randomNumber))
+                {
+                    randomNumbers.Add(randomNumber);
+                }
+            }
+
+            foreach (int number in randomNumbers)
+            {
+                int row = (number / boardColumns);
+                int column = (number % boardColumns);
+                if (column == 0 && number != 0)
+                {
+                    row--;
+                    column = boardColumns;
+                }
+
+                else
+                {
+                    column++;
+                }
+
+                this.Field[row, column - 1].IsBoomb = true;
+            }
+
         }
     }
 }
