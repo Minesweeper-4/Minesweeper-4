@@ -26,5 +26,10 @@
         public abstract void InitCells();
         public abstract void SetBombs();
         public abstract void SetNumberOfMines();
+
+        public Matrix GetMatrix()
+        {
+            return this.Matrix;
+        }
     }
 }
