@@ -32,7 +32,7 @@ namespace Minesweeper.Logic.Draw
 
             for (int row = 0; row < numberOfRows; row++)
             {
-                output.AppendFormat("{0} | ", row);
+                output.AppendFormat("{0,-2} | ", row);
 
                 for (int col = 0; col < numberOfCols; col++)
                 {
@@ -40,15 +40,15 @@ namespace Minesweeper.Logic.Draw
 
                     if (!currentCell.IsOpen)
                     {
-                        output.AppendFormat("{0} ", UnrevealedCellCharacter);
+                        output.AppendFormat("{0, -3}", UnrevealedCellCharacter);
                     }
                     else if (!currentCell.IsBoomb)
                     {
-                        output.AppendFormat("{0} ", currentCell.NumberOfMines);
+                        output.AppendFormat("{0, -3}", currentCell.NumberOfMines);
                     }
                     else
                     {
-                        output.AppendFormat("{0} ", BombCharacter);
+                        output.AppendFormat("{0, -3}", BombCharacter);
                     }
                 }
 
@@ -66,13 +66,11 @@ namespace Minesweeper.Logic.Draw
         private StringBuilder AddRowIndexator(int rows)
         {
             var output = new StringBuilder();
-            output.Append(" ");
-            output.Append(" ");
-            output.Append(" ");
+            output.Append("     ");
 
             for (int i = 0; i < rows; i++)
             {
-                output.AppendFormat(" {0}", i);
+                output.AppendFormat("{0, -3}", i);
             }
 
             output.AppendLine();
@@ -86,7 +84,7 @@ namespace Minesweeper.Logic.Draw
             output.Append(" ");
             output.Append(" ");
 
-            output.AppendLine(new string('-', (rows * 2) + 2));
+            output.AppendLine(new string('-', (rows * 3) + 3));
 
             return output;
         }

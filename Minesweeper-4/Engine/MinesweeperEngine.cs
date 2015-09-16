@@ -12,7 +12,7 @@
     {
         private readonly Printer printer = new StandardPrinter();
         private readonly MatrixDirector director = new MatrixDirector();
-        private readonly SmallMatrixBuilder builder = new SmallMatrixBuilder();
+        private readonly MatrixBuilder builder = new BigMatrixBuilder();
         private Player player;
 
         private Matrix matrix;
@@ -106,16 +106,62 @@
 
 
             if (currentCell.IsBoomb)
-            {                
+            {
                 HandleGameOver();
                 return;
             }
             else
             {
                 this.player.Score++;
+                CheckForZeroMines(rowIndex, colIndex);
             }
 
             printer.PrintMatrix(matrix, player);
+        }
+
+        private void CheckForZeroMines(int rowIndex, int colIndex)
+        {
+            var minRow = Math.Max(0, rowIndex - 1);
+            var maxRow = Math.Min(rowIndex + 1, this.matrix.Cols - 1);
+            var minCol = Math.Max(0, colIndex - 1);
+            var maxCol = Math.Min(colIndex + 1, this.matrix.Cols - 1);
+
+            for (int row = minRow; row <= maxRow; row++)
+            {
+                for (int col = minCol; col <= maxCol; col++)
+                {
+                    if (this.matrix.Field[row, col].NumberOfMines == 0 && !this.matrix.Field[row, col].IsOpen)
+                    {
+                        this.matrix.Field[row, col].IsOpen = true;
+                        CheckForZeroMines(row, col);
+                    }
+                    else
+                    {
+                        this.matrix.Field[row, col].IsOpen = true;
+                    }
+                }
+            }
+        }
+
+        private bool HasZeroMinesNeighbour(int rowIndex, int colIndex)
+        {
+            var minRow = Math.Max(0, rowIndex - 1);
+            var maxRow = Math.Min(rowIndex + 1, this.matrix.Cols - 1);
+            var minCol = Math.Max(0, colIndex - 1);
+            var maxCol = Math.Min(colIndex + 1, this.matrix.Cols - 1);
+
+            for (int row = minRow; row <= maxRow; row++)
+            {
+                for (int col = minCol; col <= maxCol; col++)
+                {
+                    if (this.matrix.Field[row, col].NumberOfMines == 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         private void HandleGameOver()
@@ -169,7 +215,7 @@
                 printer.PrintLine("Row or column are outside of the range of the matrix");
                 return false;
             }
-            
+
 
             return true;
         }
