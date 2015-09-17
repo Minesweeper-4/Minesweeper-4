@@ -3,6 +3,7 @@ Team project for High-Quality Code course in Telerik Academy Season 2015-2016
 
 ## Patterns
 * Creational Patterns
+	* Simple factory [implemented]
 	* Abstract Factory
 	* Builder           [implemented]
 	* Factory Method
