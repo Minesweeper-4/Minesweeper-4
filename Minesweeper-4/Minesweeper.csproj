@@ -92,6 +92,8 @@
     <Compile Include="Logic\Draw\StandardPrinter.cs" />
     <Compile Include="Logic\Scores\IScoresHandler.cs" />
     <Compile Include="Logic\Scores\ScoresHandler.cs" />
+    <Compile Include="Logic\Sorter\DefaultSort.cs" />
+    <Compile Include="Logic\Sorter\SortStrategy.cs" />
     <Compile Include="MinesweeperMain.cs" />
     <Compile Include="ScoreRecord.cs" />
   </ItemGroup>

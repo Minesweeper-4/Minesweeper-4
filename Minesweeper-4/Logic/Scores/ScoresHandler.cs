@@ -1,6 +1,7 @@
 ﻿namespace Minesweeper.Logic.Scores
 {
     using Minesweeper.Data.Player;
+    using Minesweeper.Logic.Sorter;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -11,6 +12,7 @@
     {
         private List<Player> records;
         private string storingPath;
+        private SortStrategy sortStrategy = new DefaultSort();
 
         public ScoresHandler(string storingPath)
         {
@@ -45,7 +47,7 @@
                 this.records.Add(player);
             }
 
-            this.records = this.records.OrderByDescending(x => x.Score).ToList();
+            SortRecords();
         }
 
         public void SaveToFile()
@@ -66,6 +68,11 @@
             {
                 this.records = xmlSerializer.Deserialize(streamReader) as List<Player>;
             }
+        }
+
+        private void SortRecords()
+        {
+            this.records = this.sortStrategy.Sort(this.records);
         }
     }
 }

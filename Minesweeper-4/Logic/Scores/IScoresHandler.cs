@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Minesweeper.Interfaces;
-using Minesweeper.Data.Player;
-
-namespace Minesweeper.Logic.Scores
+﻿namespace Minesweeper.Logic.Scores
 {
+    using Minesweeper.Data.Player;
+    using System.Collections.Generic;
+
     interface IScoresHandler
     {
         IList<Player> Reccords { get; }

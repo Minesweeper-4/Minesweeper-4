@@ -113,7 +113,10 @@
             else
             {
                 this.player.Score++;
-                CheckForZeroMines(rowIndex, colIndex);
+                if (currentCell.NumberOfMines == 0)
+                {
+                    CheckForZeroMines(rowIndex, colIndex);
+                }
             }
 
             printer.PrintMatrix(matrix, player);
@@ -133,7 +136,7 @@
                     if (this.matrix.Field[row, col].NumberOfMines == 0 && !this.matrix.Field[row, col].IsOpen)
                     {
                         this.matrix.Field[row, col].IsOpen = true;
-                        CheckForZeroMines(row, col);
+                        CheckForZeroMines(row, col);                        
                     }
                     else
                     {
