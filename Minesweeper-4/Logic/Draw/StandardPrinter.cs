@@ -20,7 +20,12 @@ namespace Minesweeper.Logic.Draw
         public override void PrintMatrix(IMatrix matrix, IPlayer player)
         {
             Console.Clear();
+            var printFrame = GetPrintFrame(matrix, player);
+            Console.WriteLine(printFrame);
+        }
 
+        public override string GetPrintFrame(IMatrix matrix, IPlayer player)
+        {
             var numberOfRows = matrix.Field.GetLength(0);
             var numberOfCols = matrix.Field.GetLength(1);
             var output = new StringBuilder();
@@ -62,7 +67,8 @@ namespace Minesweeper.Logic.Draw
                 output.Append("|\n");
             }
             output.Append(AddDashes(numberOfRows));
-            Console.WriteLine(output.ToString());
+
+            return output.ToString();
         }
 
         public override void PrintLine(string message)

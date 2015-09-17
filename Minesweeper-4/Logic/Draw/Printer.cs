@@ -6,5 +6,6 @@
     {
         public abstract void PrintLine(string message);
         public abstract void PrintMatrix(IMatrix matrix, IPlayer player);
+        public abstract string GetPrintFrame(IMatrix matrix, IPlayer player);
     }
 }

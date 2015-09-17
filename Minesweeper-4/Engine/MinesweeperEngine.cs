@@ -9,10 +9,11 @@
     using Minesweeper.Logic.Scores;
     using System.Xml.Serialization;
     using System.IO;
+    using System.Threading;
 
     public class MinesweeperEngine
     {
-        private readonly Printer printer = new StandardPrinter();
+        private  Printer printer = new StandardPrinter();
         private readonly MatrixDirector director = new MatrixDirector();
         private readonly MatrixBuilder builder = new BigMatrixBuilder();
         private Player player;
@@ -65,13 +66,17 @@
                         printer.PrintLine("Invalid mode!");
                     }
 
-                    if (command.Parameters[0] == "standard")
+                    if (command.Parameters[0] == "light")
                     {
-                        // TODO
+                        var lightPrinter = new PrinterLightTheme();
+                        lightPrinter.SetPrinter(this.printer);
+                        lightPrinter.ApplyLightTheme();
+                        lightPrinter.PrintMatrix(this.matrix, this.player);
+                        this.printer = lightPrinter;
                     }
-                    else if (command.Parameters[0] == "fancy")
+                    else if (command.Parameters[0] == "standard")
                     {
-                        // TODO
+                        
                     }
                     else
                     {
@@ -147,11 +152,11 @@
             var maxRow = Math.Min(rowIndex + 1, this.matrix.Cols - 1);
             var minCol = Math.Max(0, colIndex - 1);
             var maxCol = Math.Min(colIndex + 1, this.matrix.Cols - 1);
-
+            
             for (int row = minRow; row <= maxRow; row++)
             {
-                for (int col = minCol; col <= maxCol; col++)
-                {
+                for (int col = minCol; col <= maxCol; col++)                {
+                    
                     if (this.matrix.Field[row, col].NumberOfMines == 0 && !this.matrix.Field[row, col].IsOpen)
                     {
                         this.matrix.Field[row, col].IsOpen = true;
