@@ -7,6 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    [Serializable]
     public class Cell : ICell
     {
         private bool isOpen;

@@ -7,8 +7,9 @@
     using Minesweeper.Interfaces;
     using Minesweeper.Data.Player;
     using Minesweeper.Logic.Scores;
-    using System.Xml.Serialization;
     using System.IO;
+    using System.Xml.Serialization;
+    using System.Runtime.Serialization.Formatters.Binary;
     using System.Threading;
 
     public class MinesweeperEngine
@@ -53,6 +54,9 @@
                 case "save":
                     Console.WriteLine("saved");
                     HandleSaveCommand();
+                    break;
+                case "load":
+                    HandleLoadCommand();
                     break;
                 case "exit":
                     printer.PrintLine("Good bye");
@@ -136,14 +140,30 @@
 
         private void HandleSaveCommand()
         {
-            //var memento = matrix.SaveMemento();
-            //XmlSerializer xmlSerializer = new XmlSerializer(typeof(MatrixMemento));
+            var memento = matrix.SaveMemento();
 
-            //StreamWriter writer = new StreamWriter("memento.xml");
+            var writer = new FileStream("save.dat", FileMode.Open);
 
-            //xmlSerializer.Serialize(writer, memento);
+            BinaryFormatter mySerializer = new BinaryFormatter();
 
-            //writer.Close();
+
+            mySerializer.Serialize(writer, memento);
+            writer.Position = 0;
+
+            writer.Close();
+        }
+
+        private void HandleLoadCommand()
+        {
+            var writer = new FileStream("save.dat", FileMode.Open);
+
+            BinaryFormatter mySerializer = new BinaryFormatter();
+
+            var memento = mySerializer.Deserialize(writer) as MatrixMemento;
+            matrix.RestoreMemento(memento);
+            writer.Close();
+
+            printer.PrintMatrix(matrix, player);
         }
 
         private void CheckForZeroMines(int rowIndex, int colIndex)
