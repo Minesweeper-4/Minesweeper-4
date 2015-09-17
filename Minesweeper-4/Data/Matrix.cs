@@ -46,6 +46,16 @@
             }
         }
 
+        public MatrixMemento SaveMemento()
+        {
+            return new MatrixMemento();
+        }
+
+        public void RestoreMemento(MatrixMemento memento)
+        {
+            this.Field = memento.Field;
+        }
+
         public void SetBombs(int numberOfBombs)
         {
             int boardColumns = this.Field.GetLength(1);
