@@ -44,7 +44,14 @@ namespace Minesweeper.Logic.Draw
                     }
                     else if (!currentCell.IsBoomb)
                     {
-                        output.AppendFormat("{0, -3}", currentCell.NumberOfMines);
+                        if (currentCell.NumberOfMines != 0)
+                        {
+                            output.AppendFormat("{0, -3}", currentCell.NumberOfMines);
+                        }
+                        else
+                        {
+                            output.AppendFormat("{0, -3}", currentCell.NumberOfMines); //Represent zero cells as empty space character
+                        }
                     }
                     else
                     {
