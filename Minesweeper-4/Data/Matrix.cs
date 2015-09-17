@@ -48,7 +48,7 @@
 
         public MatrixMemento SaveMemento()
         {
-            return new MatrixMemento();
+            return new MatrixMemento(this.Field);
         }
 
         public void RestoreMemento(MatrixMemento memento)
