@@ -32,5 +32,13 @@
                     parameterName, minValue, maxValue));
             }
         }
+
+        public static void ValidateNonNegativeInt(int number)
+        {
+            if (number < 0)
+            {
+                throw new ArgumentException(string.Format("{0} cannot be negative"));
+            }
+        }
     }
 }
