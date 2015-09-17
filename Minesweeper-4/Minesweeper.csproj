@@ -75,6 +75,7 @@
     <Compile Include="Data\Matrix.cs" />
     <Compile Include="Data\MatrixBuilder.cs" />
     <Compile Include="Data\MatrixDirector.cs" />
+    <Compile Include="Data\MatrixMemento.cs" />
     <Compile Include="Data\MatrixFactory.cs" />
     <Compile Include="Data\MediumMatrixBuilder.cs" />
     <Compile Include="Data\Player\Player.cs" />

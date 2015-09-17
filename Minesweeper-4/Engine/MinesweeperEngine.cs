@@ -7,6 +7,8 @@
     using Minesweeper.Interfaces;
     using Minesweeper.Data.Player;
     using Minesweeper.Logic.Scores;
+    using System.Xml.Serialization;
+    using System.IO;
 
     public class MinesweeperEngine
     {
@@ -46,6 +48,10 @@
                     break;
                 case "restart":
                     HandleRestartCommand(command);
+                    break;
+                case "save":
+                    Console.WriteLine("saved");
+                    HandleSaveCommand();
                     break;
                 case "exit":
                     printer.PrintLine("Good bye");
@@ -120,6 +126,19 @@
             }
 
             printer.PrintMatrix(matrix, player);
+        }
+
+
+        private void HandleSaveCommand()
+        {
+            //var memento = matrix.SaveMemento();
+            //XmlSerializer xmlSerializer = new XmlSerializer(typeof(MatrixMemento));
+
+            //StreamWriter writer = new StreamWriter("memento.xml");
+
+            //xmlSerializer.Serialize(writer, memento);
+
+            //writer.Close();
         }
 
         private void CheckForZeroMines(int rowIndex, int colIndex)
