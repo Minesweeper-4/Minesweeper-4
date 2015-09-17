@@ -18,7 +18,7 @@ Team project for High-Quality Code course in Telerik Academy Season 2015-2016
 	* Decorator
 	* Facade			[]
 	* Flyweight
-	* Proxy  
+	* Proxy  [Implementd]
 
 
 * Behavioral Patterns
@@ -27,7 +27,7 @@ Team project for High-Quality Code course in Telerik Academy Season 2015-2016
 	* Interpreter
 	* Iterator
 	* Mediator
-	* Memento			[]
+	* Memento			[Implemented]
 	* Observer
 	* State
 	* Strategy			[implemented]
