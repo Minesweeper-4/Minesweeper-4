@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Minesweeper.Logic.Draw
 {
-    class PrinterLightTheme : Printer
+    public abstract class PrinterDecorator : Printer
     {
         protected Printer printer;
 
@@ -23,18 +23,10 @@ namespace Minesweeper.Logic.Draw
 
         public override void PrintMatrix(IMatrix matrix, IPlayer player)
         {
-            Console.Clear();
-            var output = new StringBuilder();
-            output.AppendLine("Light Mode");
-            output.AppendLine(this.GetPrintFrame(matrix, player));
-            this.PrintLine(output.ToString());
+            throw new NotImplementedException();
         }
 
-        public void ApplyLightTheme()
-        {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
-        }
+        public abstract void Apply();
 
         public override string GetPrintFrame(IMatrix matrix, IPlayer player)
         {
