@@ -93,7 +93,9 @@
     <Compile Include="Interfaces\IMatrix.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Logic\Draw\Printer.cs" />
-    <Compile Include="Logic\Draw\PrinterLightTheme.cs" />
+    <Compile Include="Logic\Draw\PrinterDarkMode.cs" />
+    <Compile Include="Logic\Draw\PrinterDecorator.cs" />
+    <Compile Include="Logic\Draw\PrinterLightMode.cs" />
     <Compile Include="Logic\Draw\StandardPrinter.cs" />
     <Compile Include="Logic\Scores\IScoresHandler.cs" />
     <Compile Include="Logic\Scores\ScoresHandler.cs" />

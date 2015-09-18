@@ -56,11 +56,13 @@
             var playerCreator = new PlayerCreator();
             player = playerCreator.CreateNewPlayer();
 
+            Command command;
+
             do
             {
-                var command = new Command(Console.ReadLine());
+                command = new Command(Console.ReadLine());
                 ReadCommand(command);
-            } while (true);
+            } while (command.Name != "exit");
         }
 
         private void ReadCommand(Command command)
@@ -97,15 +99,19 @@
 
                     if (command.Parameters[0] == "light")
                     {
-                        var lightPrinter = new PrinterLightTheme();
-                        lightPrinter.SetPrinter(this.printer);
-                        lightPrinter.ApplyLightTheme();
-                        lightPrinter.PrintMatrix(this.matrix, this.player);
-                        this.printer = lightPrinter;
+                        var printerLightMode = new PrinterLightMode();
+                        printerLightMode.SetPrinter(this.printer);
+                        printerLightMode.Apply();
+                        printerLightMode.PrintMatrix(this.matrix, this.player);
+                        this.printer = printerLightMode;
                     }
-                    else if (command.Parameters[0] == "standard")
+                    else if (command.Parameters[0] == "dark")
                     {
-                        // TODO to be implemented
+                        var printerDarkMode = new PrinterDarkMode();
+                        printerDarkMode.SetPrinter(this.printer);
+                        printerDarkMode.Apply();
+                        printerDarkMode.PrintMatrix(this.matrix, this.player);
+                        this.printer = printerDarkMode;
                     }
                     else
                     {
