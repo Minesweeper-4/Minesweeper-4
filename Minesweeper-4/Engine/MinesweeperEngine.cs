@@ -21,7 +21,7 @@
         private  Printer printer = new StandardPrinter();
         private readonly MatrixDirector director = new MatrixDirector();
         private readonly MatrixBuilder builder = new BigMatrixBuilder();
-        private Player player;
+        private Player player = new Player();
 
         private Matrix matrix;
 
@@ -51,9 +51,6 @@
 
         public void Start()
         {
-            var playerCreator = new PlayerCreator();
-            player = playerCreator.CreateNewPlayer();
-
             Command command;
 
             do
@@ -240,6 +237,10 @@
         {
             Console.Write("Enter your nickname: ");
             this.player.Nickname = Console.ReadLine();
+
+            // When the serializer is fixed we need to use PlayerProxy class
+            //var nickname = Console.ReadLine();
+            //var playerProxy = new PlayerProxy(nickname, this.player.Score);
 
             var scoresHandler = new ScoresHandler("records.xml");
             scoresHandler.LoadFromFile();
