@@ -86,6 +86,7 @@
     <Compile Include="Engine\EngineValidator.cs" />
     <Compile Include="Enumerations\MatrixTypes.cs" />
     <Compile Include="Helpers\GlobalErrorMessages.cs" />
+    <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Helpers\Validator.cs" />
     <Compile Include="Interfaces\ICell.cs" />
     <Compile Include="Interfaces\ICommand.cs" />

@@ -10,5 +10,6 @@ namespace Minesweeper.Helpers
     {
         public const string NonEmptyString = "{0} must be a non-empty string";
         public const string StringLength = "{0} length must be between {1} and {2}";
+        public const string SaveMatrixFileName = "save.dat";
     }
 }

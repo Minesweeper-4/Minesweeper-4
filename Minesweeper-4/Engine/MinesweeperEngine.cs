@@ -11,6 +11,7 @@
     using System.Xml.Serialization;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Threading;
+    using Minesweeper.Helpers;
 
     public class MinesweeperEngine
     {
@@ -169,28 +170,17 @@
         private void HandleSaveCommand()
         {
             var memento = matrix.SaveMemento(); // Here comes memento
-
-            var writer = new FileStream("save.dat", FileMode.Open);
-
-            BinaryFormatter mySerializer = new BinaryFormatter();
-
-
-            mySerializer.Serialize(writer, memento);
-            writer.Position = 0;
-
-            writer.Close();
+            var serializer = new Serializer();
+            
+            serializer.Serialize(memento, GlobalErrorMessages.SaveMatrixFileName);
         }
 
         private void HandleLoadCommand()
         {
-            var writer = new FileStream("save.dat", FileMode.Open);
+            var serializer = new Serializer();
+            var memento = serializer.Deserialize(GlobalErrorMessages.SaveMatrixFileName);
 
-            BinaryFormatter mySerializer = new BinaryFormatter();
-
-            var memento = mySerializer.Deserialize(writer) as MatrixMemento;
-            matrix.RestoreMemento(memento);
-            writer.Close();
-
+            matrix.RestoreMemento(memento as MatrixMemento);
             printer.PrintMatrix(matrix, player);
         }
 
