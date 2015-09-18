@@ -10,7 +10,9 @@
     {
         static void Main()
         {
-            var game = new MinesweeperEngine();
+            //var game = new MinesweeperEngine();
+
+            var game = MinesweeperEngine.Instance;
             game.Start();
         }
 

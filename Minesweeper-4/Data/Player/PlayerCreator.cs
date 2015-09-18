@@ -3,7 +3,7 @@
     using Minesweeper.Interfaces;
     using System;
 
-    class PlayerCreator
+    public class PlayerCreator
     {
         private const int InitialPlayerScores = 0;
 

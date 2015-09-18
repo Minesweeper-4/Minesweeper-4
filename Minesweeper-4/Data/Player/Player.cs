@@ -10,7 +10,7 @@
         private int score;
         private string nickname;
 
-        public Player()
+        public Player() // The Serializer needs empty constructor !!!
         {
 
         }
@@ -29,6 +29,7 @@
             }
             set
             {
+                //TODO Idea for implementing Proxy for validation
                 this.nickname = value;
             }
         }

@@ -14,6 +14,9 @@
 
     public class MinesweeperEngine
     {
+        private static MinesweeperEngine mineSweeperEngineInstance;
+        private static object locker = new object();
+
         private  Printer printer = new StandardPrinter();
         private readonly MatrixDirector director = new MatrixDirector();
         private readonly MatrixBuilder builder = new BigMatrixBuilder();
@@ -21,9 +24,28 @@
 
         private Matrix matrix;
 
-        public MinesweeperEngine()
+        private MinesweeperEngine()
         {
+        }
 
+        public static MinesweeperEngine Instance
+        {
+            get {
+
+                if(mineSweeperEngineInstance == null){
+
+                    lock(locker){
+
+                        if(mineSweeperEngineInstance == null){
+
+                            mineSweeperEngineInstance = new MinesweeperEngine();
+
+                        }
+                    }
+                }
+
+                return mineSweeperEngineInstance;
+            }
         }
 
         public void Start()
@@ -80,7 +102,7 @@
                     }
                     else if (command.Parameters[0] == "standard")
                     {
-                        
+                        // TODO to be implemented
                     }
                     else
                     {
@@ -97,7 +119,7 @@
 
         private void HandleSrartCommand(Command command)
         {
-            director.Construct(builder);
+            director.Construct(builder); //Here comes the Builder
             matrix = builder.GetMatrix();
             printer.PrintMatrix(matrix, player);
         }
@@ -140,7 +162,7 @@
 
         private void HandleSaveCommand()
         {
-            var memento = matrix.SaveMemento();
+            var memento = matrix.SaveMemento(); // Here comes memento
 
             var writer = new FileStream("save.dat", FileMode.Open);
 

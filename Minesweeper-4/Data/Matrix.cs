@@ -9,8 +9,6 @@
 
     public class Matrix : IMatrix
     {
-        private int rows;
-        private int cols;
         private ICell[,] field;
 
         public Matrix()

@@ -37,7 +37,7 @@ namespace Minesweeper.Logic.Draw
 
             for (int row = 0; row < numberOfRows; row++)
             {
-                output.AppendFormat("{0,-2} | ", row);
+                output.AppendFormat("{0, -2} | ", row);
 
                 for (int col = 0; col < numberOfCols; col++)
                 {
@@ -55,7 +55,7 @@ namespace Minesweeper.Logic.Draw
                         }
                         else
                         {
-                            output.AppendFormat("{0, -3}", currentCell.NumberOfMines); //Represent zero cells as empty space character
+                            output.AppendFormat("{0, -3}", currentCell.NumberOfMines); //TODO Represent zero cells as empty space character
                         }
                     }
                     else
@@ -83,7 +83,7 @@ namespace Minesweeper.Logic.Draw
 
             for (int i = 0; i < rows; i++)
             {
-                output.AppendFormat("{0, -3}", i);
+                output.AppendFormat("{0, -3}", i); //TODO can move 3 to constant
             }
 
             output.AppendLine();
@@ -97,7 +97,7 @@ namespace Minesweeper.Logic.Draw
             output.Append(" ");
             output.Append(" ");
 
-            output.AppendLine(new string('-', (rows * 3) + 3));
+            output.AppendLine(new string('-', (rows * 3) + 3)); //TODO can move 3 to constant
 
             return output;
         }
