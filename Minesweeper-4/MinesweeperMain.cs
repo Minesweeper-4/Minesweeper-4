@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using Minesweeper.Engine;
+    using System.Threading.Tasks;
 
     public class MinesweeperMain
     {
@@ -14,6 +15,9 @@
 
             var game = MinesweeperEngine.Instance;
             game.Start();
+
+            // Demonstrating thread-safe implementation
+            //Parallel.For(0, 23, x => MinesweeperEngine.Instance.PrintThreadNumber(x));
         }
 
         static void Main2(string[] args)

@@ -32,11 +32,14 @@
         {
             get {
 
-                if(mineSweeperEngineInstance == null){
+                if (mineSweeperEngineInstance == null)
+                {
 
-                    lock(locker){
+                    lock (locker)
+                    {
 
-                        if(mineSweeperEngineInstance == null){
+                        if (mineSweeperEngineInstance == null)
+                        {
 
                             mineSweeperEngineInstance = new MinesweeperEngine();
 
@@ -287,6 +290,17 @@
 
 
             return true;
+        }
+
+        // Method just to test thread-safe implementation of the singleton
+        public void PrintThreadNumber(int number)
+        {
+            for (int i = 0; i < 10000000; i++)
+            {
+                var chislo = i * i;
+            }
+
+            Console.WriteLine("This is thread number {0}", number);
         }
     }
 }
