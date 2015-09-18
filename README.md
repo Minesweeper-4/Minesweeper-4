@@ -8,7 +8,7 @@ Team project for High-Quality Code course in Telerik Academy Season 2015-2016
 	* Builder           [implemented]
 	* Factory Method
 	* Prototype
-	* Singleton			[]
+	* Singleton			[implemented]
 
 
 * Structural Patterns
