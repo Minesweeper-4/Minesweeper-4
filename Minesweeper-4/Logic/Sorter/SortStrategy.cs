@@ -4,7 +4,7 @@
     using Minesweeper.Interfaces;
     using System.Collections.Generic;
 
-    abstract class SortStrategy
+    public abstract class SortStrategy // Without public access modifier can't access class in Test project?!?!
     {
         public abstract List<Player> Sort(IList<Player> list);
     }

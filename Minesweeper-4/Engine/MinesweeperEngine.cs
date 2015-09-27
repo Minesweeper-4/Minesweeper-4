@@ -35,10 +35,8 @@
 
                 if (mineSweeperEngineInstance == null)
                 {
-
                     lock (locker)
                     {
-
                         if (mineSweeperEngineInstance == null)
                         {
 
