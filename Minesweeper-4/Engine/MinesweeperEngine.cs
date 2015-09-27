@@ -11,6 +11,7 @@
     using System.Xml.Serialization;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Threading;
+    using Minesweeper.Helpers;
 
     public class MinesweeperEngine
     {
@@ -20,7 +21,7 @@
         private  Printer printer = new StandardPrinter();
         private readonly MatrixDirector director = new MatrixDirector();
         private readonly MatrixBuilder builder = new BigMatrixBuilder();
-        private Player player;
+        private Player player = new Player();
 
         private Matrix matrix;
 
@@ -53,9 +54,6 @@
 
         public void Start()
         {
-            var playerCreator = new PlayerCreator();
-            player = playerCreator.CreateNewPlayer();
-
             Command command;
 
             do
@@ -172,28 +170,17 @@
         private void HandleSaveCommand()
         {
             var memento = matrix.SaveMemento(); // Here comes memento
-
-            var writer = new FileStream("save.dat", FileMode.Open);
-
-            BinaryFormatter mySerializer = new BinaryFormatter();
-
-
-            mySerializer.Serialize(writer, memento);
-            writer.Position = 0;
-
-            writer.Close();
+            var serializer = new Serializer();
+            
+            serializer.Serialize(memento, GlobalErrorMessages.SaveMatrixFileName);
         }
 
         private void HandleLoadCommand()
         {
-            var writer = new FileStream("save.dat", FileMode.Open);
+            var serializer = new Serializer();
+            var memento = serializer.Deserialize(GlobalErrorMessages.SaveMatrixFileName);
 
-            BinaryFormatter mySerializer = new BinaryFormatter();
-
-            var memento = mySerializer.Deserialize(writer) as MatrixMemento;
-            matrix.RestoreMemento(memento);
-            writer.Close();
-
+            matrix.RestoreMemento(memento as MatrixMemento);
             printer.PrintMatrix(matrix, player);
         }
 
@@ -253,6 +240,10 @@
         {
             Console.Write("Enter your nickname: ");
             this.player.Nickname = Console.ReadLine();
+
+            // When the serializer is fixed we need to use PlayerProxy class
+            //var nickname = Console.ReadLine();
+            //var playerProxy = new PlayerProxy(nickname, this.player.Score);
 
             var scoresHandler = new ScoresHandler("records.xml");
             scoresHandler.LoadFromFile();
