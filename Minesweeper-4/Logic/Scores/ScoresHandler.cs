@@ -8,7 +8,7 @@
     using System.Linq;
     using System.Xml.Serialization;
 
-    class ScoresHandler : IScoresHandler
+    public class ScoresHandler : IScoresHandler
     {
         private List<Player> records;
         private string storingPath;
@@ -22,7 +22,7 @@
 
         public IList<Player> Reccords
         {
-            get { throw new NotImplementedException(); }
+            get { return this.records; } // changed for making it testable. Was NotImplemented
         }
 
         public string StoringPath
@@ -40,7 +40,12 @@
 
         public void AddReccord(Player player)
         {
-            var lastRecordScore = this.records.Last().Score;
+            int lastRecordScore = 0;
+
+            if (this.Reccords.Count != 0) // added to make the method testable
+            {
+                lastRecordScore = this.records.Last().Score;
+            }            
 
             if (this.records.Count < 10 || player.Score > lastRecordScore)
             {
