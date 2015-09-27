@@ -1,11 +1,12 @@
 ﻿using Minesweeper.Data.Player;
 using Minesweeper.Logic.Scores;
 using NUnit.Framework;
+using System;
 
 namespace NunitTests
 {
     [TestFixture]
-    public class ScoresHandlerAddRecordMethodTests
+    public class ScoresHandlerClassTests
     {
         [TestCase(0)]
         [TestCase(1)]
@@ -25,6 +26,22 @@ namespace NunitTests
             int newListLength = scoresHandler.Reccords.Count;
 
             Assert.AreEqual(expectedListLength, newListLength, "List of Records are not updated!");
+        }
+
+        [Test]
+        public void ThrowExceptionWhenSettingNullStoringPath()
+        {
+            string storingPath = null;
+
+            Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler(storingPath));
+        }
+
+        [Test]
+        public void ThrowExceptionWhenSettingEmptyStringStoringPath()
+        {
+            string storingPath = string.Empty;
+
+            Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler(storingPath));
         }
     }
 }

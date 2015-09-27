@@ -34,6 +34,11 @@
 
             private set
             {
+                if (string.IsNullOrEmpty(value)) // validation added
+                {
+                    throw new ArgumentNullException("The storing path is null or empty string");
+                }
+
                 this.storingPath = value;
             }
         }
