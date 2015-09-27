@@ -43,5 +43,15 @@ namespace NunitTests
 
             Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler(storingPath));
         }
+
+        [Test]
+        public void StoringPathGetterReturningProperValue()
+        {
+            string storingPath = "path";
+
+            ScoresHandler scoresHandler = new ScoresHandler(storingPath);
+
+            Assert.AreEqual(storingPath, scoresHandler.StoringPath);
+        }
     }
 }
