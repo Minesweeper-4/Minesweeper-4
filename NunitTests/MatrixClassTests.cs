@@ -8,7 +8,7 @@ namespace NunitTests
     public class MatrixClassTests
     {
         [Test]
-        public void MatrixSaveMementoAndRestoreMementoMethodsWorksProper()
+        public void MatrixSaveMementoAndRestoreMementoMethodsWorkProper()
         {
             ICell[,] fieldExpected = new ICell[3, 7];
 
