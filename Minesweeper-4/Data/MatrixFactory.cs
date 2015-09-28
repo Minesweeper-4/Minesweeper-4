@@ -2,7 +2,7 @@
 {
     using Minesweeper.Interfaces;
 
-    class MatrixFactory
+    public class MatrixFactory
     {
         public IMatrix CreateMatrix(MatrixTypes matrixType)
         {
@@ -26,6 +26,7 @@
             }
 
             director.Construct(builder);
+
             return builder.GetMatrix();
         }
     }

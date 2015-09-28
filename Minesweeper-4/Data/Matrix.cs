@@ -78,7 +78,6 @@
                     row--;
                     column = boardColumns;
                 }
-
                 else
                 {
                     column++;
