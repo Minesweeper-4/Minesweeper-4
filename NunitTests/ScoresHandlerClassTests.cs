@@ -11,7 +11,7 @@ namespace NunitTests
         [TestCase(0)]
         [TestCase(1)]
         [TestCase(10)]
-        public void WhenAddingOneRecordListIsUpdated(int count)
+        public void ScoresHandlerRecordsListIsUpdatedWhenAddingRecords(int count)
         {
             ScoresHandler scoresHandler = new ScoresHandler("somepath");
 

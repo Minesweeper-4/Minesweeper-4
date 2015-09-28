@@ -8,7 +8,7 @@
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new ArgumentException(string.Format("{0} must be a non-empty string",
+                throw new ArgumentNullException(string.Format("{0} must be a non-empty string",
                     parameterName));
             }
         }
@@ -19,7 +19,7 @@
 
             if (value.Length < minLength || maxLength < value.Length)
             {
-                throw new ArgumentException(string.Format("{0} length must be between {1} and {2}",
+                throw new ArgumentOutOfRangeException(string.Format("{0} length must be between {1} and {2}",
                     parameterName, minLength, maxLength));
             }
         }

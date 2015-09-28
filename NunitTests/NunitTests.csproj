@@ -61,6 +61,7 @@
     <Compile Include="DefaultSortTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScoresHandlerClassTests.cs" />
+    <Compile Include="ValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Minesweeper-4\Minesweeper.csproj">
