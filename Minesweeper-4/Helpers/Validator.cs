@@ -24,11 +24,11 @@
             }
         }
 
-        public static void ValidateIntRange(int value, int minValue, int maxValue, string parameterName)
+        public static void ValidateIntInRange(int value, int minValue, int maxValue, string parameterName)
         {
             if (value < minValue || maxValue < value)
             {
-                throw new ArgumentException(string.Format("{0} must be between {1} nad {2}",
+                throw new ArgumentOutOfRangeException(string.Format("{0} must be between {1} nad {2}",
                     parameterName, minValue, maxValue));
             }
         }
@@ -37,7 +37,7 @@
         {
             if (number < 0)
             {
-                throw new ArgumentException(string.Format("{0} cannot be negative"));
+                throw new ArgumentOutOfRangeException(string.Format("{0} cannot be negative", number));
             }
         }
     }
