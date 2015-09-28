@@ -47,7 +47,7 @@ namespace Minesweeper.Logic.Draw
                     {
                         output.AppendFormat("{0, -3}", UnrevealedCellCharacter);
                     }
-                    else if (!currentCell.IsBoomb)
+                    else if (!currentCell.IsBomb)
                     {
                         if (currentCell.NumberOfMines != 0)
                         {

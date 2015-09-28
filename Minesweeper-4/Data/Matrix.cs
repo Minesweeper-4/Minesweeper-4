@@ -84,7 +84,7 @@
                     column++;
                 }
 
-                this.Field[row, column - 1].IsBoomb = true;
+                this.Field[row, column - 1].IsBomb = true;
             }
 
         }
@@ -112,7 +112,7 @@
             {
                 for (int col = minCol; col <= maxCol; col++)
                 {
-                    if (this.Field[row, col].IsBoomb)
+                    if (this.Field[row, col].IsBomb)
                     {
                         numberOfBombs++;
                     }

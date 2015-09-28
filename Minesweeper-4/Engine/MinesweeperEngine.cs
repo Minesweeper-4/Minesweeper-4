@@ -147,7 +147,7 @@
             currentCell.IsOpen = true;
 
 
-            if (currentCell.IsBoomb)
+            if (currentCell.IsBomb)
             {
                 HandleGameOver();
                 return;

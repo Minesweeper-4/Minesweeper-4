@@ -1,6 +1,7 @@
 ﻿namespace Minesweeper.Logic.Scores
 {
     using Minesweeper.Data.Player;
+    using Minesweeper.Helpers;
     using Minesweeper.Logic.Sorter;
     using System;
     using System.Collections.Generic;
@@ -34,10 +35,7 @@
 
             private set
             {
-                if (string.IsNullOrEmpty(value)) // validation added
-                {
-                    throw new ArgumentNullException("The storing path is null or empty string");
-                }
+                Validator.ValidateNonEmptyString(value, "StoringPath");
 
                 this.storingPath = value;
             }

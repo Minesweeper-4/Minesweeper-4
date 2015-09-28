@@ -3,7 +3,7 @@
     public interface ICell
     {
         bool IsOpen { get; set; }
-        bool IsBoomb { get; set; }
+        bool IsBomb { get; set; }
         int NumberOfMines { get; set; }
     }
 }

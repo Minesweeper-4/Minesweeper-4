@@ -11,13 +11,13 @@
     public class Cell : ICell
     {
         private bool isOpen;
-        private bool isBoomb;
+        private bool isBomb;
         private int numberOfMines;
 
         public Cell()
         {
             this.isOpen = false;
-            this.IsBoomb = false;
+            this.IsBomb = false;
         }
 
         public bool IsOpen
@@ -33,19 +33,18 @@
             }
         }
 
-        public bool IsBoomb
+        public bool IsBomb
         {
             get
             {
-                return this.isBoomb;
+                return this.isBomb;
             }
 
             set
             {
-                this.isBoomb = value;
+                this.isBomb = value;
             }
         }
-
 
         public int NumberOfMines
         {

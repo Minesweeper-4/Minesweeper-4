@@ -4,7 +4,7 @@
     using System;
     using System.Collections.Generic;
 
-    class Command : ICommand
+    public class Command : ICommand
     {
         private const char SplitCommandSymbol = ' ';
 

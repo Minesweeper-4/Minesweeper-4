@@ -17,8 +17,6 @@
             get
             {
                 return scorePoints;
-
-
             }
             set { scorePoints = value; }
         }
