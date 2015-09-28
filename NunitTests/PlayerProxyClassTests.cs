@@ -17,6 +17,5 @@ namespace NunitTests
             Assert.AreEqual(expectedNickName, proxy.Nickname, "Expected and actual PlayerProxy Nickname are not equal");
             Assert.AreEqual(expectedScore, proxy.Score, "Expected and actual PlayerProxy Score are not equal");
         }
-         
     }
 }

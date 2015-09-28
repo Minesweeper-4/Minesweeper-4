@@ -8,39 +8,14 @@
     {
         private const char SplitCommandSymbol = ' ';
 
-        private string name;
-        private IList<string> parameters;
-
         public Command(string input)
         {
             this.TranslateInput(input);
         }
 
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
+        public string Name { get; set; }
 
-            set
-            {
-                this.name = value;
-            }
-        }
-
-        public IList<string> Parameters
-        {
-            get
-            {
-                return this.parameters;
-            }
-
-            set
-            {
-                this.parameters = value;
-            }
-        }
+        public IList<string> Parameters { get; set; }
 
         private void TranslateInput(string input)
         {
