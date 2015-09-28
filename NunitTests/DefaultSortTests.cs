@@ -1,10 +1,8 @@
 ﻿using NUnit.Framework;
-using System;
 using Minesweeper.Logic.Sorter;
 using Minesweeper.Data.Player;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
 
 namespace NunitTests
 {

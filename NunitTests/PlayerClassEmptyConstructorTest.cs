@@ -1,5 +1,6 @@
 ﻿using Minesweeper.Data.Player;
 using NUnit.Framework;
+
 namespace NunitTests
 {
     [TestFixture]

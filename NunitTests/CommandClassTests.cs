@@ -22,14 +22,14 @@ namespace NunitTests
             Assert.AreEqual(expectedParameters, command.Parameters, "Expected and actual parameters list are not equal!");
         }
 
-        [TestCase("deystvay 1 2")]
+        [TestCase("move 1 2")]
         public void CommandTranslateInputMethodWorksProper(string input)
         {
             Command command = new Command(input);
             List<string> expectedParameters = new List<string> {"1", "2"};
 
-            Assert.AreEqual("deystvay", command.Name);
-            Assert.AreEqual(expectedParameters, command.Parameters);
+            Assert.AreEqual("move", command.Name, "Expected and actual command name are not equal!");
+            Assert.AreEqual(expectedParameters, command.Parameters, "Expected and actual parameters list are not equal!");
         }
     }
 }
