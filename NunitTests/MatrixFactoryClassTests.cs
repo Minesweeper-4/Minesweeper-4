@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Minesweeper.Data;
 using Minesweeper.Interfaces;
+
 namespace NunitTests
 {
     [TestFixture]
