@@ -4,7 +4,7 @@
     using System;
     using System.Xml.Serialization;
 
-    [Serializable()]
+    [Serializable]
     public class Player : IPlayer
     {
         private int score;
@@ -29,7 +29,6 @@
             }
             set
             {
-                //TODO Idea for implementing Proxy for validation
                 this.nickname = value;
             }
         }

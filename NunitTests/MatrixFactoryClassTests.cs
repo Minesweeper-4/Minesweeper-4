@@ -49,5 +49,18 @@ namespace NunitTests
             Assert.AreEqual(expectedCols, matrix.Cols, "Actual number of matrix columns are different from expected");
             Assert.AreEqual(expectedRows, matrix.Cols, "Actual number of matrix rows are different from expected");
         }
+
+        [Test]
+        public void MatrixFactoryReturnsProperDefaultMatrix()
+        {
+            int expectedCols = 5;
+            int expectedRows = 5;
+
+            MatrixFactory factory = new MatrixFactory();
+            IMatrix matrix = factory.CreateMatrix(default(MatrixTypes));
+
+            Assert.AreEqual(expectedCols, matrix.Cols, "Actual number of matrix columns are different from expected");
+            Assert.AreEqual(expectedRows, matrix.Cols, "Actual number of matrix rows are different from expected");
+        }
     }
 }

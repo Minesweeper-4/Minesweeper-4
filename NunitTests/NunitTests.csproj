@@ -63,7 +63,9 @@
     <Compile Include="MatrixClassTests.cs" />
     <Compile Include="MatrixFactoryClassTests.cs" />
     <Compile Include="MatrixMementoClassTests.cs" />
+    <Compile Include="PlayerClassEmptyConstructorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PlayerProxyClassTests.cs" />
     <Compile Include="ScoresHandlerClassTests.cs" />
     <Compile Include="ValidatorTests.cs" />
   </ItemGroup>

@@ -23,5 +23,13 @@ namespace NunitTests
             Assert.AreEqual(field.GetLength(1), memento.Field.GetLength(1),
                 "Memento field expected cols are not equal to actual cols");
         }
+
+        [Test]
+        public void MatrixMementoEmptyConstructorTest()
+        {
+            MatrixMemento memento = new MatrixMemento();
+
+            Assert.IsInstanceOfType(typeof(MatrixMemento), memento, "Memento instance doesn't exist");
+        }
     }
 }
