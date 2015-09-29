@@ -3,6 +3,7 @@
     using Minesweeper.Data.Player;
     using Minesweeper.Helpers;
     using Minesweeper.Logic.Sorter;
+    using Minesweeper.Helpers;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -14,6 +15,7 @@
         private List<Player> records;
         private string storingPath;
         private SortStrategy sortStrategy = new DefaultSort();
+        private Serializer serializer = new Serializer();
 
         public ScoresHandler(string storingPath)
         {
@@ -60,21 +62,35 @@
 
         public void SaveToFile()
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Player>));
+            //XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Player>));
 
-            using (StreamWriter streamWriter = System.IO.File.CreateText(this.StoringPath))
-            {
-                xmlSerializer.Serialize(streamWriter, this.records);
-            }
+            //using (StreamWriter streamWriter = System.IO.File.CreateText(this.StoringPath))
+            //{
+            //    xmlSerializer.Serialize(streamWriter, this.records);
+            //}
+
+            this.serializer.Serialize(this.records, GlobalErrorMessages.SaveRecordstFileName);
         }
 
         public void LoadFromFile()
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Player>));
+            //XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Player>));
 
-            using (StreamReader streamReader = new System.IO.StreamReader(this.StoringPath))
+            //using (StreamReader streamReader = new System.IO.StreamReader(this.StoringPath))
+            //{
+            //    this.records = xmlSerializer.Deserialize(streamReader) as List<Player>;
+            //}
+
+            var fileInfo = new FileInfo(GlobalErrorMessages.SaveRecordstFileName);
+
+            if (fileInfo.Length == 0)
             {
-                this.records = xmlSerializer.Deserialize(streamReader) as List<Player>;
+                this.records = new List<Player>();
+            }
+
+            else
+            {
+                this.records = this.serializer.Deserialize(GlobalErrorMessages.SaveRecordstFileName) as List<Player>;
             }
         }
 
