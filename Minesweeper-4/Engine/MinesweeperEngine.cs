@@ -12,26 +12,29 @@
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Threading;
     using Minesweeper.Helpers;
+    using Minesweeper.Commands;
 
     public class MinesweeperEngine
     {
         private static MinesweeperEngine mineSweeperEngineInstance;
         private static object locker = new object();
 
-        private  Printer printer = new StandardPrinter();
-        private readonly MatrixDirector director = new MatrixDirector();
+        private Printer printer = new StandardPrinter();
+        private MatrixDirector director = new MatrixDirector();
         private readonly MatrixBuilder builder = new BigMatrixBuilder();
         private Player player = new Player();
-
+        private ICommandParser commandParser = new CommandParser();
         private Matrix matrix;
+        private ICommandFactory commandFactory;
 
         private MinesweeperEngine()
-        {
+        {            
         }
 
         public static MinesweeperEngine Instance
         {
-            get {
+            get
+            {
 
                 if (mineSweeperEngineInstance == null)
                 {
@@ -52,13 +55,16 @@
 
         public void Start()
         {
-            Command command;
+            commandFactory = new CommandFactory(matrix, player, director, builder, printer);
+            CommandInfo commandInfo;
 
             do
             {
-                command = new Command(Console.ReadLine());
-                ReadCommand(command);
-            } while (command.Name != "exit");
+                commandInfo = (CommandInfo)commandParser.Parse(Console.ReadLine());
+                var currentCommand = this.commandFactory.GetCommand(commandInfo);
+                currentCommand.Execute(commandInfo);
+
+            } while (commandInfo.Name != "exit");
         }
 
         private void ReadCommand(Command command)
@@ -69,7 +75,7 @@
                     printer.PrintLine("Top");
                     break;
                 case "start":
-                    HandleSrartCommand(command);
+
                     break;
                 case "restart":
                     HandleRestartCommand(command);
@@ -122,12 +128,12 @@
             }
         }
 
-        private void HandleSrartCommand(Command command)
-        {
-            director.Construct(builder); //Here comes the Builder
-            matrix = builder.GetMatrix();
-            printer.PrintMatrix(matrix, player);
-        }
+        //private void HandleSrartCommand(Command command)
+        //{
+        //    director.Construct(builder); //Here comes the Builder
+        //    matrix = builder.GetMatrix();
+        //    printer.PrintMatrix(matrix, player);
+        //}
 
         private void HandleRestartCommand(Command command)
         {
@@ -169,7 +175,7 @@
         {
             var memento = matrix.SaveMemento(); // Here comes memento
             var serializer = new Serializer();
-            
+
             serializer.Serialize(memento, GlobalErrorMessages.SaveMatrixFileName);
         }
 
@@ -188,15 +194,16 @@
             var maxRow = Math.Min(rowIndex + 1, this.matrix.Cols - 1);
             var minCol = Math.Max(0, colIndex - 1);
             var maxCol = Math.Min(colIndex + 1, this.matrix.Cols - 1);
-            
+
             for (int row = minRow; row <= maxRow; row++)
             {
-                for (int col = minCol; col <= maxCol; col++)                {
-                    
+                for (int col = minCol; col <= maxCol; col++)
+                {
+
                     if (this.matrix.Field[row, col].NumberOfMines == 0 && !this.matrix.Field[row, col].IsOpen)
                     {
                         this.matrix.Field[row, col].IsOpen = true;
-                        CheckForZeroMines(row, col);                        
+                        CheckForZeroMines(row, col);
                     }
                     else
                     {
@@ -297,5 +304,7 @@
 
             Console.WriteLine("This is thread number {0}", number);
         }
+
+        public Command commandInfo { get; set; }
     }
 }
