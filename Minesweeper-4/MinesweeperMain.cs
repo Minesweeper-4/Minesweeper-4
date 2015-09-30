@@ -6,364 +6,269 @@
     using System.Text;
     using Minesweeper.Engine;
     using System.Threading.Tasks;
+    using System.Threading;
+    using System.IO;
 
     public class MinesweeperMain
     {
+        static int width = 69;
+        static int height = 50;
+        private const ConsoleColor TITLE_COLOR = ConsoleColor.White;
+        private static string[] title =
+        {
+            "   _                                    ",
+            "  | |     ____   _____   ____  ",
+            "  | |__  | _  | |   __  |  _ | ",
+            "  |____| |____| |_____| |____| ",
+            "                                       ",
+        };
+        static int inputChoice = 0;
+        static int secondChoice = 0;
+        private static string[] menuItems = { "New Game".ToUpper(), "View High Scores".ToUpper(), "Choose Game Mode".ToUpper(), "Exit".ToUpper() };
+        private static string[] secMenuItems = { "RETURN", "EXIT" };
+
         static void Main()
         {
-            //var game = new MinesweeperEngine();
-
-            var game = MinesweeperEngine.Instance;
-            game.Start();
+            CustomizeConsole();
+            //Front page
+            PrintName();
+            Thread.Sleep(1000);
+            MainMenu();
+            if (inputChoice == 3 || secondChoice == 1)
+            {
+                return;
+            }
 
             // Demonstrating thread-safe implementation
             //Parallel.For(0, 23, x => MinesweeperEngine.Instance.PrintThreadNumber(x));
         }
 
-        static void Main2(string[] args)
+        private static void CustomizeConsole()
         {
-            const int MAX_REVEALED_CELLS = 35;
-            bool boomed = false;
-            bool welcomeFlag = true;
-            bool flag = false;
-            int counter = 0;
-            int rowIndex = 0;
-            int columnIndex = 0;
-            string selectedCommand = string.Empty;
-            char[,] playground = CreateWhiteBoard();
-            char[,] boomBoard = CreateBombBoard();
-            List<ScoreRecord> champions = new List<ScoreRecord>(6);
+            Console.BufferWidth = Console.WindowWidth = width;
+            Console.BufferHeight = Console.WindowHeight = height;
+            Console.OutputEncoding = Encoding.Unicode;
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            Console.CursorVisible = false;
+            Console.Title = "Minesweeper";
 
-            do
+        }
+        private static void PrintName()
+        {
+            Console.ForegroundColor = TITLE_COLOR;
+
+            if (title[0].Length <= Console.WindowWidth)
             {
-                if (welcomeFlag)
+                foreach (var str in title)
                 {
-                    Console.WriteLine("Welcome to the game “Minesweeper”. Try to reveal all cells without mines." +
-                    " Use 'top' to view the scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-                    PrintBoard(playground);
-                    welcomeFlag = false;
+                    Console.WriteLine(new string(' ', ((Console.WindowWidth - title[0].Length) / 2)) + str);
                 }
 
-                Console.Write("Enter row and column: ");
-                selectedCommand = Console.ReadLine().Trim();
+            }
+        }
+        private static void MainMenu()
+        {
+            Console.WriteLine("\n\n");
+            int indexForPrint = width / 2 - ("MAIN MENU:".Length / 2);
+            Console.SetCursorPosition(indexForPrint, 9);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("MAIN MENU:");
 
-                if (selectedCommand.Length >= 3)
+            Console.ForegroundColor = ConsoleColor.Green;
+            while (true)
+            {
+                for (int i = 0; i < 4; i++)
                 {
-                    if (int.TryParse(selectedCommand[0].ToString(), out rowIndex) &&
-                    int.TryParse(selectedCommand[2].ToString(), out columnIndex) &&
-                        rowIndex < playground.GetLength(0) && columnIndex <= playground.GetLength(1))
+                    Console.SetCursorPosition(width / 2 - (menuItems[i].Length / 2), 10 + i + 1);
+                    if (inputChoice == i)
                     {
-                        selectedCommand = "turn";
+                        Console.ForegroundColor = ConsoleColor.Green;
                     }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    }
+                    Console.WriteLine(menuItems[i]);
                 }
-
-                switch (selectedCommand)
+                if (Console.KeyAvailable)
                 {
-                    case "top":
-                        PrintScoreBoard(champions);
-                        break;
-                    case "restart":
-                        playground = CreateWhiteBoard();
-                        boomBoard = CreateBombBoard();
-                        PrintBoard(playground);
-                        boomed = false;
-                        welcomeFlag = false;
-                        break;
-                    case "exit":
-                        Console.WriteLine("Good bye!");
-                        break;
-                    case "turn":
-                        if (boomBoard[rowIndex, columnIndex] != '*')
+                    for (int i = 0; i < menuItems.Length - 1; i++)
+                    {
+                        Console.SetCursorPosition(width / 2 - (menuItems[i].Length / 2), 10 + i + 1);
+                        if (inputChoice == i)
                         {
-                            if (boomBoard[rowIndex, columnIndex] == '-')
-                            {
-                                MakeAMove(playground, boomBoard, rowIndex, columnIndex);
-                                counter++;
-                            }
-                            if (MAX_REVEALED_CELLS == counter)
-                            {
-                                flag = true;
-                            }
-                            else
-                            {
-                                PrintBoard(playground);
-                            }
+                            Console.ForegroundColor = ConsoleColor.Green;
                         }
                         else
                         {
-                            boomed = true;
-
-
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
                         }
-                        break;
-                    default:
-                        Console.WriteLine("\nIllegal move!\n");
-                        break;
-                }
-
-                if (boomed)
-                {
-                    PrintBoard(boomBoard);
-                    Console.Write("\nBooooom! You were killed by a mine. You revealed {0} cells without mines."+
-                        "Please enter your name for the top scoreboard: ",counter);
-                    string personName = Console.ReadLine();
-                    ScoreRecord record = new ScoreRecord(personName, counter);
-
-                    if (champions.Count <5)
+                        Console.WriteLine(menuItems[i]);
+                    }
+                    ConsoleKeyInfo choice = Console.ReadKey();
+                    if (choice.Key == ConsoleKey.DownArrow)
                     {
-                        champions.Add(record);
-
+                        inputChoice = (inputChoice + 1) % 4;
 
                     }
+                    if (choice.Key == ConsoleKey.UpArrow)
+                    {
+                        inputChoice = (inputChoice - 1 + 4) % 4;
 
+                    }
+                    if (choice.Key == ConsoleKey.Enter)
+                    {
+                        break;
+                    }
+                }
+            }
+            #region Process Input
+            //int inputChoice = int.Parse(Console.ReadLine());
+            if (inputChoice == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                var game = MinesweeperEngine.Instance;
+                game.Start();
+            }
+            #region input = 1
+            else if (inputChoice == 1)
+            {
+                try
+                {
+                    Console.Clear();
+                    PrintName();
+                    Console.SetCursorPosition((width / 2) - 10, 10);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("- HIGH SCORES -\n");
+
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    List<string> playerName = new List<string>();
+                    using (StreamReader reader = new StreamReader(@"..\..\records.xml"))
+                    {
+                        string line = reader.ReadLine();
+                        while (line != null)
+                        {
+                            playerName.Add(line); //Add name and score to the list
+                            line = reader.ReadLine();
+                        }
+                    }
+                    string[] playersArr = playerName.ToArray();
+                    while (playerName.Count > 10)
+                    {
+                        playerName.RemoveAt(playerName.Count - 1);
+                    }
+
+                    //string newEntry = points + "\t" + nameOfPlayer;
+                    //playerName.Add(newEntry);
+                    int counter = 0;
+                    for (int i = playersArr.Length - 1, j = 0; i >= playersArr.Length - 13; i--, j++)
+                    {
+                        Console.SetCursorPosition((width / 2) - 10, 12 + j);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        playerName = playersArr.ToList();
+                        Console.WriteLine(playersArr[i]);
+                    }
+                    using (var writer = new StreamWriter(@"..\..\records.xml"))
+                    {
+                        for (int i = playersArr.Length - 1; i >= 0; i--)
+                        {
+                            writer.WriteLine(playerName[i]); //Writes name and score supposedly
+                        }
+                    }
+                }
+                catch (FileNotFoundException)
+                {
+                    Console.Error.WriteLine("\tCannot find 'records.xml'.");
+                }
+
+                secondChoiseOfMenus();
+            }
+
+            #endregion
+
+            #region input 2
+            else if (inputChoice == 2)
+            {
+                // print table with ponts / instructions
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.White;
+                PrintName();
+                Console.SetCursorPosition(20, 9);
+                Console.WriteLine("Choosing options to implement....");
+
+
+                secondChoiseOfMenus();
+            }
+            #endregion
+            else if (inputChoice == 3)
+            {
+                return;
+            }
+            #endregion
+        }
+
+        private static void secondChoiseOfMenus()
+        {
+            while (true)
+            {
+                for (int i = 0; i < secMenuItems.Length; i++)
+                {
+                    if (secondChoice == i)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
                     else
                     {
-                        for (int i = 0; i < champions.Count; i++)
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    Console.SetCursorPosition(25 + (10 * i), 27);
+                    Console.WriteLine(secMenuItems[i]);
+                    //Console.ResetColor();
+                }
+                if (Console.KeyAvailable)
+                {
+                    for (int i = 0; i < secMenuItems.Length; i++)
+                    {
+                        if (secondChoice == i)
                         {
-                            if (champions[i].ScorePoints < record.ScorePoints)
-                            {
-                                champions.Insert(i, record);
-                                champions.RemoveAt(champions.Count-1);
-                                break;
-                            }
+                            Console.ForegroundColor = ConsoleColor.Red;
                         }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                        }
+                        Console.SetCursorPosition(25 + (10 * i), 27);
+                        Console.WriteLine(secMenuItems[i]);
+                        //Console.ResetColor();
                     }
 
-                    champions.Sort(delegate(ScoreRecord r1, ScoreRecord r2)
+                    ConsoleKeyInfo pressedKey = Console.ReadKey();
+                    if (pressedKey.Key == ConsoleKey.LeftArrow)
                     {
-                        return r2.PersonName.CompareTo(r1.PersonName);
-                    });
-
-                    champions.Sort(delegate(ScoreRecord r1,ScoreRecord r2)
+                        secondChoice = (secondChoice - 1 + 2) % 2;
+                    }
+                    if (pressedKey.Key == ConsoleKey.RightArrow)
                     {
-                        return r2.ScorePoints.CompareTo(r1.ScorePoints); 
-                    });
-
-                    PrintScoreBoard(champions);
-					
-					playground = CreateWhiteBoard();
-                    boomBoard = CreateBombBoard();
-                    counter = 0;
-                    boomed = false;
-                    welcomeFlag = true;
-                }
-
-                if (flag)
-                {
-                    Console.WriteLine("\nYou revealed all 35 cells.");
-                    PrintBoard(boomBoard);
-                    Console.WriteLine("Please enter your name for the top scoreboard: ");
-                    string personName = Console.ReadLine();
-                    ScoreRecord record = new ScoreRecord(personName, counter);
-                    champions.Add(record);
-                    PrintScoreBoard(champions);
-                    playground = CreateWhiteBoard();
-                    boomBoard = CreateBombBoard();
-                    counter = 0;
-                    flag = false;
-                    welcomeFlag = true;
-                }
-            } 
-            while (selectedCommand != "exit");
-
-
-            Console.WriteLine("Made by Pavlin Panev 2010 - all rights reserved!");
-            Console.WriteLine("Press any key to exit.");
-            Console.Read();
-        }
-
-        private static void PrintScoreBoard(List<ScoreRecord> topRecords)
-        {
-            Console.WriteLine("\nScoreboard:");
-
-            if (topRecords.Count > 0)
-            {
-                for (int i = 0; i < topRecords.Count; i++)
-                {
-                    Console.WriteLine("{0}. {1} --> {2} cells", i + 1, topRecords[i].PersonName, topRecords[i].ScorePoints);
-                }
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine("No records to display!\n");
-            }
-        }
-
-        private static void MakeAMove(char[,] board,char[,] boomBoard, int rowIndex, int columnIndex)
-        {
-            char howManyBombs = CalculateHowManyBombs(boomBoard, rowIndex, columnIndex);
-            boomBoard[rowIndex, columnIndex] = howManyBombs;
-            board[rowIndex, columnIndex] = howManyBombs;
-        }
-
-        private static void PrintBoard(char[,] board)
-        {
-            int boardRows = board.GetLength(0);
-            int boardColumns = board.GetLength(1);
-            Console.WriteLine("\n    0 1 2 3 4 5 6 7 8 9");
-            Console.WriteLine("   ---------------------");
-
-            for (int i = 0; i < boardRows; i++)
-            {
-                Console.Write("{0} | ", i);
-                for (int j = 0; j < boardColumns; j++)
-                {
-                    Console.Write(string.Format("{0} ",board[i, j]));
-                }
-                Console.Write("|");
-                Console.WriteLine();
-            }
-            Console.WriteLine("   ---------------------\n");
-        }
-
-        private static char[,] CreateWhiteBoard()
-        {
-            int boardRows = 5;
-            int boardColumns = 10;
-            char[,] board = new char[boardRows, boardColumns];
-            for (int i = 0; i < boardRows; i++)
-            {
-                for (int j = 0; j < boardColumns; j++)
-                {
-                    board[i,j] = '?';
-                }
-            }
-
-            return board;
-        }
-
-        private static char[,] CreateBombBoard()
-        {
-            int boardRows = 5;
-            int boardColumns = 10;
-            char[,] board = new char[boardRows, boardColumns];
-
-            for (int i = 0; i < boardRows; i++)
-            {
-                for (int j = 0; j < boardColumns; j++)
-                {
-                    board[i, j] = '-';
-                }
-            }
-
-            List<int> randomNumbers = new List<int>();
-            while (randomNumbers.Count < 15)
-            {
-                Random random = new Random();
-                int randomNumber = random.Next(50);
-                if (!randomNumbers.Contains(randomNumber))
-                {
-                    randomNumbers.Add(randomNumber);
-                }
-            }
-
-            foreach (int number in randomNumbers)
-            {
-                int row = (number / boardColumns);
-                int column = (number % boardColumns);
-                if (column == 0 && number != 0)
-                {
-                    row--;
-                    column = boardColumns;
-                }
-
-                else
-                {
-                    column++;
-                }
-
-                board[row,column-1] = '*';
-            }
-
-            return board;
-        }
-
-        private static void CalculateBombBoard(char[,] board)
-        {
-            int boardRows = board.GetLength(0);
-            int boardColumns = board.GetLength(1);
-
-            for (int i = 0; i < boardRows; i++)
-            {
-                for (int j = 0; j < boardColumns; j++)
-                {
-                    if (board[i,j] != '*')
+                        secondChoice = (secondChoice + 1) % 2;
+                    }
+                    if (pressedKey.Key == ConsoleKey.Enter)
                     {
-                        char number = CalculateHowManyBombs(board, i, j);
-                        board[i, j] = number;
+                        break;
                     }
                 }
             }
+
+            if (secondChoice == 0)
+            {
+                Console.Clear();
+                PrintName();
+                MainMenu();
+            }
+            else if (secondChoice == 1)
+            {
+                return;
+            }
+            //TODO: return to main menu, or exit game
         }
-
-        private static char CalculateHowManyBombs(char[,] board, int rowIndex, int columnIndex)
-        {
-            int counted = 0;
-            int boardRows = board.GetLength(0);
-            int boardColumns = board.GetLength(1);
-
-            if (rowIndex - 1 >= 0)
-            {
-                if (board[rowIndex - 1, columnIndex] == '*')
-                { counted++; }
-            }
-            if (rowIndex + 1 < boardRows)
-            {
-                if (board[rowIndex + 1, columnIndex] == '*')
-                {
-                    counted++;
-                }
-            }
-
-            if (columnIndex - 1 >= 0)
-            {
-                if (board[rowIndex, columnIndex - 1] == '*')
-                { counted++; }
-            }
-
-            if (columnIndex + 1 < boardColumns)
-            {
-                if (board[rowIndex, columnIndex + 1] == '*')
-                {
-                    counted++;
-                }
-            }
-
-            if ((rowIndex - 1 >= 0) && (columnIndex - 1 >= 0))
-            {
-                if (board[rowIndex - 1, columnIndex - 1] == '*')
-                {
-                    counted++; 
-                }
-            }
-
-            if ((rowIndex - 1 >= 0) && (columnIndex + 1 < boardColumns))
-            {
-                if (board[rowIndex - 1, columnIndex + 1] == '*')
-                { 
-                    counted++; 
-                }
-            }
-
-            if ((rowIndex + 1 < boardRows) && (columnIndex - 1 >= 0))
-            {
-                if (board[rowIndex + 1, columnIndex - 1] == '*')
-                { 
-                    counted++; 
-                }
-            }
-
-            if ((rowIndex + 1 < boardRows) && (columnIndex + 1 < boardColumns))
-            {
-                if (board[rowIndex + 1, columnIndex + 1] == '*')
-                { 
-                    counted++; 
-                }
-            }
-
-            return char.Parse(counted.ToString());
-        }
-
     }
 }

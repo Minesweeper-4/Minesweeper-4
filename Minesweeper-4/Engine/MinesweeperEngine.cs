@@ -52,7 +52,8 @@
 
         public void Start()
         {
-            Command command;
+            Command command = new Command("start");
+            HandleSrartCommand(command);
 
             do
             {
