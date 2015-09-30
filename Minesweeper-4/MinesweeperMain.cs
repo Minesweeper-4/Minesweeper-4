@@ -11,15 +11,15 @@
 
     public class MinesweeperMain
     {
-        static int width = 69;
+        static int width = 89;
         static int height = 50;
         private const ConsoleColor TITLE_COLOR = ConsoleColor.White;
         private static string[] title =
         {
-            "   _                                    ",
-            "  | |     ____   _____   ____  ",
-            "  | |__  | _  | |   __  |  _ | ",
-            "  |____| |____| |_____| |____| ",
+            "   _   _   _   _   __   ____   ____  __      __  ____   ____   ____   ____   _____ ",
+            "  | \\_/ | | | | | // | | ___| | ___| \\ \\    / / | ___| | ___| | __ | | ___| | ___ |",
+            "  |  _  | | | | |//| | | ___| |___ |  \\ \\/\\/ /  | ___| | ___| |  __| | ___| |  ___|",
+            "  |_| |_| |_| |_ / |_| |____| |____|   \\_/\\_/   |____| |____| |_|    |____| |_|\\_\\   ",
             "                                       ",
         };
         static int inputChoice = 0;
