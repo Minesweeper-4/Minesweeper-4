@@ -1,4 +1,6 @@
 ﻿public enum MatrixTypes
 {
-    SMALL, MEDIUM, BIG
+    SMALL,
+    MEDIUM,
+    BIG
 }

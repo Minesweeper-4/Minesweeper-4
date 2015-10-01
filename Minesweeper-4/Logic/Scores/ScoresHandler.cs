@@ -3,7 +3,6 @@
     using Minesweeper.Data.Player;
     using Minesweeper.Helpers;
     using Minesweeper.Logic.Sorter;
-    using Minesweeper.Helpers;
     using System;
     using System.Collections.Generic;
     using System.IO;
