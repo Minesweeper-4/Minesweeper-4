@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Minesweeper.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Minesweeper.Logic.Draw
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public override void PrintMatrix(Interfaces.IMatrix matrix, Interfaces.IPlayer player)
+        public override void PrintMatrix(IMatrix matrix, Interfaces.IPlayer player)
         {
             Console.Clear();
             var output = new StringBuilder();

@@ -4,7 +4,7 @@
     {
         public override void SetField()
         {
-            this.Matrix.Field = new Cell[15, 15];
+            base.Matrix.Field = new Cell[15, 15];
 
         }
 

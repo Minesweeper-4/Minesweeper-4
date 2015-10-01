@@ -14,8 +14,7 @@
 
         public override void Execute(ICommandInfo commandInfo)
         {
-            base.director.Construct(builder);
-            base.matrix = builder.GetMatrix();
+            base.matrix = (Matrix)(new MatrixFactory().CreateMatrix(MatrixTypes.BIG));
             base.printer.PrintMatrix(matrix, player);
         }
     }

@@ -8,7 +8,7 @@
 
     class TurnCommand : Command
     {
-        public TurnCommand(Matrix matrix, Player player, MatrixDirector matrixDirector, MatrixBuilder matrixBuilder, Printer printer)
+        public TurnCommand( Matrix matrix, Player player, MatrixDirector matrixDirector, MatrixBuilder matrixBuilder, Printer printer)
             : base(matrix, player, matrixDirector, matrixBuilder, printer)
         {
         }
