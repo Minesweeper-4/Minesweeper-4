@@ -1,10 +1,11 @@
 ﻿namespace Minesweeper.Menu
 {
+    using Engine;
     using System;
 
     public class MainMenu
     {
-       internal static void PrintMenu()
+       internal static void PrintMenu(MinesweeperEngine game)
         {
             string[] menuItems = new string[Enum.GetNames(typeof(MainMenuOptions)).Length];
             var indexer = 0;
@@ -22,7 +23,7 @@
 
             Console.ForegroundColor = ConsoleColor.Green;
 
-            Navigation.MainMenuNavigation(menuItems);
+            Navigation.MainMenuNavigation(menuItems, game);
         }
     }
 }

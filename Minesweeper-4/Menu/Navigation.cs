@@ -7,7 +7,7 @@
     {
         private static int inputChoice = 0;
 
-        public static void MainMenuNavigation(string[] mainMenuItems)
+        public static void MainMenuNavigation(string[] mainMenuItems, MinesweeperEngine game)
         {
             while (true)
             {
@@ -65,7 +65,6 @@
             if (inputChoice == 0)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                var game = MinesweeperEngine.Instance;
                 game.Start();
             }
             else if (inputChoice == 1)
@@ -76,7 +75,7 @@
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("- HIGH SCORES -\n");
 
-                SecondMenu.SecondChoiseOfMenus();
+                SecondMenu.SecondChoiseOfMenus(game);
             }
             else if (inputChoice == 2)
             {
@@ -90,7 +89,7 @@
                 Console.WriteLine("\t\t\t\tLIGHT\n");
                 Console.WriteLine("\t\t\t\tDARK");
 
-                SecondMenu.SecondChoiseOfMenus();
+                SecondMenu.SecondChoiseOfMenus(game);
             }
             else if (inputChoice == 3)
             {
@@ -100,7 +99,7 @@
                 Console.SetCursorPosition(20, 9);
                 Console.WriteLine(" - HOW TO PLAY - ");
 
-                SecondMenu.SecondChoiseOfMenus();
+                SecondMenu.SecondChoiseOfMenus(game);
             }
             else if (inputChoice == 4)
             {

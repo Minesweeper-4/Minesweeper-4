@@ -25,7 +25,6 @@
         private Player player = new Player();
         private ICommandParser commandParser = new CommandParser();
         private Matrix matrix;
-        ICommandFactory commandFactory;
         private MatrixFactory matrixFactory = new MatrixFactory();
 
         private MinesweeperEngine()
@@ -67,7 +66,7 @@
 
         public void ExecuteCommand(string command)
         {
-            CommandInfo commandInfo = (CommandInfo)commandParser.Parse(Console.ReadLine());
+            CommandInfo commandInfo = (CommandInfo)commandParser.Parse(command);
             Command currentCommand;
 
             switch (commandInfo.Name)

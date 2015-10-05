@@ -1,12 +1,13 @@
 ﻿namespace Minesweeper.Menu
 {
+    using Engine;
     using System;
 
     public class SecondMenu
     {
         private static int secondChoice = 0;
 
-        internal static void SecondChoiseOfMenus()
+        internal static void SecondChoiseOfMenus(MinesweeperEngine game)
         {
             string[] secMenuItems = new string[Enum.GetNames(typeof(SecondMenuOptions)).Length];
             var indexer = 0;
@@ -72,7 +73,7 @@
             {
                 Console.Clear();
                 PrintLogo.Print();
-                MainMenu.PrintMenu();
+                MainMenu.PrintMenu(game);
             }
             else if (secondChoice == 1)
             {

@@ -18,7 +18,8 @@
             CustomizeConsole.Customize();
             PrintLogo.Print();
 
-            MainMenu.PrintMenu();
+            var game = MinesweeperEngine.Instance;
+            MainMenu.PrintMenu(game);
 
             // Demonstrating thread-safe implementation
             //Parallel.For(0, 23, x => MinesweeperEngine.Instance.PrintThreadNumber(x));
