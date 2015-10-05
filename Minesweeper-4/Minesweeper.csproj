@@ -70,6 +70,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandFactory.cs" />
+    <Compile Include="Commands\CommandInfo.cs" />
+    <Compile Include="Commands\CommandParser.cs" />
+    <Compile Include="Commands\ICommandFactory.cs" />
+    <Compile Include="Commands\ICommandInfo.cs" />
+    <Compile Include="Commands\ICommandParser.cs" />
+    <Compile Include="Commands\StartCommand.cs" />
+    <Compile Include="Commands\TurnCommand.cs" />
     <Compile Include="Data\BigMatrixBuilder.cs" />
     <Compile Include="Data\Cell.cs" />
     <Compile Include="Data\Matrix.cs" />
@@ -134,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Commands\ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

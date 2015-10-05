@@ -22,6 +22,7 @@
 
             // Demonstrating thread-safe implementation
             //Parallel.For(0, 23, x => MinesweeperEngine.Instance.PrintThreadNumber(x));
+
         }
     }
 }
