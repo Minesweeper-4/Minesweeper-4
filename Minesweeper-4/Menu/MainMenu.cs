@@ -14,7 +14,7 @@
                 menuItems[indexer] = option.ToString();
                 indexer++;
             }
-
+            Console.Clear();
             Console.WriteLine("\n\n");
             int indexForPrint = (CustomizeConsole.Width / 2) - ("MAIN MENU:".Length / 2);
             Console.SetCursorPosition(indexForPrint, 9);

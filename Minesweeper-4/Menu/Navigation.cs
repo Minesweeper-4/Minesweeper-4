@@ -65,7 +65,7 @@
             if (inputChoice == 0)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                game.Start();
+                game.ExecuteCommand("start");
             }
             else if (inputChoice == 1)
             {

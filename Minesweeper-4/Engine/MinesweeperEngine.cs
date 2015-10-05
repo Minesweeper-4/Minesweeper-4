@@ -13,6 +13,7 @@
     using System.Threading;
     using Minesweeper.Helpers;
     using Minesweeper.Commands;
+    using Menu;
 
     public class MinesweeperEngine
     {
@@ -55,36 +56,36 @@
 
         public void Start()
         {
-            do
-            {
-                string command = Console.ReadLine();
+            Console.Write("Enter command: ");
+            string command = Console.ReadLine();
 
-                ExecuteCommand(command);
-
-            } while (true);
+            ExecuteCommand(command);
         }
 
         public void ExecuteCommand(string command)
         {
             CommandInfo commandInfo = (CommandInfo)commandParser.Parse(command);
-            Command currentCommand;
+            Command currentCommand = null;
 
             switch (commandInfo.Name)
             {
                 case "start":
                     currentCommand = new StartCommand(this, this.matrix, player, this.director, this.builder, this.printer);
+
                     break;
 
                 case "turn":
                     currentCommand = new TurnCommand(this.matrix, this.player, this.director, this.builder, this.printer);
                     break;
+                case "menu":
+                    MainMenu.PrintMenu(this);
+                    break;
                 default:
                     throw new NotFiniteNumberException();
-                    break;
             }
 
             currentCommand.Execute(commandInfo);
-
+            this.Start();
         }
 
 
