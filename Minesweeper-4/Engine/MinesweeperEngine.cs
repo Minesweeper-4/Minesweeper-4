@@ -58,26 +58,36 @@
         {
             do
             {
-                commandInfo = (CommandInfo)commandParser.Parse(Console.ReadLine());
+                string command = Console.ReadLine();
 
-                switch (commandInfo.Name)
-                {
-                    case "start":
-                        currentCommand = new StartCommand(this, this.matrix, player, this.director, this.builder, this.printer);
-                        break;
+                ExecuteCommand(command);
 
-                    case "turn" :
-                        currentCommand = new TurnCommand(this.matrix, this.player, this.director, this.builder, this.printer);
-                        break;
-                    default:
-                        throw new NotFiniteNumberException();
-                        break;
-                }
-
-                currentCommand.Execute(commandInfo);
-
-            } while (commandInfo.Name != "exit");
+            } while (true);
         }
+
+        public void ExecuteCommand(string command)
+        {
+            CommandInfo commandInfo = (CommandInfo)commandParser.Parse(Console.ReadLine());
+            Command currentCommand;
+
+            switch (commandInfo.Name)
+            {
+                case "start":
+                    currentCommand = new StartCommand(this, this.matrix, player, this.director, this.builder, this.printer);
+                    break;
+
+                case "turn":
+                    currentCommand = new TurnCommand(this.matrix, this.player, this.director, this.builder, this.printer);
+                    break;
+                default:
+                    throw new NotFiniteNumberException();
+                    break;
+            }
+
+            currentCommand.Execute(commandInfo);
+
+        }
+
 
         public void CreateMatrix()
         {
