@@ -77,14 +77,15 @@
             {
                 for (int col = minCol; col <= maxCol; col++)
                 {
-
                     if (this.matrix.Field[row, col].NumberOfMines == 0 && !this.matrix.Field[row, col].IsOpen)
                     {
+                        base.player.Score++;
                         this.matrix.Field[row, col].IsOpen = true;
                         CheckForZeroMines(row, col);
                     }
-                    else
+                    else if (!this.matrix.Field[row, col].IsOpen)
                     {
+                        base.player.Score++;
                         this.matrix.Field[row, col].IsOpen = true;
                     }
                 }
