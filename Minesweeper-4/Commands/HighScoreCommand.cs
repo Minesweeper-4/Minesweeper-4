@@ -8,12 +8,16 @@
     using Minesweeper.Logic.Scores;
     using System;
     using System.Collections.Generic;
+    using Minesweeper.Menu;
 
     public class HighScoreCommand : Command
     {
-        public HighScoreCommand(Matrix matrix, Player player, Printer printer)
+        private MinesweeperEngine engine;
+
+        public HighScoreCommand(MinesweeperEngine engine, Matrix matrix, Player player, Printer printer)
             : base(matrix, player, printer)
         {
+            this.engine = engine;
         }
 
         public override void Execute(ICommandInfo commandInfo)
@@ -29,7 +33,8 @@
             }
 
             Console.WriteLine("Press any key to continiue..");
-            Console.ReadLine();
+            Console.ReadKey();
+            MainMenu.PrintMenu(this.engine);
         }
     }
 }
