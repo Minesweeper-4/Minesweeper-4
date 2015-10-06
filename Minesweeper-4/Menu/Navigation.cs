@@ -103,6 +103,7 @@
             }
             else if (inputChoice == 4)
             {
+                game.ExecuteCommand("exit");
                 return;
             }
         }
