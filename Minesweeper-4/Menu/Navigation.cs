@@ -74,7 +74,7 @@
                 Console.SetCursorPosition((CustomizeConsole.Width / 2) - 10, 10);
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("- HIGH SCORES -\n");
-
+                game.ExecuteCommand("highscore");
                 SecondMenu.SecondChoiseOfMenus(game);
             }
             else if (inputChoice == 2)
