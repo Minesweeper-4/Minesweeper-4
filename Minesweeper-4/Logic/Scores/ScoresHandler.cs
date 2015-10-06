@@ -61,24 +61,16 @@
 
         public void SaveToFile()
         {
-            //XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Player>));
-
-            //using (StreamWriter streamWriter = System.IO.File.CreateText(this.StoringPath))
-            //{
-            //    xmlSerializer.Serialize(streamWriter, this.records);
-            //}
-
             this.serializer.Serialize(this.records, GlobalErrorMessages.SaveRecordstFileName);
         }
 
         public void LoadFromFile()
         {
-            //XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Player>));
-
-            //using (StreamReader streamReader = new System.IO.StreamReader(this.StoringPath))
-            //{
-            //    this.records = xmlSerializer.Deserialize(streamReader) as List<Player>;
-            //}
+            if (!File.Exists(GlobalErrorMessages.SaveRecordstFileName))
+            {
+                var myFile = File.Create(GlobalErrorMessages.SaveRecordstFileName);
+                myFile.Close();
+            }
 
             var fileInfo = new FileInfo(GlobalErrorMessages.SaveRecordstFileName);
 
