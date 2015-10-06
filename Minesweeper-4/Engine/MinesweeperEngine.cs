@@ -112,9 +112,9 @@
         }
 
 
-        public void CreateMatrix()
+        public void CreateMatrix(MatrixTypes type)
         {
-            this.matrix = (Matrix)(new MatrixFactory().CreateMatrix(MatrixTypes.BIG));
+            this.matrix = (Matrix)(new MatrixFactory().CreateMatrix(type));
             this.printer.PrintMatrix(matrix, player);
         }
     }

@@ -26,13 +26,13 @@ namespace Minesweeper.Menu
             switch (currentChoice)
             {
                 case 0:
-                    game.ExecuteCommand("start");
+                    game.ExecuteCommand("start small");
                     break;
                 case 1:
-                    game.ExecuteCommand("start");
+                    game.ExecuteCommand("start medium");
                     break;
                 case 2:
-                    game.ExecuteCommand("start");
+                    game.ExecuteCommand("start big");
                     break;
             }
         }

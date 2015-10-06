@@ -25,7 +25,23 @@
             //base.matrix = (Matrix)(new MatrixFactory().CreateMatrix(MatrixTypes.BIG));
             //base.printer.PrintMatrix(matrix, player);
 
-            this.engine.CreateMatrix();
+            string matrixSize = commandInfo.Params[0];
+            if (matrixSize == "small")
+            {
+                this.engine.CreateMatrix(MatrixTypes.SMALL);
+            }
+            else if(matrixSize == "medium")
+            {
+                this.engine.CreateMatrix(MatrixTypes.MEDIUM);
+            }
+            else if (matrixSize == "big")
+            {
+                this.engine.CreateMatrix(MatrixTypes.BIG);
+            }
+            else
+            {
+              //
+            }
         }
     }
 }
