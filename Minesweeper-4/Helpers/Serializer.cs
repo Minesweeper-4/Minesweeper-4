@@ -14,6 +14,12 @@
         public void Serialize(object memento, string fileName)
         {
 
+            if (!File.Exists(fileName))
+            {
+                var myFile = File.Create(fileName);
+                myFile.Close();
+            }
+
             var writer = new FileStream(fileName, FileMode.Open);
 
             BinaryFormatter mySerializer = new BinaryFormatter();

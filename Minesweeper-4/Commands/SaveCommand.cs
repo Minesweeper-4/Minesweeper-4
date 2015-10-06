@@ -4,6 +4,7 @@
     using Minesweeper.Data.Player;
     using Minesweeper.Engine;
     using Minesweeper.Logic.Draw;
+    using Minesweeper.Helpers;
 
     public class SaveCommand : Command
     {
@@ -14,7 +15,9 @@
 
         public override void Execute(ICommandInfo commandInfo)
         {
-
+            var memento = this.matrix.SaveMemento();
+            var serializer = new Serializer();
+            serializer.Serialize(memento, GlobalErrorMessages.SaveMatrixFileName);
         }
     }
 }
