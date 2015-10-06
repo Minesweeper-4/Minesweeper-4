@@ -7,12 +7,16 @@
 
     public class StartCommand : Command
     {
+        private MatrixBuilder builder;
+        private MatrixDirector director;
         private MinesweeperEngine engine;
 
         public StartCommand(MinesweeperEngine engine, Matrix matrix, Player player, MatrixDirector matrixDirector, MatrixBuilder matrixBuilder, Printer printer)
-            : base(matrix, player, matrixDirector, matrixBuilder, printer)
+            : base(matrix, player, printer)
         {
             this.engine = engine;
+            this.director = matrixDirector;
+            this.builder = matrixBuilder;
         }
 
 

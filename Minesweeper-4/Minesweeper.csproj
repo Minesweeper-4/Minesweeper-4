@@ -71,12 +71,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\CommandInfo.cs" />
     <Compile Include="Commands\CommandParser.cs" />
     <Compile Include="Commands\ICommandFactory.cs" />
     <Compile Include="Commands\ICommandInfo.cs" />
     <Compile Include="Commands\ICommandParser.cs" />
+    <Compile Include="Commands\InvalidCommand.cs" />
+    <Compile Include="Commands\LoadCommand.cs" />
+    <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="Commands\StartCommand.cs" />
     <Compile Include="Commands\TurnCommand.cs" />
     <Compile Include="Data\BigMatrixBuilder.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Enumerations\MainMenuOptions.cs" />
     <Compile Include="Enumerations\MatrixTypes.cs" />
     <Compile Include="Enumerations\SecondMenuOptions.cs" />
+    <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Helpers\GlobalErrorMessages.cs" />
     <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Helpers\Validator.cs" />

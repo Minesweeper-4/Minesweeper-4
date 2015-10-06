@@ -71,17 +71,32 @@
             {
                 case "start":
                     currentCommand = new StartCommand(this, this.matrix, player, this.director, this.builder, this.printer);
-
                     break;
 
                 case "turn":
-                    currentCommand = new TurnCommand(this.matrix, this.player, this.director, this.builder, this.printer);
+                    currentCommand = new TurnCommand(this.matrix, this.player, this.printer);
                     break;
+
                 case "menu":
                     MainMenu.PrintMenu(this);
                     break;
+
+                case "exit":
+                    currentCommand = new ExitCommand(this.matrix, this.player, this.printer);
+                    break;
+
+                case "save":
+                    currentCommand = new SaveCommand(this.matrix, this.player, this.printer);
+                    break;
+
+                case "load":
+                    currentCommand = new LoadCommand(this.matrix, this.player, this.printer);
+                    break;
+
+                
                 default:
-                    throw new NotFiniteNumberException();
+                    currentCommand = new InvalidCommand(this.matrix, this.player, this.printer);
+                    break;
             }
 
             currentCommand.Execute(commandInfo);

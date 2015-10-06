@@ -1,64 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Minesweeper.Commands.CommandFactory" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="1" Y="0.5" Width="1.5" />
+  <Class Name="Minesweeper.Commands.Command" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAACAAAACAAAAAAAAABAAAAAABABAE=</HashCode>
-      <FileName>Commands\CommandFactory.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAACAAAAAAAAABAAAAAAAAAAE=</HashCode>
+      <FileName>Commands\Command.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Minesweeper.Commands.CommandInfo" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+  <Class Name="Minesweeper.Commands.StartCommand">
+    <Position X="2.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAACAAAA=</HashCode>
-      <FileName>Commands\CommandInfo.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="Minesweeper.Commands.CommandParser" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="1" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Commands\CommandParser.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="Minesweeper.Commands.StartCommand" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAQAAAAAACAAAAAIAAABAAAAAAAAAAE=</HashCode>
+      <HashCode>AAAAAAAAAAAQAAQAAAAAAAAAAAAIAAAAAAAAAAQAAAA=</HashCode>
       <FileName>Commands\StartCommand.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Interface Name="Minesweeper.Commands.ICommand" Collapsed="true">
-    <Position X="1" Y="2.75" Width="1.5" />
+  <Class Name="Minesweeper.Commands.TurnCommand">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQACCAAAAAAAAAAAQAAAAAAAABAAAA=</HashCode>
+      <FileName>Commands\TurnCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Commands.ExitCommand">
+    <Position X="7" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Commands\ICommand.cs</FileName>
+      <FileName>Commands\ExitCommand.cs</FileName>
     </TypeIdentifier>
-  </Interface>
-  <Interface Name="Minesweeper.Commands.ICommandFactory" Collapsed="true">
-    <Position X="2.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
-      <FileName>Commands\ICommandFactory.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Minesweeper.Commands.ICommandInfo" Collapsed="true">
-    <Position X="1" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Commands\ICommandInfo.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Minesweeper.Commands.ICommandParser" Collapsed="true">
-    <Position X="2.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Commands\ICommandParser.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
