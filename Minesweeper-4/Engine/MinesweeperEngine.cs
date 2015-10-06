@@ -25,8 +25,8 @@
         private readonly MatrixBuilder builder = new BigMatrixBuilder();
         private Player player = new Player();
         private ICommandParser commandParser = new CommandParser();
-        private Matrix matrix;
         private MatrixFactory matrixFactory = new MatrixFactory();
+        private Matrix matrix;
 
         private MinesweeperEngine()
         {
@@ -93,6 +93,9 @@
                     currentCommand = new LoadCommand(this.matrix, this.player, this.printer);
                     break;
 
+                case "mode":
+                    currentCommand = new ChangeModeCommand(this.matrix, this.player, this.printer);
+                    break;
                 
                 default:
                     currentCommand = new InvalidCommand(this.matrix, this.player, this.printer);
