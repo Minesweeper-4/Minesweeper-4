@@ -96,7 +96,10 @@
                 case "mode":
                     currentCommand = new ChangeModeCommand(this.matrix, this.player, this.printer);
                     break;
-                
+
+                case "highscore":
+                    break;
+
                 default:
                     currentCommand = new InvalidCommand(this.matrix, this.player, this.printer);
                     break;
