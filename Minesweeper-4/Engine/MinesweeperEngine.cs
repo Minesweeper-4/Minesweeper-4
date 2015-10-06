@@ -103,6 +103,7 @@
             }
 
             currentCommand.Execute(commandInfo);
+            this.printer.PrintMatrix(this.matrix, this.player);
             this.Start();
         }
 
