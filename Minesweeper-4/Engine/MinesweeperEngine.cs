@@ -98,6 +98,7 @@
                     break;
 
                 case "highscore":
+                    currentCommand = new HighScoreCommand(this.matrix, this.player, this.printer);
                     break;
 
                 default:

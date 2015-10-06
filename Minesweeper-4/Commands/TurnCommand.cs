@@ -60,7 +60,7 @@
             //var nickname = Console.ReadLine();
             //var playerProxy = new PlayerProxy(nickname, this.player.Score);
 
-            var scoresHandler = new ScoresHandler("records.xml");
+            var scoresHandler = new ScoresHandler();
             scoresHandler.LoadFromFile();
             scoresHandler.AddReccord(this.player);
             scoresHandler.SaveToFile();

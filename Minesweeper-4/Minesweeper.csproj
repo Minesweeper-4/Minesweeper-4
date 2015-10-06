@@ -74,6 +74,7 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandInfo.cs" />
     <Compile Include="Commands\CommandParser.cs" />
+    <Compile Include="Commands\HighScoreCommand.cs" />
     <Compile Include="Commands\ICommandFactory.cs" />
     <Compile Include="Commands\ICommandInfo.cs" />
     <Compile Include="Commands\ICommandParser.cs" />

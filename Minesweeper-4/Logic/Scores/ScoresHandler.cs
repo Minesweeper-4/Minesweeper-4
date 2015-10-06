@@ -12,34 +12,17 @@
     public class ScoresHandler : IScoresHandler
     {
         private List<Player> records;
-        private string storingPath;
         private SortStrategy sortStrategy = new DefaultSort();
         private Serializer serializer = new Serializer();
 
-        public ScoresHandler(string storingPath)
+        public ScoresHandler()
         {
-            this.StoringPath = storingPath;
             this.records = new List<Player>();
         }
 
         public IList<Player> Reccords
         {
             get { return this.records; } // changed for making it testable. Was NotImplemented
-        }
-
-        public string StoringPath
-        {
-            get
-            {
-                return this.storingPath;
-            }
-
-            private set
-            {
-                Validator.ValidateNonEmptyString(value, "StoringPath");
-
-                this.storingPath = value;
-            }
         }
 
         public void AddReccord(Player player)
