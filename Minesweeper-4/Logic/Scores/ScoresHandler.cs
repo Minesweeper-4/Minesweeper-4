@@ -2,6 +2,7 @@
 {
     using Minesweeper.Data.Player;
     using Minesweeper.Helpers;
+    using Interfaces;
     using Minesweeper.Logic.Sorter;
     using System;
     using System.Collections.Generic;
@@ -11,28 +12,28 @@
 
     public class ScoresHandler : IScoresHandler
     {
-        private List<Player> records;
+        private List<IPlayer> records;
         private SortStrategy sortStrategy = new DefaultSort();
         private Serializer serializer = new Serializer();
 
         public ScoresHandler()
         {
-            this.records = new List<Player>();
+            this.records = new List<IPlayer>();
         }
 
-        public IList<Player> Reccords
+        public IList<IPlayer> Reccords
         {
             get { return this.records; } // changed for making it testable. Was NotImplemented
         }
 
-        public void AddReccord(Player player)
+        public void AddReccord(IPlayer player)
         {
             int lastRecordScore = 0;
 
             if (this.Reccords.Count != 0) // added to make the method testable
             {
                 lastRecordScore = this.records.Last().Score;
-            }            
+            }
 
             if (this.records.Count < 10 || player.Score > lastRecordScore)
             {
@@ -59,12 +60,13 @@
 
             if (fileInfo.Length == 0)
             {
-                this.records = new List<Player>();
+                this.records = new List<IPlayer>();
             }
 
             else
             {
-                this.records = this.serializer.Deserialize(GlobalErrorMessages.SaveRecordstFileName) as List<Player>;
+                var records = this.serializer.Deserialize(GlobalErrorMessages.SaveRecordstFileName) as List<Player>;
+                this.records = records.ToList<IPlayer>();
             }
         }
 

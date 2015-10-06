@@ -3,6 +3,7 @@
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
     using Minesweeper.Engine;
+    using Interfaces;
     using Minesweeper.Logic.Draw;
     using Minesweeper.Logic.Scores;
     using System;
@@ -19,7 +20,7 @@
         {
             var scoresHandler = new ScoresHandler();
             scoresHandler.LoadFromFile();
-            List<Player> records = (List<Player>)scoresHandler.Reccords;
+            List<IPlayer> records = (List<IPlayer>)scoresHandler.Reccords;
 
             foreach (var record in records)
             {

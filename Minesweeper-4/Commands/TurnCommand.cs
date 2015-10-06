@@ -54,15 +54,14 @@
         private void EnterScoreRecordHandler()
         {
             Console.Write("Enter your nickname: ");
-            this.player.Nickname = Console.ReadLine();
 
             // When the serializer is fixed we need to use PlayerProxy class
-            //var nickname = Console.ReadLine();
-            //var playerProxy = new PlayerProxy(nickname, this.player.Score);
+            var nickname = Console.ReadLine();
+            var playerProxy = new PlayerProxy(nickname, this.player.Score);
 
             var scoresHandler = new ScoresHandler();
             scoresHandler.LoadFromFile();
-            scoresHandler.AddReccord(this.player);
+            scoresHandler.AddReccord(playerProxy);
             scoresHandler.SaveToFile();
         }
 
