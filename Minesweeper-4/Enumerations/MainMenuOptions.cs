@@ -1,8 +1,8 @@
 ﻿public enum MainMenuOptions
 {
-    NewGame,
-    ViewHighScores, 
-    ChooseGameMode,
-    HowToPlay,
-    Exit
+    START,
+    SCORES, 
+    MODE,
+    INSTRUCTIONS,
+    EXIT
 }

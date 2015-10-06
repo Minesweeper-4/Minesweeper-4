@@ -119,9 +119,11 @@
     <Compile Include="Logic\Sorter\SortStrategy.cs" />
     <Compile Include="Menu\CustomizeConsole.cs" />
     <Compile Include="Menu\MainMenu.cs" />
+    <Compile Include="Menu\MenuOrientation.cs" />
+    <Compile Include="Menu\MenuToGameDifficulty.cs" />
     <Compile Include="Menu\Navigation.cs" />
     <Compile Include="Menu\PrintLogo.cs" />
-    <Compile Include="Menu\SecondMenu.cs" />
+    <Compile Include="Menu\ProcessInput.cs" />
     <Compile Include="MinesweeperMain.cs" />
     <Compile Include="ScoreRecord.cs" />
   </ItemGroup>
