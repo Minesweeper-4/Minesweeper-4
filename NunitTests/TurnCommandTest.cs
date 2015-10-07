@@ -1,16 +1,9 @@
-﻿using Minesweeper.Commands;
-using Minesweeper.Data;
+﻿using Minesweeper.Data;
 using Minesweeper.Data.Player;
 using Minesweeper.Engine;
-using Minesweeper.Interfaces;
 using Minesweeper.Logic.Draw;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System;
-using System.IO;
 
-using Minesweeper.Logic.Draw;
-using Moq;
 
 namespace NunitTests
 {
