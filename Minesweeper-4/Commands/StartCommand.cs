@@ -44,7 +44,7 @@
             }
             else
             {
-                throw new Exception("Invalid matrix size");
+                throw new ArgumentOutOfRangeException("Invalid matrix size");
             }
         }
     }

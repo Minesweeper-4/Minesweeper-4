@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Minesweeper.Logic.Draw
 {
-    class StandardPrinter : Printer
+    public class StandardPrinter : Printer
     {
         private const char UnrevealedCellCharacter = '?';
         private const char BombCharacter = '*';
