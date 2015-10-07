@@ -73,15 +73,25 @@
             Console.Write("Enter your nickname: ");
 
             var nickname = Console.ReadLine();
-            var playerProxy = new PlayerProxy(nickname, this.Player.Score);
 
-            var scoresHandler = new ScoresHandler();
-            scoresHandler.LoadFromFile();
-            scoresHandler.AddReccord(playerProxy);
-            scoresHandler.SaveToFile();
-            Console.WriteLine("Press any key to continiue..");
-            Console.ReadKey();
-            MainMenu.PrintMenu(this.engine);
+
+            try
+            {
+                var playerProxy = new PlayerProxy(nickname, this.Player.Score);
+                var scoresHandler = new ScoresHandler();
+                scoresHandler.LoadFromFile();
+                scoresHandler.AddReccord(playerProxy);
+                scoresHandler.SaveToFile();
+                Console.WriteLine("Press any key to continiue..");
+                Console.ReadKey();
+                MainMenu.PrintMenu(this.engine);
+            }
+
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("The name should be between 2 and 10 characters");
+                EnterScoreRecordHandler();
+            }
         }
 
         private void CheckForZeroMines(int rowIndex, int colIndex)
