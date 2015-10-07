@@ -46,6 +46,16 @@ namespace NunitTests
             Assert.Throws(typeof(ArgumentOutOfRangeException), () => Validator.ValidateIntInRange(value, minValue, minValue, parameterName));
         }
 
+        [Test]
+        public void ValidateIntInRangeShouldNotThrowWhenPassingValidData()
+        {
+            string parameterName = "ParameterName";
+            int value = 5;
+            int minValue = 2;
+            int maxValue = 10;
+            Assert.DoesNotThrow(() => Validator.ValidateIntInRange(value, minValue, maxValue, parameterName));
+        }
+
         [TestCase(-1)]
         public void ValidateNonNegativeThrowsProperExceptionWhennegativeNumber(int value)
         {
