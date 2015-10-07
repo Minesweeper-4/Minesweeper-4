@@ -1,10 +1,17 @@
 ﻿namespace Minesweeper.Menu
 {
-    using Engine;
     using System;
+    using Engine;
 
+    /// <summary>
+    /// Set the positioning and visibility of the Main Menu
+    /// </summary>
     public class MainMenu
     {
+        /// <summary>
+        /// Takes the method for nawigating through the main menu
+        /// </summary>
+        /// <param name="game">Import the game Engine to start the application</param>
        internal static void PrintMenu(MinesweeperEngine game)
         {
             Console.Clear();

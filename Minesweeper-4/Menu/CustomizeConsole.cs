@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Set the dimensions of the console
+    /// </summary>
     public class CustomizeConsole
     {
         public const int Width = 89;

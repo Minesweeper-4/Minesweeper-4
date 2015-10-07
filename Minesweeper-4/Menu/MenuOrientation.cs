@@ -1,16 +1,21 @@
-﻿using Minesweeper.Engine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Menu
+﻿namespace Minesweeper.Menu
 {
-    class MenuOrientation
+    using System;
+    using Minesweeper.Engine;
+
+    /// <summary>
+    /// Extract the logic for the orientation of the menu, in order to be reusable
+    /// </summary>
+    internal class MenuOrientation
     {
         private static int currentChoice = 0;
 
+        /// <summary>
+        /// Set the navigation logic and colors for the horizontal menu
+        /// </summary>
+        /// <param name="game">Import the game engine</param>
+        /// <param name="e">Import the desired enumeration, which will be used for the navigation</param>
+        /// <returns>Returns the selected choice, in order to be further processed</returns>
         internal static int HorizontalOfMenus(MinesweeperEngine game, Enum e)
         {
             string[] secMenuItems = new string[Enum.GetNames(e.GetType()).Length];
@@ -100,9 +105,16 @@ namespace Minesweeper.Menu
                     }
                 }
             }
+
             return currentChoice;
         }
 
+        /// <summary>
+        /// Set the navigation logic and colors for the vertical menu
+        /// </summary>
+        /// <param name="game">Import the game engine</param>
+        /// <param name="e">Import the desired enumeration, which will be used for the navigation</param>
+        /// <returns>Returns the selected choice, in order to be further processed</returns>
         internal static int VerticalOrientation(MinesweeperEngine game, Enum e)
         {
             string[] menuItems = new string[Enum.GetNames(e.GetType()).Length];
@@ -162,7 +174,7 @@ namespace Minesweeper.Menu
                         }
                         else
                         {
-                           if(Console.BackgroundColor == ConsoleColor.White)
+                           if (Console.BackgroundColor == ConsoleColor.White)
                             {
                                 Console.ForegroundColor = ConsoleColor.Black;
                             }
@@ -192,6 +204,7 @@ namespace Minesweeper.Menu
                     }
                 }
             }
+
             return currentChoice;
         }
     }

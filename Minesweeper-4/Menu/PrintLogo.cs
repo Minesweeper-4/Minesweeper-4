@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Prints the logo to the console and positions it
+    /// </summary>
     internal class PrintLogo
     {
         private static string[] title =
