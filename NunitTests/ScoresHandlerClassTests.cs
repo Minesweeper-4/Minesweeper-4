@@ -2,6 +2,7 @@
 using Minesweeper.Logic.Scores;
 using NUnit.Framework;
 using System;
+using System.IO;
 
 namespace NunitTests
 {
@@ -27,23 +28,49 @@ namespace NunitTests
 
             Assert.AreEqual(expectedListLength, newListLength, "List of Records are not updated!");
         }
-
+        
         [Test]
-        [Ignore]
-        public void ThrowExceptionWhenSettingNullStoringPath()
+        public void ExpectSaveToFileToCreateFileIfTheFileDoesntExist()
         {
-            string storingPath = null;
+            var fileName = "testFile.txt";
+            var scoreHandler = new ScoresHandler();
 
-            Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler());
+            scoreHandler.SaveToFile(fileName);
+
+            Assert.True(File.Exists(fileName));
+            File.Delete(fileName);
         }
 
         [Test]
-        [Ignore]
-        public void ThrowExceptionWhenSettingEmptyStringStoringPath()
+        public void ExpectLoadFromFileToCreateFileIfTheFileDoesntExist()
         {
-            string storingPath = string.Empty;
+            var fileName = "testFile.txt";
+            var scoreHandler = new ScoresHandler();
 
-            Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler());
+            scoreHandler.LoadFromFile(fileName);
+
+            Assert.True(File.Exists(fileName));
+            File.Delete(fileName);
+        }
+
+        [Test]
+        public void ExpectLoadFromFileToLoadCorrectList()
+        {
+            var fileName = "testFile.txt";
+            var scoreHandler = new ScoresHandler();
+            var playerA = new Player("TestPlayerA", 1);
+            var playerB = new Player("TestPlayerB", 2);
+            scoreHandler.AddReccord(playerA);
+            scoreHandler.AddReccord(playerB);
+
+            scoreHandler.SaveToFile(fileName);
+
+            scoreHandler.LoadFromFile(fileName);
+
+            Assert.AreEqual(2, scoreHandler.Reccords.Count, "The loaded scores are {0}, which is incorect value",
+                            scoreHandler.Reccords.Count);
+
+            File.Delete(fileName);
         }
     }
 }
