@@ -4,10 +4,18 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class CommandParser : ICommandParser
+    /// <summary>
+    /// Class used for parsing the user input and pass the command for processing
+    /// </summary>
+    internal class CommandParser : ICommandParser
     {
         private const char SplitCommandSymbol = ' ';
 
+        /// <summary>
+        /// Method that takes the user imput, checks it validity and returns the command in order to be further retrieved
+        /// </summary>
+        /// <param name="input">User console input</param>
+        /// <returns></returns>
         public ICommandInfo Parse(string input)
         {
             input.Trim();

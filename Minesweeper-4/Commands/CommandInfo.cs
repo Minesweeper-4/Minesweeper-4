@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Commands
+﻿namespace Minesweeper.Commands
 {
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Inherits the interface and sets a constuctod for declaration of the desired parameters of the commands info
+    /// </summary>
     public class CommandInfo : ICommandInfo
     {
         private string name;

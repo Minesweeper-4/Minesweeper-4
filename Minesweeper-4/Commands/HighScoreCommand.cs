@@ -1,15 +1,17 @@
 ﻿namespace Minesweeper.Commands
 {
+    using System.Collections.Generic;
+    using Interfaces;
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
     using Minesweeper.Engine;
-    using Interfaces;
     using Minesweeper.Logic.Draw;
     using Minesweeper.Logic.Scores;
-    using System;
-    using System.Collections.Generic;
     using Minesweeper.Menu;
 
+    /// <summary>
+    /// Inherits the Command abstrct class and implments the logic for the displaying the records
+    /// </summary>
     public class HighScoreCommand : Command
     {
         private MinesweeperEngine engine;
@@ -20,6 +22,10 @@
             this.engine = engine;
         }
 
+        /// <summary>
+        /// Method that loads the records from a file, and displays them
+        /// </summary>
+        /// <param name="commandInfo">HIGHSCORE Command needed</param>
         public override void Execute(ICommandInfo commandInfo)
         {
             var scoresHandler = new ScoresHandler();
@@ -29,11 +35,10 @@
             foreach (var record in records)
             {
                 var recordToString = string.Format("{0} - {1}", record.Nickname, record.Score);
-                printer.PrintLine(recordToString);
+                this.Printer.PrintLine(recordToString);
             }
 
-            Navigation.ReturnExitNavigation(engine, new SecondMenuOptions());
-            
+            Navigation.ReturnExitNavigation(this.engine, new SecondMenuOptions());
         }
     }
 }

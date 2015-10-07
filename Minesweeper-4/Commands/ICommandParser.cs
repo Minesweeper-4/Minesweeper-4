@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Commands
+﻿namespace Minesweeper.Commands
 {
+    /// <summary>
+    /// Interface set to parse the console input
+    /// </summary>
     public interface ICommandParser
     {
         ICommandInfo Parse(string input);
