@@ -13,7 +13,7 @@ namespace NunitTests
         [TestCase(10)]
         public void ScoresHandlerRecordsListIsUpdatedWhenAddingRecords(int count)
         {
-            ScoresHandler scoresHandler = new ScoresHandler("somepath");
+            ScoresHandler scoresHandler = new ScoresHandler();
 
             int expectedListLength = scoresHandler.Reccords.Count + count;
 
@@ -29,29 +29,21 @@ namespace NunitTests
         }
 
         [Test]
+        [Ignore]
         public void ThrowExceptionWhenSettingNullStoringPath()
         {
             string storingPath = null;
 
-            Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler(storingPath));
+            Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler());
         }
 
         [Test]
+        [Ignore]
         public void ThrowExceptionWhenSettingEmptyStringStoringPath()
         {
             string storingPath = string.Empty;
 
-            Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler(storingPath));
-        }
-
-        [Test]
-        public void StoringPathGetterReturningProperValue()
-        {
-            string storingPath = "path";
-
-            ScoresHandler scoresHandler = new ScoresHandler(storingPath);
-
-            Assert.AreEqual(storingPath, scoresHandler.StoringPath);
+            Assert.Throws(typeof(ArgumentNullException), () => new ScoresHandler());
         }
     }
 }

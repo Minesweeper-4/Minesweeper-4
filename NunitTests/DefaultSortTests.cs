@@ -3,6 +3,7 @@ using Minesweeper.Logic.Sorter;
 using Minesweeper.Data.Player;
 using System.Collections.Generic;
 using System.Linq;
+using Minesweeper.Interfaces;
 
 namespace NunitTests
 {
@@ -14,15 +15,15 @@ namespace NunitTests
         {
             DefaultSort sorter = new DefaultSort();
 
-            Player first = new Player("Ivan", 2);
-            Player second = new Player("Dragan", 1);
-            Player third = new Player("Petkan", 0);
+            IPlayer first = new Player("Ivan", 2);
+            IPlayer second = new Player("Dragan", 1);
+            IPlayer third = new Player("Petkan", 0);
 
-            IList<Player> inputPlayers = new List<Player> { first, third, second };
+            IList<IPlayer> inputPlayers = new List<IPlayer> { first, third, second };
 
-            IList<Player> expectedPlayers = new List<Player> { first, second, third };
+            IList<IPlayer> expectedPlayers = new List<IPlayer> { first, second, third };
 
-            IList<Player> actualPlayers = sorter.Sort(inputPlayers);
+            IList<IPlayer> actualPlayers = sorter.Sort(inputPlayers);
 
             Assert.IsTrue(expectedPlayers.SequenceEqual(actualPlayers),
                 "The expected and the result lists of sorted Players are NOT equal!");
@@ -33,15 +34,15 @@ namespace NunitTests
         {
             DefaultSort sorter = new DefaultSort();
 
-            Player first = new Player("Ivan", 2);
-            Player second = new Player("Angel", 1);
-            Player third = new Player("Angus", 1);
+            IPlayer first = new Player("Ivan", 2);
+            IPlayer second = new Player("Angel", 1);
+            IPlayer third = new Player("Angus", 1);
 
-            IList<Player> inputPlayers = new List<Player> { first, third, second };
+            IList<IPlayer> inputPlayers = new List<IPlayer> { first, third, second };
 
-            IList<Player> expectedPlayers = new List<Player> { first, second, third };
+            IList<IPlayer> expectedPlayers = new List<IPlayer> { first, second, third };
 
-            IList<Player> actualPlayers = sorter.Sort(inputPlayers);
+            IList<IPlayer> actualPlayers = sorter.Sort(inputPlayers);
 
             Assert.IsTrue(expectedPlayers.SequenceEqual(actualPlayers),
                 "The expected and the result lists of sorted Players are NOT equal!");
