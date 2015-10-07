@@ -96,6 +96,7 @@
     <Compile Include="Data\SmallMatrixBuilder.cs" />
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\EngineValidator.cs" />
+    <Compile Include="Engine\IMinesweeperEngine.cs" />
     <Compile Include="Enumerations\MainMenuOptions.cs" />
     <Compile Include="Enumerations\MatrixTypes.cs" />
     <Compile Include="Enumerations\ModeOptions.cs" />

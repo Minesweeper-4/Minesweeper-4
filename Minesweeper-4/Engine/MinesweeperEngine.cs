@@ -1,21 +1,13 @@
 ﻿namespace Minesweeper.Engine
 {
-    using System;
-    using Minesweeper.Data;
-    using Minesweeper.Logic;
-    using Minesweeper.Logic.Draw;
-    using Minesweeper.Interfaces;
-    using Minesweeper.Data.Player;
-    using Minesweeper.Logic.Scores;
-    using System.IO;
-    using System.Xml.Serialization;
-    using System.Runtime.Serialization.Formatters.Binary;
-    using System.Threading;
-    using Minesweeper.Helpers;
-    using Minesweeper.Commands;
     using Menu;
+    using Minesweeper.Commands;
+    using Minesweeper.Data;
+    using Minesweeper.Data.Player;
+    using Minesweeper.Logic.Draw;
+    using System;
 
-    public class MinesweeperEngine
+    public class MinesweeperEngine : IMinesweeperEngine
     {
         private static MinesweeperEngine mineSweeperEngineInstance;
         private static object locker = new object();
