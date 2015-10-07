@@ -8,7 +8,7 @@
     {
         IList<IPlayer> Reccords { get; }
         void AddReccord(IPlayer player);
-        void SaveToFile();
-        void LoadFromFile();
+        void SaveToFile(string filePath);
+        void LoadFromFile(string filePath);
     }
 }

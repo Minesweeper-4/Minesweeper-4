@@ -8,6 +8,7 @@
     using Minesweeper.Logic.Draw;
     using Minesweeper.Logic.Scores;
     using Minesweeper.Menu;
+    using Helpers;
 
     /// <summary>
     /// Inherits the Command abstrct class and implments the logic for the displaying the records
@@ -29,7 +30,7 @@
         public override void Execute(ICommandInfo commandInfo)
         {
             var scoresHandler = new ScoresHandler();
-            scoresHandler.LoadFromFile();
+            scoresHandler.LoadFromFile(GlobalErrorMessages.SaveRecordstFileName);
             List<IPlayer> records = (List<IPlayer>)scoresHandler.Reccords;
 
             foreach (var record in records)
