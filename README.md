@@ -15,15 +15,15 @@ Team project for High-Quality Code course in Telerik Academy Season 2015-2016.
 	* Adapter
 	* Bridge
 	* Composite
-	* Decorator
-	* Facade			[]
+	* Decorator [implemented]
+	* Facade		
 	* Flyweight
-	* Proxy  [Implementd]
+	* Proxy  [Implemented]
 
 
 * Behavioral Patterns
 	* Chain of Resp.
-	* Command
+	* Command			[Implemented]
 	* Interpreter
 	* Iterator
 	* Mediator
