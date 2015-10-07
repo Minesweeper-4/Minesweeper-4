@@ -2,7 +2,9 @@
 {
     using Minesweeper.Helpers;
     using Minesweeper.Interfaces;
+    using System;
 
+    [Serializable]
     public class PlayerProxy : IPlayer
     {
         private IPlayer player;

@@ -2,15 +2,20 @@
 {
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
+    using Minesweeper.Engine;
     using Minesweeper.Logic.Draw;
     using Minesweeper.Logic.Scores;
+    using Minesweeper.Menu;
     using System;
 
-    class TurnCommand : Command
+    public class TurnCommand : Command
     {
-        public TurnCommand(Matrix matrix, Player player, Printer printer)
+        private MinesweeperEngine engine;
+
+        public TurnCommand(MinesweeperEngine engine, Matrix matrix, Player player, Printer printer)
             : base(matrix, player, printer)
         {
+            this.engine = engine;
         }
 
         public override void Execute(ICommandInfo commandInfo)
@@ -63,6 +68,9 @@
             scoresHandler.LoadFromFile();
             scoresHandler.AddReccord(playerProxy);
             scoresHandler.SaveToFile();
+            Console.WriteLine("Press any key to continiue..");
+            Console.ReadKey();
+            MainMenu.PrintMenu(engine);
         }
 
         private void CheckForZeroMines(int rowIndex, int colIndex)

@@ -74,7 +74,7 @@
                     break;
 
                 case "turn":
-                    currentCommand = new TurnCommand(this.matrix, this.player, this.printer);
+                    currentCommand = new TurnCommand(this, this.matrix, this.player, this.printer);
                     break;
 
                 case "menu":

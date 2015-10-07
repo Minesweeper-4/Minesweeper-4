@@ -65,7 +65,7 @@
 
             else
             {
-                var records = this.serializer.Deserialize(GlobalErrorMessages.SaveRecordstFileName) as List<Player>;
+                var records = this.serializer.Deserialize(GlobalErrorMessages.SaveRecordstFileName) as List<IPlayer>;
                 this.records = records.ToList<IPlayer>();
             }
         }
