@@ -57,7 +57,7 @@ namespace Minesweeper.Menu
                 Console.Clear();
                 PrintLogo.Print();
                 Console.SetCursorPosition((CustomizeConsole.Width / 2) - 10, 10);
-                Console.WriteLine("- CHOOSE GAME DIFFICULTY -\n");
+                Console.WriteLine("- CHOOSE GAME DIFFICULTY -\n\n\n");
 
                 Navigation.GameDifficultyNavigation(game, new MatrixTypes());
 
@@ -67,7 +67,7 @@ namespace Minesweeper.Menu
                 Console.Clear();
                 PrintLogo.Print();
                 Console.SetCursorPosition((CustomizeConsole.Width / 2) - 10, 10);
-                Console.WriteLine("- HIGH SCORES -\n");
+                Console.WriteLine("- HIGH SCORES -\n\n\n");
                 game.ExecuteCommand("highscore");
                 Navigation.ReturnExitNavigation(game, new SecondMenuOptions());
             }
@@ -76,7 +76,7 @@ namespace Minesweeper.Menu
                 Console.Clear();
                 PrintLogo.Print();
                 Console.SetCursorPosition((CustomizeConsole.Width / 2) - 10, 10);
-                Console.WriteLine("- CHOOSE MODE TO PLAY -\n\n");
+                Console.WriteLine("- CHOOSE MODE TO PLAY -\n\n\n");
 
                 Navigation.GameModeNavigation(game, new ModeOptions());
 
@@ -87,7 +87,14 @@ namespace Minesweeper.Menu
                 Console.Clear();
                 PrintLogo.Print();
                 Console.SetCursorPosition(20, 9);
-                Console.WriteLine(" - HOW TO PLAY - ");
+                Console.WriteLine(" - HOW TO PLAY - \n\n\n");
+                Console.WriteLine("   * Enter 'turn row col' (where row and col are numbers) to open a new field");
+                Console.WriteLine("   * Enter 'exit' to Exit the game");
+                Console.WriteLine("   * Enter 'save' to Save the current state of the game");
+                Console.WriteLine("   * Enter 'load' to Load previously saved game");
+                Console.WriteLine("   * Enter 'menu' to return to Main Menu");
+                Console.WriteLine("   * Enter 'highscore' to review the highscores table");
+
 
                 Navigation.ReturnExitNavigation(game, new SecondMenuOptions());
             }
