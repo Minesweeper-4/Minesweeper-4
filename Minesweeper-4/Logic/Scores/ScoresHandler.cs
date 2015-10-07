@@ -43,20 +43,20 @@
             SortRecords();
         }
 
-        public void SaveToFile()
+        public void SaveToFile(string filePath)
         {
-            this.serializer.Serialize(this.records, GlobalErrorMessages.SaveRecordstFileName);
+            this.serializer.Serialize(this.records, filePath);
         }
 
-        public void LoadFromFile()
+        public void LoadFromFile(string filePath)
         {
-            if (!File.Exists(GlobalErrorMessages.SaveRecordstFileName))
+            if (!File.Exists(filePath))
             {
-                var myFile = File.Create(GlobalErrorMessages.SaveRecordstFileName);
+                var myFile = File.Create(filePath);
                 myFile.Close();
             }
 
-            var fileInfo = new FileInfo(GlobalErrorMessages.SaveRecordstFileName);
+            var fileInfo = new FileInfo(filePath);
 
             if (fileInfo.Length == 0)
             {
@@ -65,7 +65,7 @@
 
             else
             {
-                var records = this.serializer.Deserialize(GlobalErrorMessages.SaveRecordstFileName) as List<IPlayer>;
+                var records = this.serializer.Deserialize(filePath) as List<IPlayer>;
                 this.records = records.ToList<IPlayer>();
             }
         }

@@ -7,6 +7,7 @@
     using Minesweeper.Logic.Draw;
     using Minesweeper.Logic.Scores;
     using Minesweeper.Menu;
+    using Helpers;
 
     /// <summary>
     /// Inherits the base Command Class and deals with the moves of the user
@@ -79,15 +80,15 @@
             {
                 var playerProxy = new PlayerProxy(nickname, this.Player.Score);
                 var scoresHandler = new ScoresHandler();
-                scoresHandler.LoadFromFile();
+                scoresHandler.LoadFromFile(GlobalErrorMessages.SaveRecordstFileName);
                 scoresHandler.AddReccord(playerProxy);
-                scoresHandler.SaveToFile();
+                scoresHandler.SaveToFile(GlobalErrorMessages.SaveRecordstFileName);
                 Console.WriteLine("Press any key to continiue..");
                 Console.ReadKey();
                 MainMenu.PrintMenu(this.engine);
             }
 
-            catch (ArgumentOutOfRangeException e)
+            catch (ArgumentOutOfRangeException)
             {
                 Console.WriteLine("The name should be between 2 and 10 characters");
                 EnterScoreRecordHandler();
