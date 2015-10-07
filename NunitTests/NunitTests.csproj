@@ -74,6 +74,7 @@
     <Compile Include="PlayerProxyClassTests.cs" />
     <Compile Include="ScoresHandlerClassTests.cs" />
     <Compile Include="SerializerTests.cs" />
+    <Compile Include="TurnCommandTest.cs" />
     <Compile Include="ValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
