@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Minesweeper.Logic.Draw
 {
-    class PrinterLightMode : PrinterDecorator
+    public class PrinterLightMode : PrinterDecorator
     {
         public override void Apply()
         {
