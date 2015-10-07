@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CellClassTests.cs" />
+    <Compile Include="PrinterTests.cs" />
     <Compile Include="StartCommandTests.cs" />
     <Compile Include="DefaultSortTests.cs" />
     <Compile Include="MatrixClassTests.cs" />
