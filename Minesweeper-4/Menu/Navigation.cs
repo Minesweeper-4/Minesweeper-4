@@ -28,5 +28,12 @@
 
             ProcessInput.ProcessGameDifficulty(currentChoice, game);
         }
+
+        internal static void GameModeNavigation(MinesweeperEngine game, Enum e)
+        {
+            currentChoice = MenuOrientation.VerticalOrientation(game, e);
+
+            ProcessInput.ProcessGameMode(currentChoice, game);
+        }
     }
 }

@@ -94,7 +94,7 @@
                     break;
 
                 case "mode":
-                    currentCommand = new ChangeModeCommand(this.matrix, this.player, this.printer);
+                    currentCommand = new ChangeModeCommand(this, this.matrix, this.player, this.printer);
                     break;
 
                 case "highscore":

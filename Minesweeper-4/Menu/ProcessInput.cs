@@ -22,7 +22,6 @@ namespace Minesweeper.Menu
 
         public static void ProcessGameDifficulty(int currentChoice, MinesweeperEngine game)
         {
-            Console.ForegroundColor = ConsoleColor.White;
             switch (currentChoice)
             {
                 case 0:
@@ -37,6 +36,20 @@ namespace Minesweeper.Menu
             }
         }
 
+        public static void ProcessGameMode(int currentChoice, MinesweeperEngine game)
+        {
+            switch (currentChoice)
+            {
+                case 0:
+                    game.ExecuteCommand("mode light");
+                    break;
+                case 1:
+                    game.ExecuteCommand("mode dark");
+                    break;
+            }
+            Navigation.ReturnExitNavigation(game, new SecondMenuOptions());
+        }
+
         public static void ProcessMainMenu(int inputChoice, MinesweeperEngine game)
         {
             if (inputChoice == 0)
@@ -44,7 +57,6 @@ namespace Minesweeper.Menu
                 Console.Clear();
                 PrintLogo.Print();
                 Console.SetCursorPosition((CustomizeConsole.Width / 2) - 10, 10);
-                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("- CHOOSE GAME DIFFICULTY -\n");
 
                 Navigation.GameDifficultyNavigation(game, new MatrixTypes());
@@ -55,7 +67,6 @@ namespace Minesweeper.Menu
                 Console.Clear();
                 PrintLogo.Print();
                 Console.SetCursorPosition((CustomizeConsole.Width / 2) - 10, 10);
-                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("- HIGH SCORES -\n");
                 game.ExecuteCommand("highscore");
                 Navigation.ReturnExitNavigation(game, new SecondMenuOptions());
@@ -65,19 +76,15 @@ namespace Minesweeper.Menu
                 Console.Clear();
                 PrintLogo.Print();
                 Console.SetCursorPosition((CustomizeConsole.Width / 2) - 10, 10);
-                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("- CHOOSE MODE TO PLAY -\n\n");
 
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\t\t\t\tLIGHT\n");
-                Console.WriteLine("\t\t\t\tDARK");
+                Navigation.GameModeNavigation(game, new ModeOptions());
 
                 Navigation.ReturnExitNavigation(game, new SecondMenuOptions());
             }
             else if (inputChoice == 3)
             {
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.White;
                 PrintLogo.Print();
                 Console.SetCursorPosition(20, 9);
                 Console.WriteLine(" - HOW TO PLAY - ");

@@ -98,6 +98,7 @@
     <Compile Include="Engine\EngineValidator.cs" />
     <Compile Include="Enumerations\MainMenuOptions.cs" />
     <Compile Include="Enumerations\MatrixTypes.cs" />
+    <Compile Include="Enumerations\ModeOptions.cs" />
     <Compile Include="Enumerations\SecondMenuOptions.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Helpers\GlobalErrorMessages.cs" />
@@ -120,7 +121,6 @@
     <Compile Include="Menu\CustomizeConsole.cs" />
     <Compile Include="Menu\MainMenu.cs" />
     <Compile Include="Menu\MenuOrientation.cs" />
-    <Compile Include="Menu\MenuToGameDifficulty.cs" />
     <Compile Include="Menu\Navigation.cs" />
     <Compile Include="Menu\PrintLogo.cs" />
     <Compile Include="Menu\ProcessInput.cs" />

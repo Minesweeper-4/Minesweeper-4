@@ -32,9 +32,8 @@
                 printer.PrintLine(recordToString);
             }
 
-            Console.WriteLine("Press any key to continiue..");
-            Console.ReadKey();
-            MainMenu.PrintMenu(this.engine);
+            Navigation.ReturnExitNavigation(engine, new SecondMenuOptions());
+            
         }
     }
 }

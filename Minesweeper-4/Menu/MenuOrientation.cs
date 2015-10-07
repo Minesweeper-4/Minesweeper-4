@@ -27,11 +27,25 @@ namespace Minesweeper.Menu
                 {
                     if (currentChoice == i)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        if (Console.BackgroundColor == ConsoleColor.White)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        }
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Gray;
+                        if (Console.BackgroundColor == ConsoleColor.White)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                        }
                     }
 
                     Console.SetCursorPosition(25 + (10 * i), 27);
@@ -44,11 +58,25 @@ namespace Minesweeper.Menu
                     {
                         if (currentChoice == i)
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            if (Console.BackgroundColor == ConsoleColor.White)
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                            }
                         }
                         else
                         {
-                            Console.ForegroundColor = ConsoleColor.Gray;
+                            if (Console.BackgroundColor == ConsoleColor.White)
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkGray;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                            }
                         }
 
                         Console.SetCursorPosition(25 + (10 * i), 27);
@@ -92,11 +120,25 @@ namespace Minesweeper.Menu
                     Console.SetCursorPosition((CustomizeConsole.Width / 2) - (menuItems[i].Length / 2), 10 + i + 1);
                     if (currentChoice == i)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        if (Console.BackgroundColor == ConsoleColor.White)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        }
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        if (Console.BackgroundColor == ConsoleColor.White)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                        }
                     }
 
                     Console.WriteLine(menuItems[i]);
@@ -109,11 +151,25 @@ namespace Minesweeper.Menu
                         Console.SetCursorPosition((CustomizeConsole.Width / 2) - (menuItems[i].Length / 2), 10 + i + 1);
                         if (currentChoice == i)
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            if (Console.BackgroundColor == ConsoleColor.White)
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                            }
                         }
                         else
                         {
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                           if(Console.BackgroundColor == ConsoleColor.White)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Black;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
                         }
 
                         Console.WriteLine(menuItems[i]);
