@@ -17,6 +17,13 @@
     {
         private MinesweeperEngine engine;
 
+        /// <summary>
+        /// Constructor for the highscore command
+        /// </summary>
+        /// <param name="engine">Game engine.</param>
+        /// <param name="matrix">Game matrix</param>
+        /// <param name="player">Current player</param>
+        /// <param name="printer">Current game printer</param>
         public HighScoreCommand(MinesweeperEngine engine, Matrix matrix, Player player, Printer printer)
             : base(matrix, player, printer)
         {

@@ -15,6 +15,15 @@
         private MatrixDirector director;
         private MinesweeperEngine engine;
 
+        /// <summary>
+        /// Constructor for the Start command.
+        /// </summary>
+        /// <param name="engine">Curent game engine.</param>
+        /// <param name="matrix">Current game matrix.</param>
+        /// <param name="player">Current game player.</param>
+        /// <param name="matrixDirector">Matrix director constructing the matrix.</param>
+        /// <param name="matrixBuilder">Matrix builder used by matrix director.</param>
+        /// <param name="printer">Current game printer.</param>
         public StartCommand(MinesweeperEngine engine, Matrix matrix, Player player, MatrixDirector matrixDirector, MatrixBuilder matrixBuilder, Printer printer)
             : base(matrix, player, printer)
         {

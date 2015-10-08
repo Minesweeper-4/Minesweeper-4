@@ -11,6 +11,12 @@
     /// </summary>
     public class ExitCommand : Command
     {
+        /// <summary>
+        /// Command for exiting the game environment.
+        /// </summary>
+        /// <param name="matrix">Object with the field and field logic</param>
+        /// <param name="player">Current player.</param>
+        /// <param name="printer">Printer for the game used currently</param>
         public ExitCommand(Matrix matrix, Player player, Printer printer)
             : base(matrix, player, printer)
         {

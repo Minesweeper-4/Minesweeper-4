@@ -27,6 +27,9 @@
         {
         }
 
+        /// <summary>
+        /// Returns instance of the game engine. Cannot have more than one instances.
+        /// </summary>
         public static MinesweeperEngine Instance
         {
             get
@@ -46,6 +49,9 @@
             }
         }
 
+        /// <summary>
+        /// Method which builds game and sets game fields.
+        /// </summary>
         public void Start()
         {
             Console.Write("Enter command: ");
@@ -54,6 +60,10 @@
             this.ExecuteCommand(command);
         }
 
+        /// <summary>
+        /// Method which process input commands
+        /// </summary>
+        /// <param name="command">inut command</param>
         public void ExecuteCommand(string command)
         {
             CommandInfo commandInfo = (CommandInfo)this.commandParser.Parse(command);
@@ -105,6 +115,10 @@
             this.Start();
         }
 
+        /// <summary>
+        /// Method for creating the game matrix.
+        /// </summary>
+        /// <param name="type">Matrix type</param>
         public void CreateMatrix(MatrixTypes type)
         {
             this.matrix = (Matrix)new MatrixFactory().CreateMatrix(type);

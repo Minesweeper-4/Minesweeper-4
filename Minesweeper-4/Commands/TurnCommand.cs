@@ -16,6 +16,13 @@
     {
         private MinesweeperEngine engine;
 
+        /// <summary>
+        /// Constructor for the turn command
+        /// </summary>
+        /// <param name="engine">Current game engine.</param>
+        /// <param name="matrix">Currentgame matrix.</param>
+        /// <param name="player">Current game player.</param>
+        /// <param name="printer">Current game printer.</param>
         public TurnCommand(MinesweeperEngine engine, Matrix matrix, Player player, Printer printer)
             : base(matrix, player, printer)
         {

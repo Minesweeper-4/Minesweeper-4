@@ -26,6 +26,12 @@
             this.Printer = printer;
         }
 
+        /// <summary>
+        /// Printer used.
+        /// </summary>
+        /// <value>
+        /// Printer.
+        /// </value>
         public Printer Printer
         {
             get
@@ -39,6 +45,12 @@
             }
         }
 
+        /// <summary>
+        /// Matrix holding the mine fields.
+        /// </summary>
+        /// <value>
+        /// Matrix
+        /// </value>
         public Matrix Matrix
         {
             get
@@ -52,6 +64,10 @@
             }
         }
 
+        /// <summary>
+        /// Current player.
+        /// </summary>
+        /// <value>Player</value>
         public Player Player
         {
             get
