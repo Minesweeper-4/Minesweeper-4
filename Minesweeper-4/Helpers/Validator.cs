@@ -7,6 +7,11 @@
     /// </summary>
     public static class Validator
     {
+        /// <summary>
+        /// Validate if a given string has an empty value. If the string is empty throws an ArgumentNullException.
+        /// </summary>
+        /// <param name="value">Input string to be validated.</param>
+        /// <param name="parameterName">The name of the validating parameter for the error message.</param>
         public static void ValidateNonEmptyString(string value, string parameterName)
         {
             if (string.IsNullOrEmpty(value))
@@ -15,6 +20,13 @@
             }
         }
 
+        /// <summary>
+        /// Validate if a given string has lenght between two values. 
+        /// </summary>
+        /// <param name="value">Input string to be validated.</param>
+        /// <param name="minLength">Minimum length value.</param>
+        /// <param name="maxLength">Maximum length value.</param>
+        /// <param name="parameterName">The name of the validating parameter for the error message.</param>
         public static void ValidateStringLength(string value, int minLength, int maxLength, string parameterName)
         {
             Validator.ValidateNonEmptyString(value, parameterName);
@@ -25,6 +37,13 @@
             }
         }
 
+        /// <summary>
+        /// Validate if given integeer is between two values.
+        /// </summary>
+        /// <param name="value">Input integeer to be validated.</param>
+        /// <param name="minValue">Minimum value.</param>
+        /// <param name="maxValue">Maximum value.</param>
+        /// <param name="parameterName">The name of the validating parameter for the error message.</param>
         public static void ValidateIntInRange(int value, int minValue, int maxValue, string parameterName)
         {
             if (value < minValue || maxValue < value)
@@ -33,6 +52,10 @@
             }
         }
 
+        /// <summary>
+        /// Validate if given integeer has a negative value.
+        /// </summary>
+        /// <param name="number">The name of the validating parameter for the error message.</param>
         public static void ValidateNonNegativeInt(int number)
         {
             if (number < 0)
