@@ -23,12 +23,7 @@ namespace NunitTests
         [Test]
         public void ExecuteCommandWorksProper() // this test SHOULD work proper, but doesn't
         {
-            //string command = "start small";
-            string command = "exit";
-
             Mock<IMinesweeperEngine> mockedEngine = new Mock<IMinesweeperEngine>();
-
-            // mockedEngine.Verify(x => x.ExecuteCommand(It.Is<string>(z => z.Contains(command))), Times.Once());
             mockedEngine.Verify(x => x.ExecuteCommand(It.IsAny<string>()), Times.Once());
         }
 
