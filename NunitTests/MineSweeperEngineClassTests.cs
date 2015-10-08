@@ -8,16 +8,28 @@ namespace NunitTests
     [TestFixture]
     public class MineSweeperEngineClassTests
     {
-       [Test]
-        public void StartMethodShouldThrowIfInvalidCommandIsPassed()
+        [Test]
+        public void StartMethodShouldThrowIfInvalidCommandIsPassed() // this test is not accurate
         {
-            string commandString = "sdfsdfdsfstart";
+            string commandString = "start small"; // must NOT throw exception, but it throws
 
             MinesweeperEngine gameInstance = MinesweeperEngine.Instance;
 
             //Assert.That(() => gameInstance.ExecuteCommand(commandString))
             //Assert.That(() => gameInstance.ExecuteCommand(commandString), Throws.Exception.TypeOf<NullReferenceException>());
             Assert.Throws(typeof(IOException), () => gameInstance.ExecuteCommand(commandString));
+        }
+
+        [Test]
+        public void ExecuteCommandWorksProper() // this test SHOULD work proper, but doesn't
+        {
+            //string command = "start small";
+            string command = "exit";
+
+            Mock<IMinesweeperEngine> mockedEngine = new Mock<IMinesweeperEngine>();
+
+            // mockedEngine.Verify(x => x.ExecuteCommand(It.Is<string>(z => z.Contains(command))), Times.Once());
+            mockedEngine.Verify(x => x.ExecuteCommand(It.IsAny<string>()), Times.Once());
         }
 
         [Test]
@@ -266,6 +278,6 @@ namespace NunitTests
 
             Assert.Throws(typeof(IOException), () => game.ExecuteCommand(command));
         }
-        
+
     }
 }
