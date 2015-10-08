@@ -5,13 +5,18 @@
     using Minesweeper.Interfaces;
 
     /// <summary>
-    /// Implements the proxy design pattern. Used to set and ckeck the validity of the used details.
+    /// Implements the proxy design pattern. Used to set and check the validity of the used details.
     /// </summary>
     [Serializable]
     public class PlayerProxy : IPlayer
     {
         private IPlayer player;
 
+        /// <summary>
+        /// Constructor for the class ProxyPlayer.
+        /// </summary>
+        /// <param name="nickname">Input string for the player's nickname.</param>
+        /// <param name="score">>Input integeer for the player's score.</param>
         public PlayerProxy(string nickname, int score)
         {
             this.player = new Player();
@@ -19,6 +24,9 @@
             this.Score = score;
         }
 
+        /// <summary>
+        /// Get and Set nickname of the player and validate it.
+        /// </summary>
         public string Nickname
         {
             get
@@ -33,6 +41,9 @@
             }
         }
 
+        /// <summary>
+        /// Get and Set score of the player and validate it.
+        /// </summary>
         public int Score
         {
             get
