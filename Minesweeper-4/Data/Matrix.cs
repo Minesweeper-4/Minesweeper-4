@@ -14,10 +14,16 @@
     {
         private ICell[,] field;
 
+        /// <summary>
+        /// An empty constructor for the Matrix class.
+        /// </summary>
         public Matrix()
         {
         }
 
+        /// <summary>
+        /// Returns the number of rows in the Matrix field.
+        /// </summary>
         public int Rows
         {
             get
@@ -26,6 +32,9 @@
             }
         }
 
+        /// <summary>
+        /// Returns the number of columns in the Matrix field.
+        /// </summary>
         public int Cols
         {
             get
@@ -34,6 +43,9 @@
             }
         }
 
+        /// <summary>
+        /// Get and Set the Matrix field.
+        /// </summary>
         public ICell[,] Field
         {
             get
@@ -65,6 +77,10 @@
             this.Field = memento.Field;
         }
 
+        /// <summary>
+        /// Set bombs in the Matrix Field.
+        /// </summary>
+        /// <param name="numberOfBombs">Number of bombs to be set.</param>
         public void SetBombs(int numberOfBombs)
         {
             int boardColumns = this.Field.GetLength(1);
@@ -98,6 +114,9 @@
             }
         }
 
+        /// <summary>
+        /// Set the number of surrounded mines for each cell.
+        /// </summary>
         public void SetNumberOfMines()
         {
             for (int row = 0; row < this.Rows; row++)
@@ -109,6 +128,12 @@
             }
         }
 
+        /// <summary>
+        /// Calculate how many bombs there are around current Cell.
+        /// </summary>
+        /// <param name="cellRow">Integeer number of the current row of the Cell.</param>
+        /// <param name="cellCol">Integeer number of the current column of the Cell.</param>
+        /// <returns>Return integeer number of bombs around current Cell.</returns>
         private int GetNumberOfMines(int cellRow, int cellCol)
         {
             var minRow = Math.Max(0, cellRow - 1);

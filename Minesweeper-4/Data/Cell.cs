@@ -13,12 +13,18 @@
         private bool isBomb;
         private int numberOfMines;
 
+        /// <summary>
+        /// Constructor for the Cell class.
+        /// </summary>
         public Cell()
         {
             this.isOpen = false;
             this.IsBomb = false;
         }
 
+        /// <summary>
+        /// Return if the Cell is open or not.
+        /// </summary>
         public bool IsOpen
         {
             get
@@ -32,6 +38,9 @@
             }
         }
 
+        /// <summary>
+        /// Return information if the Cell is bomb or not.
+        /// </summary>
         public bool IsBomb
         {
             get
@@ -45,6 +54,9 @@
             }
         }
 
+        /// <summary>
+        /// Return how many surrounded bombs there are around the Cell.
+        /// </summary>
         public int NumberOfMines
         {
             get

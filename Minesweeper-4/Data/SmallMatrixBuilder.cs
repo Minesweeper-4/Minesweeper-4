@@ -7,11 +7,17 @@
     /// </summary>
     public class SmallMatrixBuilder : MatrixBuilder
     {
+        /// <summary>
+        /// Initialize the Field of the Matrix.
+        /// </summary>
         public override void SetField()
         {
             this.Matrix.Field = new Cell[5, 5];
         }
 
+        /// <summary>
+        /// Initialize every cell of the Filed of the Matrix.
+        /// </summary>
         public override void InitCells()
         {
             for (int i = 0; i < this.Matrix.Field.GetLongLength(0); i++)
@@ -24,11 +30,17 @@
             }
         }
 
+        /// <summary>
+        /// Set bombs in the Matrix Field.
+        /// </summary>
         public override void SetBombs()
         {
             this.Matrix.SetBombs(10);
         }
 
+        /// <summary>
+        /// Set the number of surrounded mines for each cell.
+        /// </summary>
         public override void SetNumberOfMines()
         {
             this.Matrix.SetNumberOfMines();

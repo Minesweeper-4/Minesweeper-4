@@ -7,6 +7,11 @@
     /// </summary>
     public class MatrixFactory
     {
+        /// <summary>
+        /// Create a different matrix depending of the input parameter.
+        /// </summary>
+        /// <param name="matrixType">Enumeration MatrixType - there are Big, Small and Medium matrix.</param>
+        /// <returns>Returns a new instance of matrix.</returns>
         public IMatrix CreateMatrix(MatrixTypes matrixType)
         {
             var director = new MatrixDirector();

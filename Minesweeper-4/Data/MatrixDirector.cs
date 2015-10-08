@@ -5,10 +5,17 @@
     /// </summary>
     public class MatrixDirector
     {
+        /// <summary>
+        /// Empty Constructor for the MatrixDirector class.
+        /// </summary>
         public MatrixDirector()
         {
         }
 
+        /// <summary>
+        /// Define the steps for constructing new Matrix. 
+        /// </summary>
+        /// <param name="builder">Take a MatrixBuilder class and make him construct the matrix.</param>
         public void Construct(MatrixBuilder builder)
         {
             builder.SetField();
