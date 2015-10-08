@@ -95,7 +95,9 @@
 
                 default:
                     currentCommand = new InvalidCommand(this.matrix, this.player, this.printer);
-                    break;
+                    currentCommand.Execute(commandInfo);
+                    this.Start();
+                    return;
             }
 
             currentCommand.Execute(commandInfo);
