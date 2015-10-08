@@ -1,10 +1,11 @@
 ﻿namespace Minesweeper.Helpers
 {
-    using Minesweeper.Data;
-    using System;
     using System.IO;
     using System.Runtime.Serialization.Formatters.Binary;
 
+    /// <summary>
+    /// Sets a serializer, used for storing the current state of the game, and retrieving it afterwards
+    /// </summary>
     public class Serializer
     {
         public Serializer()
@@ -13,7 +14,6 @@
 
         public void Serialize(object memento, string fileName)
         {
-
             if (!File.Exists(fileName))
             {
                 var myFile = File.Create(fileName);

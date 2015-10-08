@@ -1,24 +1,36 @@
-﻿using Minesweeper.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Logic.Draw
+﻿namespace Minesweeper.Logic.Draw
 {
+    using System;
+    using Minesweeper.Interfaces;
+
+    /// <summary>
+    /// Uses Decorator Design pattern to implement the printing of the matrix
+    /// </summary>
     public abstract class PrinterDecorator : Printer
     {
-        protected Printer printer;
+        private Printer printer;
+
+        public Printer Printer
+        {
+            get
+            {
+                return this.printer;
+            }
+
+            set
+            {
+                this.printer = value;
+            }
+        }
 
         public void SetPrinter(Printer printer)
         {
-            this.printer = printer;
+            this.Printer = printer;
         }
 
         public override void PrintLine(string message)
         {
-            this.printer.PrintLine(message);
+            this.Printer.PrintLine(message);
         }
 
         public override void PrintMatrix(IMatrix matrix, IPlayer player)
@@ -30,7 +42,7 @@ namespace Minesweeper.Logic.Draw
 
         public override string GetPrintFrame(IMatrix matrix, IPlayer player)
         {
-            return this.printer.GetPrintFrame(matrix, player);
+            return this.Printer.GetPrintFrame(matrix, player);
         }
     }
 }

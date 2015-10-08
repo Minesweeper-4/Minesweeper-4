@@ -1,20 +1,23 @@
 ﻿namespace Minesweeper.Engine
 {
+    using System;
     using Menu;
     using Minesweeper.Commands;
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
     using Minesweeper.Logic.Draw;
-    using System;
 
+    /// <summary>
+    /// Sets the core functions of the matrix and player commands
+    /// </summary>
     public class MinesweeperEngine : IMinesweeperEngine
     {
         private static MinesweeperEngine mineSweeperEngineInstance;
         private static object locker = new object();
+        private readonly MatrixBuilder builder = new BigMatrixBuilder();
 
         private Printer printer = new StandardPrinter();
         private MatrixDirector director = new MatrixDirector();
-        private readonly MatrixBuilder builder = new BigMatrixBuilder();
         private Player player = new Player();
         private ICommandParser commandParser = new CommandParser();
         private MatrixFactory matrixFactory = new MatrixFactory();
@@ -28,16 +31,13 @@
         {
             get
             {
-
                 if (mineSweeperEngineInstance == null)
                 {
                     lock (locker)
                     {
                         if (mineSweeperEngineInstance == null)
                         {
-
                             mineSweeperEngineInstance = new MinesweeperEngine();
-
                         }
                     }
                 }
@@ -51,18 +51,18 @@
             Console.Write("Enter command: ");
             string command = Console.ReadLine();
 
-            ExecuteCommand(command);
+            this.ExecuteCommand(command);
         }
 
         public void ExecuteCommand(string command)
         {
-            CommandInfo commandInfo = (CommandInfo)commandParser.Parse(command);
+            CommandInfo commandInfo = (CommandInfo)this.commandParser.Parse(command);
             Command currentCommand = null;
 
             switch (commandInfo.Name)
             {
                 case "start":
-                    currentCommand = new StartCommand(this, this.matrix, player, this.director, this.builder, this.printer);
+                    currentCommand = new StartCommand(this, this.matrix, this.player, this.director, this.builder, this.printer);
                     break;
 
                 case "turn":
@@ -103,11 +103,9 @@
             this.Start();
         }
 
-
         public void CreateMatrix(MatrixTypes type)
         {
-            this.matrix = (Matrix)(new MatrixFactory().CreateMatrix(type));
-            //this.printer.PrintMatrix(matrix, player);
+            this.matrix = (Matrix)new MatrixFactory().CreateMatrix(type);
         }
     }
 }

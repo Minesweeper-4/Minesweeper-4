@@ -1,12 +1,12 @@
-﻿using Minesweeper.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Logic.Draw
+﻿namespace Minesweeper.Logic.Draw
 {
+    using System;
+    using System.Text;
+    using Minesweeper.Interfaces;
+
+    /// <summary>
+    /// Sets the basic symbols of the matrix
+    /// </summary>
     public class StandardPrinter : Printer
     {
         private const char UnrevealedCellCharacter = '?';
@@ -14,13 +14,12 @@ namespace Minesweeper.Logic.Draw
 
         public StandardPrinter()
         {
-
         }
 
         public override void PrintMatrix(IMatrix matrix, IPlayer player)
         {
             Console.Clear();
-            var printFrame = GetPrintFrame(matrix, player);
+            var printFrame = this.GetPrintFrame(matrix, player);
             Console.WriteLine(printFrame);
         }
 
@@ -32,8 +31,8 @@ namespace Minesweeper.Logic.Draw
 
             output.AppendLine("Score: " + player.Score);
             output.AppendLine();
-            output.Append(AddRowIndexator(numberOfRows));
-            output.Append(AddDashes(numberOfRows));
+            output.Append(this.AddRowIndexator(numberOfRows));
+            output.Append(this.AddDashes(numberOfRows));
 
             for (int row = 0; row < numberOfRows; row++)
             {
@@ -55,7 +54,7 @@ namespace Minesweeper.Logic.Draw
                         }
                         else
                         {
-                            output.AppendFormat("{0, -3}", currentCell.NumberOfMines); //TODO Represent zero cells as empty space character
+                            output.AppendFormat("{0, -3}", currentCell.NumberOfMines); ///TODO Represent zero cells as empty space character
                         }
                     }
                     else
@@ -66,7 +65,8 @@ namespace Minesweeper.Logic.Draw
 
                 output.Append("|\n");
             }
-            output.Append(AddDashes(numberOfRows));
+
+            output.Append(this.AddDashes(numberOfRows));
 
             return output.ToString();
         }
@@ -83,7 +83,7 @@ namespace Minesweeper.Logic.Draw
 
             for (int i = 0; i < rows; i++)
             {
-                output.AppendFormat("{0, -3}", i); //TODO can move 3 to constant
+                output.AppendFormat("{0, -3}", i); ///TODO can move 3 to constant
             }
 
             output.AppendLine();
@@ -97,7 +97,7 @@ namespace Minesweeper.Logic.Draw
             output.Append(" ");
             output.Append(" ");
 
-            output.AppendLine(new string('-', (rows * 3) + 3)); //TODO can move 3 to constant
+            output.AppendLine(new string('-', (rows * 3) + 3)); ///TODO can move 3 to constant
 
             return output;
         }

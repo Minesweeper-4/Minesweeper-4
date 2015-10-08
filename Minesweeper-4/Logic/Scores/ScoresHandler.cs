@@ -1,15 +1,15 @@
 ﻿namespace Minesweeper.Logic.Scores
 {
-    using Minesweeper.Data.Player;
-    using Minesweeper.Helpers;
-    using Interfaces;
-    using Minesweeper.Logic.Sorter;
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Xml.Serialization;
+    using Interfaces;
+    using Minesweeper.Helpers;
+    using Minesweeper.Logic.Sorter;
 
+    /// <summary>
+    /// Inherits the IScoreHandle interfaces, and implements some addition check for the record file. Save, Sort and Load records
+    /// </summary>
     public class ScoresHandler : IScoresHandler
     {
         private List<IPlayer> records;
@@ -30,7 +30,7 @@
         {
             int lastRecordScore = 0;
 
-            if (this.Reccords.Count != 0) // added to make the method testable
+            if (this.Reccords.Count != 0) 
             {
                 lastRecordScore = this.records.Last().Score;
             }
@@ -40,7 +40,7 @@
                 this.records.Add(player);
             }
 
-            SortRecords();
+            this.SortRecords();
         }
 
         public void SaveToFile(string filePath)
@@ -62,7 +62,6 @@
             {
                 this.records = new List<IPlayer>();
             }
-
             else
             {
                 var records = this.serializer.Deserialize(filePath) as List<IPlayer>;

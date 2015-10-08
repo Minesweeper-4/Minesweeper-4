@@ -2,14 +2,16 @@
 {
     using System;
 
+    /// <summary>
+    /// Class used for validating all user inputs
+    /// </summary>
     public static class Validator
     {
         public static void ValidateNonEmptyString(string value, string parameterName)
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new ArgumentNullException(string.Format("{0} must be a non-empty string",
-                    parameterName));
+                throw new ArgumentNullException(string.Format("{0} must be a non-empty string", parameterName));
             }
         }
 
@@ -19,8 +21,7 @@
 
             if (value.Length < minLength || maxLength < value.Length)
             {
-                throw new ArgumentOutOfRangeException(string.Format("{0} length must be between {1} and {2}",
-                    parameterName, minLength, maxLength));
+                throw new ArgumentOutOfRangeException(string.Format("{0} length must be between {1} and {2}", parameterName, minLength, maxLength));
             }
         }
 
@@ -28,8 +29,7 @@
         {
             if (value < minValue || maxValue < value)
             {
-                throw new ArgumentOutOfRangeException(string.Format("{0} must be between {1} nad {2}",
-                    parameterName, minValue, maxValue));
+                throw new ArgumentOutOfRangeException(string.Format("{0} must be between {1} nad {2}", parameterName, minValue, maxValue));
             }
         }
 

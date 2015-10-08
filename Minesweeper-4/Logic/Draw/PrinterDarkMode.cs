@@ -1,13 +1,13 @@
-﻿using Minesweeper.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Logic.Draw
+﻿namespace Minesweeper.Logic.Draw
 {
-    public class PrinterDarkMode:PrinterDecorator
+    using System;
+    using System.Text;
+    using Minesweeper.Interfaces;
+
+    /// <summary>
+    /// Expands the Decorator, and adds e switch mode of color black background, and white foreground
+    /// </summary>
+    public class PrinterDarkMode : PrinterDecorator
     {
         public override void Apply()
         {

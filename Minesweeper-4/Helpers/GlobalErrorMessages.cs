@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Helpers
+﻿namespace Minesweeper.Helpers
 {
-    class GlobalErrorMessages
+    /// <summary>
+    /// Class that sets the error messages and saving the state and records of the game
+    /// </summary>
+    internal class GlobalErrorMessages
     {
         public const string NonEmptyString = "{0} must be a non-empty string";
         public const string StringLength = "{0} length must be between {1} and {2}";

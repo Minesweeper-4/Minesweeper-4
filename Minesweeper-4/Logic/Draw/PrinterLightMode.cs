@@ -1,12 +1,11 @@
-﻿using Minesweeper.Menu;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minesweeper.Logic.Draw
+﻿namespace Minesweeper.Logic.Draw
 {
+    using System;
+    using System.Text;
+
+    /// <summary>
+    /// Expands the Decorator, and adds e switch mode of color  white background, and black foreground
+    /// </summary>
     public class PrinterLightMode : PrinterDecorator
     {
         public override void Apply()
@@ -20,8 +19,8 @@ namespace Minesweeper.Logic.Draw
             Console.Clear();
             var output = new StringBuilder();
             output.AppendLine("Light Mode");
-            output.AppendLine(base.GetPrintFrame(matrix, player));
-            base.PrintLine(output.ToString());
+            output.AppendLine(this.GetPrintFrame(matrix, player));
+            this.PrintLine(output.ToString());
         }
     }
 }
