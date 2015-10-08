@@ -7,6 +7,9 @@
     using System.Threading.Tasks;
     using Minesweeper.Interfaces;
 
+    /// <summary>
+    /// Inherits the Matrix interface, and implements the logic about the saving and loading the state, and setting the game difficulty
+    /// </summary>
     public class Matrix : IMatrix
     {
         private ICell[,] field;
@@ -44,11 +47,19 @@
             }
         }
 
+        /// <summary>
+        /// Implements the Memento Design Pattern, to save the current state of the matrix
+        /// </summary>
+        /// <returns>Return the state of the matrix</returns>
         public MatrixMemento SaveMemento()
         {
             return new MatrixMemento(this.Field);
         }
 
+        /// <summary>
+        /// Loads the previously saved state
+        /// </summary>
+        /// <param name="memento">Needs as parameter the saved state</param>
         public void RestoreMemento(MatrixMemento memento)
         {
             this.Field = memento.Field;
@@ -71,8 +82,8 @@
 
             foreach (int number in randomNumbers)
             {
-                int row = (number / boardColumns);
-                int column = (number % boardColumns);
+                int row = number / boardColumns;
+                int column = number % boardColumns;
                 if (column == 0 && number != 0)
                 {
                     row--;
@@ -85,7 +96,6 @@
 
                 this.Field[row, column - 1].IsBomb = true;
             }
-
         }
 
         public void SetNumberOfMines()
@@ -94,7 +104,7 @@
             {
                 for (int col = 0; col < this.Cols; col++)
                 {
-                    this.Field[row, col].NumberOfMines = GetNumberOfMines(row, col);
+                    this.Field[row, col].NumberOfMines = this.GetNumberOfMines(row, col);
                 }
             }
         }

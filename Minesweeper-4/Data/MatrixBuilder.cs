@@ -1,8 +1,11 @@
 ﻿namespace Minesweeper.Data
 {
+    /// <summary>
+    /// The base class used for implementing the matrixsize, fields, bombs and mines.
+    /// </summary>
     public abstract class MatrixBuilder
     {
-        protected Matrix matrix;
+        private Matrix matrix;
 
         public MatrixBuilder()
         {
@@ -23,8 +26,11 @@
         }
 
         public abstract void SetField();
+
         public abstract void InitCells();
+
         public abstract void SetBombs();
+
         public abstract void SetNumberOfMines();
 
         public Matrix GetMatrix()

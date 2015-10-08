@@ -2,6 +2,9 @@
 {
     using Minesweeper.Interfaces;
 
+    /// <summary>
+    /// Set the basic construction for building the different matrix sizes
+    /// </summary>
     public class MatrixFactory
     {
         public IMatrix CreateMatrix(MatrixTypes matrixType)

@@ -1,11 +1,13 @@
 ﻿namespace Minesweeper.Data
 {
-    class BigMatrixBuilder : MatrixBuilder
+    /// <summary>
+    /// Inherits the base Matrix builder class, and implement the logic for building big size matrix
+    /// </summary>
+    internal class BigMatrixBuilder : MatrixBuilder
     {
         public override void SetField()
         {
-            base.Matrix.Field = new Cell[15, 15];
-
+            this.Matrix.Field = new Cell[15, 15];
         }
 
         public override void InitCells()
@@ -27,7 +29,7 @@
 
         public override void SetNumberOfMines()
         {
-            base.Matrix.SetNumberOfMines();
+            this.Matrix.SetNumberOfMines();
         }
     }
 }

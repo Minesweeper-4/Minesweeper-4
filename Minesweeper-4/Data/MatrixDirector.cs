@@ -1,5 +1,8 @@
 ﻿namespace Minesweeper.Data
 {
+    /// <summary>
+    /// Implements the Builder Design Pattern and set the stages for building the matrix
+    /// </summary>
     public class MatrixDirector
     {
         public MatrixDirector()

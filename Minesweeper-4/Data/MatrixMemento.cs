@@ -3,6 +3,9 @@
     using System;
     using Minesweeper.Interfaces;
 
+    /// <summary>
+    /// Saves the current state, using Memento
+    /// </summary>
     [Serializable]
     public class MatrixMemento
     {

@@ -1,13 +1,13 @@
 ﻿namespace Minesweeper.Commands
 {
     using System;
+    using Helpers;
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
     using Minesweeper.Engine;
     using Minesweeper.Logic.Draw;
     using Minesweeper.Logic.Scores;
     using Minesweeper.Menu;
-    using Helpers;
 
     /// <summary>
     /// Inherits the base Command Class and deals with the moves of the user
@@ -75,7 +75,6 @@
 
             var nickname = Console.ReadLine();
 
-
             try
             {
                 var playerProxy = new PlayerProxy(nickname, this.Player.Score);
@@ -87,11 +86,10 @@
                 Console.ReadKey();
                 MainMenu.PrintMenu(this.engine);
             }
-
             catch (ArgumentOutOfRangeException)
             {
                 Console.WriteLine("The name should be between 2 and 10 characters");
-                EnterScoreRecordHandler();
+                this.EnterScoreRecordHandler();
             }
         }
 

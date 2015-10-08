@@ -1,6 +1,7 @@
 ﻿namespace Minesweeper.Commands
 {
     using System.Collections.Generic;
+    using Helpers;
     using Interfaces;
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
@@ -8,10 +9,9 @@
     using Minesweeper.Logic.Draw;
     using Minesweeper.Logic.Scores;
     using Minesweeper.Menu;
-    using Helpers;
 
     /// <summary>
-    /// Inherits the Command abstrct class and implments the logic for the displaying the records
+    /// Inherits the Command abstract class and implments the logic for the displaying the records
     /// </summary>
     public class HighScoreCommand : Command
     {

@@ -1,9 +1,12 @@
 ﻿namespace Minesweeper.Data.Player
 {
+    using System;
     using Minesweeper.Helpers;
     using Minesweeper.Interfaces;
-    using System;
 
+    /// <summary>
+    /// Implements the proxy design pattern. Used to set and ckeck the validity of the used details.
+    /// </summary>
     [Serializable]
     public class PlayerProxy : IPlayer
     {
@@ -22,6 +25,7 @@
             {
                 return this.player.Nickname;
             }
+
             set
             {
                 Validator.ValidateStringLength(value, 2, 10, "Player nickname");
@@ -35,6 +39,7 @@
             {
                 return this.player.Score;
             }
+
             set
             {
                 Validator.ValidateNonNegativeInt(value);

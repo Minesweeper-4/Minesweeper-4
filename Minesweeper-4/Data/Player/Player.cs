@@ -1,9 +1,12 @@
 ﻿namespace Minesweeper.Data.Player
 {
-    using Minesweeper.Interfaces;
     using System;
     using System.Xml.Serialization;
+    using Minesweeper.Interfaces;
 
+    /// <summary>
+    /// Implements the Serializer design pattern. Set the details of the player
+    /// </summary>
     [Serializable]
     public class Player : IPlayer
     {
@@ -12,7 +15,6 @@
 
         public Player() // The Serializer needs empty constructor !!!
         {
-
         }
 
         public Player(string nickName, int scores)
@@ -27,6 +29,7 @@
             {
                 return this.nickname;
             }
+
             set
             {
                 this.nickname = value;
@@ -39,6 +42,7 @@
             {
                 return this.score;
             }
+
             set
             {
                 this.score = value;

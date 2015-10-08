@@ -1,6 +1,10 @@
-﻿using Minesweeper.Interfaces;
-namespace Minesweeper.Data
+﻿namespace Minesweeper.Data
 {
+    using Minesweeper.Interfaces;
+
+    /// <summary>
+    /// Inherits the base Matrix builder class, and implement the logic for building small size matrix
+    /// </summary>
     public class SmallMatrixBuilder : MatrixBuilder
     {
         public override void SetField()
@@ -27,7 +31,7 @@ namespace Minesweeper.Data
 
         public override void SetNumberOfMines()
         {
-            base.Matrix.SetNumberOfMines();
+            this.Matrix.SetNumberOfMines();
         }
     }
 }

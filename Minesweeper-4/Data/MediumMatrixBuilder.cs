@@ -1,5 +1,8 @@
 ﻿namespace Minesweeper.Data
 {
+    /// <summary>
+    /// Inherits the base Matrix builder class, and implement the logic for building medium size matrix
+    /// </summary>
     public class MediumMatrixBuilder : MatrixBuilder
     {
         public override void SetField()
@@ -26,7 +29,7 @@
 
         public override void SetNumberOfMines()
         {
-            base.Matrix.SetNumberOfMines();
+            this.Matrix.SetNumberOfMines();
         }
     }
 }
