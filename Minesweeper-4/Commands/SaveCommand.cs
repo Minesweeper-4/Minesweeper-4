@@ -10,6 +10,12 @@
     /// </summary>
     public class SaveCommand : Command
     {
+        /// <summary>
+        /// Constructor for the Save command.
+        /// </summary>
+        /// <param name="matrix">Current game matrix.</param>
+        /// <param name="player">Current game player</param>
+        /// <param name="printer">Current game printer</param>
         public SaveCommand(Matrix matrix, Player player, Printer printer)
             : base(matrix, player, printer)
         {

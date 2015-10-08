@@ -10,6 +10,12 @@
     /// </summary>
     public class LoadCommand : Command
     {
+        /// <summary>
+        /// Constructor for the Load command
+        /// </summary>
+        /// <param name="matrix">Current game matrix</param>
+        /// <param name="player">Current game player.</param>
+        /// <param name="printer">Current game printer.</param>
         public LoadCommand(Matrix matrix, Player player, Printer printer)
             : base(matrix, player, printer)
         {

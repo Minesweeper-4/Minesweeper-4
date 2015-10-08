@@ -5,8 +5,14 @@
     /// </summary>
     public interface IPlayer
     {
+        /// <summary>
+        /// Player nick name.
+        /// </summary>
         string Nickname { get; set; }
 
+        /// <summary>
+        /// Player score.
+        /// </summary>
         int Score { get; set; } 
     }
 }

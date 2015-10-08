@@ -10,12 +10,23 @@
         private string name;
         private IList<string> parameters;
 
+        /// <summary>
+        /// Object holding information for the command
+        /// </summary>
+        /// <param name="name">The namo of the command</param>
+        /// <param name="parameters">Collection with the command parameters if any</param>
         public CommandInfo(string name, IList<string> parameters)
         {
             this.Name = name;
             this.Params = parameters;
         }
 
+        /// <summary>
+        /// Command name
+        /// </summary>
+        /// <value>
+        /// Name
+        /// </value>
         public string Name
         {
             get 
@@ -29,6 +40,9 @@
             }
         }
 
+        /// <summary>
+        /// Collection of the command parameters
+        /// </summary>
         public IList<string> Params
         {
             get
