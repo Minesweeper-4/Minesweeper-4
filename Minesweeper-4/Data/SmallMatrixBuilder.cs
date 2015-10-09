@@ -1,7 +1,5 @@
 ﻿namespace Minesweeper.Data
 {
-    using Minesweeper.Interfaces;
-
     /// <summary>
     /// Inherits the base Matrix builder class, and implement the logic for building small size matrix
     /// </summary>

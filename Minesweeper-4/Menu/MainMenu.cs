@@ -1,7 +1,8 @@
 ﻿namespace Minesweeper.Menu
 {
-    using System;
     using Engine;
+    using System;
+    using Minesweeper.Enumerations;
 
     /// <summary>
     /// Set the positioning and visibility of the Main Menu
@@ -21,7 +22,7 @@
             Console.SetCursorPosition(indexForPrint, 9);
             Console.WriteLine("MAIN MENU:");
 
-            Navigation.MainMenuNavigation(new MainMenuOptions(), game);
+            Navigation.MainMenuNavigation(game, new MainMenuOptions());
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿namespace Minesweeper.Logic.Scores
 {
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
     using Interfaces;
     using Minesweeper.Helpers;
     using Minesweeper.Logic.Sorter;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
 
     /// <summary>
     /// Inherits the IScoreHandle interfaces, and implements some addition check for the record file. Save, Sort and Load records

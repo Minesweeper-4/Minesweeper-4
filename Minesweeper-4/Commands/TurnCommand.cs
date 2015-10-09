@@ -1,6 +1,5 @@
 ﻿namespace Minesweeper.Commands
 {
-    using System;
     using Helpers;
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
@@ -8,6 +7,7 @@
     using Minesweeper.Logic.Draw;
     using Minesweeper.Logic.Scores;
     using Minesweeper.Menu;
+    using System;
 
     /// <summary>
     /// Inherits the base Command Class and deals with the moves of the user

@@ -7,7 +7,14 @@
     /// </summary>
     public class CustomizeConsole
     {
+        /// <summary>
+        /// Console width constant
+        /// </summary>
         public const int Width = 89;
+
+        /// <summary>
+        /// Console height constant
+        /// </summary>
         public const int Height = 50;
 
         /// <summary>

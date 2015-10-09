@@ -1,8 +1,8 @@
 ﻿namespace Minesweeper.Logic.Sorter
 {
+    using Interfaces;
     using System.Collections.Generic;
     using System.Linq;
-    using Interfaces;
 
     /// <summary>
     /// Implements the logic for sorting

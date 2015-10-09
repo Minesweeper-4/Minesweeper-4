@@ -1,11 +1,8 @@
 ﻿namespace Minesweeper.Data
 {
+    using Minesweeper.Interfaces;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Minesweeper.Interfaces;
 
     /// <summary>
     /// Inherits the Matrix interface, and implements the logic about the saving and loading the state, and setting the game difficulty

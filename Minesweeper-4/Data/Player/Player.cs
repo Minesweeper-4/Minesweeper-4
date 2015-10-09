@@ -1,8 +1,7 @@
 ﻿namespace Minesweeper.Data.Player
 {
-    using System;
-    using System.Xml.Serialization;
     using Minesweeper.Interfaces;
+    using System;
 
     /// <summary>
     /// Set the details of the player

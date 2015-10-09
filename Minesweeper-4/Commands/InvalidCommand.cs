@@ -2,7 +2,6 @@
 {
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
-    using Minesweeper.Engine;
     using Minesweeper.Logic.Draw;
 
     /// <summary>

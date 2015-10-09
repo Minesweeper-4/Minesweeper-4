@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Minesweeper.Data;
+using Minesweeper.Enumerations;
 using Minesweeper.Interfaces;
 
 namespace NunitTests

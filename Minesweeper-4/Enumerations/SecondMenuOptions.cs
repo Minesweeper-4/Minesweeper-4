@@ -1,8 +1,11 @@
-﻿/// <summary>
-/// Options for the nested menu
-/// </summary>
-public enum SecondMenuOptions
+﻿namespace Minesweeper.Enumerations
 {
-    RETURN,
-    EXIT
+    /// <summary>
+    /// Options for the nested menu
+    /// </summary>
+    public enum SecondMenuOptions
+    {
+        RETURN,
+        EXIT
+    }
 }

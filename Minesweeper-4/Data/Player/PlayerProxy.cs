@@ -1,8 +1,8 @@
 ﻿namespace Minesweeper.Data.Player
 {
-    using System;
     using Minesweeper.Helpers;
     using Minesweeper.Interfaces;
+    using System;
 
     /// <summary>
     /// Implements the proxy design pattern. Used to set and check the validity of the used details.

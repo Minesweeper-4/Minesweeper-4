@@ -44,6 +44,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\Minesweeper.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -93,7 +94,6 @@
     <Compile Include="Data\Player\Player.cs" />
     <Compile Include="Data\Player\PlayerProxy.cs" />
     <Compile Include="Data\SmallMatrixBuilder.cs" />
-    <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\EngineValidator.cs" />
     <Compile Include="Engine\IMinesweeperEngine.cs" />
     <Compile Include="Enumerations\MainMenuOptions.cs" />

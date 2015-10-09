@@ -1,5 +1,7 @@
 ﻿namespace Minesweeper.Engine
 {
+    using Minesweeper.Enumerations;
+
     /// <summary>
     /// Set the obligatory properties, needed for execution of the matrix application
     /// </summary>

@@ -1,8 +1,8 @@
 ﻿namespace Minesweeper.Logic.Draw
 {
+    using Minesweeper.Interfaces;
     using System;
     using System.Text;
-    using Minesweeper.Interfaces;
 
     /// <summary>
     /// Expands the Decorator, and adds e switch mode of color black background, and white foreground

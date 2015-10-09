@@ -4,6 +4,7 @@ using Minesweeper.Logic.Draw;
 using NUnit.Framework;
 using System;
 using System.Diagnostics;
+using Minesweeper.Enumerations;
 
 namespace NunitTests
 {

@@ -1,5 +1,6 @@
 ﻿namespace Minesweeper.Data
 {
+    using Minesweeper.Enumerations;
     using Minesweeper.Interfaces;
 
     /// <summary>

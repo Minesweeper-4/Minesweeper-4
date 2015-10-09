@@ -1,9 +1,12 @@
-﻿/// <summary>
-/// Matrix size type
-/// </summary>
-public enum MatrixTypes
+﻿namespace Minesweeper.Enumerations
 {
-    SMALL,
-    MEDIUM,
-    BIG
+    /// <summary>
+    /// Matrix size type
+    /// </summary>
+    public enum MatrixTypes
+    {
+        SMALL,
+        MEDIUM,
+        BIG
+    }
 }

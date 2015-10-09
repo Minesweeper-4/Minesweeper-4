@@ -9,6 +9,7 @@
     using Minesweeper.Logic.Scores;
     using Minesweeper.Menu;
     using System.Collections.Generic;
+    using Minesweeper.Enumerations;
 
     /// <summary>
     /// Inherits the Command abstract class and implements the logic for the displaying the records

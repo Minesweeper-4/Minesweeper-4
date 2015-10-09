@@ -1,8 +1,8 @@
 ﻿namespace Minesweeper.Logic.Draw
 {
+    using Minesweeper.Interfaces;
     using System;
     using System.Text;
-    using Minesweeper.Interfaces;
     
     /// <summary>
     /// Sets the basic symbols of the matrix

@@ -1,6 +1,7 @@
 ﻿using Minesweeper.Data;
 using Minesweeper.Data.Player;
 using Minesweeper.Engine;
+using Minesweeper.Enumerations;
 using Minesweeper.Logic.Draw;
 using NUnit.Framework;
 

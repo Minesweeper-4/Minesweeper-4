@@ -1,7 +1,7 @@
 ﻿namespace Minesweeper.Menu
 {
-    using System;
     using Minesweeper.Engine;
+    using System;
 
     /// <summary>
     /// Class for navigating betweens the different menus

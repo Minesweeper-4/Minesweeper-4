@@ -1,11 +1,12 @@
 ﻿namespace Minesweeper.Engine
 {
-    using System;
     using Menu;
     using Minesweeper.Commands;
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
+    using Minesweeper.Enumerations;
     using Minesweeper.Logic.Draw;
+    using System;
 
     /// <summary>
     /// Sets the core functions of the matrix and player commands

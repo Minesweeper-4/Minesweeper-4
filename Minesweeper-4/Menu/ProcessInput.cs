@@ -1,7 +1,8 @@
 ﻿namespace Minesweeper.Menu
 {
-    using System;
     using Minesweeper.Engine;
+    using Minesweeper.Enumerations;
+    using System;
 
     internal class ProcessInput
     {

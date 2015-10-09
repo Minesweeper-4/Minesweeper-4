@@ -1,7 +1,7 @@
 ﻿namespace Minesweeper.Menu
 {
-    using System;
     using Minesweeper.Engine;
+    using System;
 
     /// <summary>
     /// Extract the logic for the orientation of the menu, in order to be reusable

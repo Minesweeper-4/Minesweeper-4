@@ -1,7 +1,7 @@
 ﻿namespace Minesweeper.Data
 {
-    using System;
     using Minesweeper.Interfaces;
+    using System;
 
     /// <summary>
     /// Saves the current state, using Memento

@@ -1,8 +1,11 @@
-﻿/// <summary>
-/// Options for the nested menu
-/// </summary>
-public enum ModeOptions
+﻿namespace Minesweeper.Enumerations
 {
-    LIGHT,
-    DARK
+    /// <summary>
+    /// Options for the nested menu
+    /// </summary>
+    public enum ModeOptions
+    {
+        LIGHT,
+        DARK
+    }
 }

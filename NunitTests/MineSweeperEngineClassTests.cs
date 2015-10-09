@@ -2,6 +2,7 @@
 using Moq;
 using NUnit.Framework;
 using System.IO;
+using Minesweeper.Enumerations;
 
 namespace NunitTests
 {
@@ -50,7 +51,7 @@ namespace NunitTests
         public void StartMethodDoesNotThrow()
         {
 
-            string command = "start small";
+            //string command = "start small";
 
             //MinesweeperEngine gameInstance = MinesweeperEngine.Instance;
 

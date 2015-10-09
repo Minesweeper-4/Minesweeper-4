@@ -1,7 +1,7 @@
 ﻿namespace Minesweeper.Data
 {
-    using System;
     using Minesweeper.Interfaces;
+    using System;
 
     /// <summary>
     /// Inherits the ICell interface and sets the logic for the cell value
