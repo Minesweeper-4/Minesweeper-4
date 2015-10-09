@@ -21,7 +21,7 @@
         }
 
         /// <summary>
-        /// Validate if a given string has lenght between two values. 
+        /// Validate if a given string has length between two values. 
         /// </summary>
         /// <param name="value">Input string to be validated.</param>
         /// <param name="minLength">Minimum length value.</param>

@@ -1,10 +1,10 @@
 ﻿namespace Minesweeper.Commands
 {
-    using System;
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
     using Minesweeper.Engine;
     using Minesweeper.Logic.Draw;
+    using System;
 
     /// <summary>
     /// Class that inherits the basic Command class, and deals with building the different types of matrices
@@ -35,7 +35,7 @@
         /// <summary>
         /// Method that takes the chose option from the menu and invokes the method for creating the matrix
         /// </summary>
-        /// <param name="commandInfo">START Command Neeeed</param>
+        /// <param name="commandInfo">START Command needed</param>
         public override void Execute(ICommandInfo commandInfo)
         {
             string matrixSize = commandInfo.Params[0];

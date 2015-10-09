@@ -1,10 +1,9 @@
 ﻿namespace Minesweeper.Commands
 {
-    using System;
     using Minesweeper.Data;
     using Minesweeper.Data.Player;
-    using Minesweeper.Engine;
     using Minesweeper.Logic.Draw;
+    using System;
 
     /// <summary>
     /// Deals with the EXIT command, inherits the Command abstract class
@@ -23,7 +22,7 @@
         }
 
         /// <summary>
-        /// Metrhod for execution the EXIT Command, which prints message to the console and exits the application
+        /// Method for execution the EXIT Command, which prints message to the console and exits the application
         /// </summary>
         /// <param name="commandInfo">EXIT Commmad needed as an argument</param>
         public override void Execute(ICommandInfo commandInfo)

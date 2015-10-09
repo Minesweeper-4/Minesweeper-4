@@ -16,16 +16,26 @@
         private SortStrategy sortStrategy = new DefaultSort();
         private Serializer serializer = new Serializer();
 
+        /// <summary>
+        /// Instantiate ScoresHandler class
+        /// </summary>
         public ScoresHandler()
         {
             this.records = new List<IPlayer>();
         }
 
+        /// <summary>
+        /// Gets player reccords
+        /// </summary>
         public IList<IPlayer> Reccords
         {
-            get { return this.records; } // changed for making it testable. Was NotImplemented
+            get { return this.records; }
         }
 
+        /// <summary>
+        /// Add records to player
+        /// </summary>
+        /// <param name="player">Input player</param>
         public void AddReccord(IPlayer player)
         {
             int lastRecordScore = 0;
@@ -43,11 +53,19 @@
             this.SortRecords();
         }
 
+        /// <summary>
+        /// Save records to file
+        /// </summary>
+        /// <param name="filePath">File path</param>
         public void SaveToFile(string filePath)
         {
             this.serializer.Serialize(this.records, filePath);
         }
 
+        /// <summary>
+        /// Load records form file
+        /// </summary>
+        /// <param name="filePath">File path</param>
         public void LoadFromFile(string filePath)
         {
             if (!File.Exists(filePath))

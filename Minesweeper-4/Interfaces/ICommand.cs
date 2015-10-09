@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Set the obligatory properties for settign a command
+    /// Set the obligatory properties for setting a command
     /// </summary>
     public interface ICommand
     {

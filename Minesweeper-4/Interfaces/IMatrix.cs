@@ -1,7 +1,7 @@
 ﻿namespace Minesweeper.Interfaces
 {
     /// <summary>
-    /// Interface for setting the desired fields, rows, and cols of the maatrix
+    /// Interface for setting the desired fields, rows, and cols of the matrix
     /// </summary>
     public interface IMatrix
     {

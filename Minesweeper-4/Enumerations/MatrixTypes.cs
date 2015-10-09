@@ -1,4 +1,7 @@
-﻿public enum MatrixTypes
+﻿/// <summary>
+/// Matrix size type
+/// </summary>
+public enum MatrixTypes
 {
     SMALL,
     MEDIUM,

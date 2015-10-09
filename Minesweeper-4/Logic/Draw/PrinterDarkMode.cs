@@ -9,13 +9,21 @@
     /// </summary>
     public class PrinterDarkMode : PrinterDecorator
     {
+        /// <summary>
+        /// Applying proper colors for the Console 
+        /// </summary>
         public override void Apply()
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public override void PrintMatrix(IMatrix matrix, Interfaces.IPlayer player)
+        /// <summary>
+        /// Print matrix
+        /// </summary>
+        /// <param name="matrix">Input matrix to print</param>
+        /// <param name="player">Input player</param>
+        public override void PrintMatrix(IMatrix matrix, IPlayer player)
         {
             Console.Clear();
             var output = new StringBuilder();

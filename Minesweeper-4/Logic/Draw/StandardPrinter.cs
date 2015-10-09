@@ -3,7 +3,7 @@
     using System;
     using System.Text;
     using Minesweeper.Interfaces;
-
+    
     /// <summary>
     /// Sets the basic symbols of the matrix
     /// </summary>
@@ -11,11 +11,20 @@
     {
         private const char UnrevealedCellCharacter = '?';
         private const char BombCharacter = '*';
+        private const byte Offset = 3;
 
+        /// <summary>
+        /// Standard printer constructor
+        /// </summary>
         public StandardPrinter()
         {
         }
 
+        /// <summary>
+        /// Print matrix
+        /// </summary>
+        /// <param name="matrix">Input matrix</param>
+        /// <param name="player">Input player</param>
         public override void PrintMatrix(IMatrix matrix, IPlayer player)
         {
             Console.Clear();
@@ -23,6 +32,12 @@
             Console.WriteLine(printFrame);
         }
 
+        /// <summary>
+        /// Prints the matrix with player info.
+        /// </summary>
+        /// <param name="matrix">Current matrix.</param>
+        /// <param name="player">Current player.</param>
+        /// <returns></returns>
         public override string GetPrintFrame(IMatrix matrix, IPlayer player)
         {
             var numberOfRows = matrix.Field.GetLength(0);
@@ -54,7 +69,7 @@
                         }
                         else
                         {
-                            output.AppendFormat("{0, -3}", currentCell.NumberOfMines); ///TODO Represent zero cells as empty space character
+                            output.AppendFormat("{0, -3}", currentCell.NumberOfMines);
                         }
                     }
                     else
@@ -71,11 +86,20 @@
             return output.ToString();
         }
 
+        /// <summary>
+        /// Method which prints string on the Console
+        /// </summary>
+        /// <param name="message">Input string</param>
         public override void PrintLine(string message)
         {
             Console.WriteLine(message);
         }
 
+        /// <summary>
+        /// Formats and add row indexator
+        /// </summary>
+        /// <param name="rows">Number of rows</param>
+        /// <returns></returns>
         private StringBuilder AddRowIndexator(int rows)
         {
             var output = new StringBuilder();
@@ -83,13 +107,18 @@
 
             for (int i = 0; i < rows; i++)
             {
-                output.AppendFormat("{0, -3}", i); ///TODO can move 3 to constant
+                output.AppendFormat("{0, -3}", i);
             }
 
             output.AppendLine();
             return output;
         }
 
+        /// <summary>
+        /// Formats and add dashes
+        /// </summary>
+        /// <param name="rows">Number of rows</param>
+        /// <returns></returns>
         private StringBuilder AddDashes(int rows)
         {
             var output = new StringBuilder();
@@ -97,7 +126,7 @@
             output.Append(" ");
             output.Append(" ");
 
-            output.AppendLine(new string('-', (rows * 3) + 3)); ///TODO can move 3 to constant
+            output.AppendLine(new string('-', (rows * Offset) + Offset));
 
             return output;
         }

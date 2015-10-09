@@ -1,4 +1,7 @@
-﻿public enum MainMenuOptions
+﻿/// <summary>
+/// Main menu options
+/// </summary>
+public enum MainMenuOptions
 {
     START,
     SCORES, 

@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Inherits the interface and sets a constuctod for declaration of the desired parameters of the commands info
+    /// Inherits the interface and sets a constructor for declaration of the desired parameters of the commands info
     /// </summary>
     public class CommandInfo : ICommandInfo
     {
