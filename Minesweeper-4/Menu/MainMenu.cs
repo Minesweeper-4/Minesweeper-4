@@ -9,7 +9,7 @@
     public class MainMenu
     {
         /// <summary>
-        /// Takes the method for nawigating through the main menu
+        /// Takes the method for navigating through the main menu
         /// </summary>
         /// <param name="game">Import the game Engine to start the application</param>
        internal static void PrintMenu(MinesweeperEngine game)

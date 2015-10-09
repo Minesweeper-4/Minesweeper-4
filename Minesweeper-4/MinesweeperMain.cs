@@ -3,8 +3,14 @@
     using Menu;
     using Minesweeper.Engine;
 
+    /// <summary>
+    /// Entry point class
+    /// </summary>
     public class MinesweeperMain
     {
+        /// <summary>
+        /// The Main entry point method
+        /// </summary>
         public static void Main()
         {
             CustomizeConsole.Customize();
@@ -12,9 +18,6 @@
 
             var game = MinesweeperEngine.Instance;
             MainMenu.PrintMenu(game);
-
-            /// Demonstrating thread-safe implementation
-            /// Parallel.For(0, 23, x => MinesweeperEngine.Instance.PrintThreadNumber(x));
         }
     }
 }

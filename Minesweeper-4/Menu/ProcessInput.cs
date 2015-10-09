@@ -69,7 +69,7 @@
         /// <summary>
         /// Process the set choice from MAIN MENU and retrieves the result from it
         /// </summary>
-        /// <param name="currentChoice">takes the set choice from the user as argument</param>
+        /// <param name="inputChoice">takes the set choice from the user as argument</param>
         /// <param name="game">imports the game engine</param>
         public static void ProcessMainMenu(int inputChoice, MinesweeperEngine game)
         {
