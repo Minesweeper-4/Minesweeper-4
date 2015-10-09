@@ -14,14 +14,15 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.5</FrameworkVersion>
-    <OutputPath>Documentation\Help\</OutputPath>
+    <OutputPath>Help\</OutputPath>
     <HtmlHelpName>Help for Minesweeper-4</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
       <DocumentationSource sourceFile="Minesweeper-4\bin\Debug\Minesweeper.xml" />
-<DocumentationSource sourceFile="Minesweeper-4\bin\Debug\Minesweeper.exe" /></DocumentationSources>
+      <DocumentationSource sourceFile="Minesweeper-4\bin\Debug\Minesweeper.exe" />
+    </DocumentationSources>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
-    <HelpFileFormat>MSHelpViewer</HelpFileFormat>
+    <HelpFileFormat>HtmlHelp1</HelpFileFormat>
     <IndentHtml>False</IndentHtml>
     <KeepLogFile>True</KeepLogFile>
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
@@ -36,14 +37,22 @@
     <Preliminary>False</Preliminary>
     <NamingMethod>Guid</NamingMethod>
     <HelpTitle>Minesweeper-4 Game</HelpTitle>
-    <FooterText>https://github.com/Minesweeper-4</FooterText>
-    <HeaderText>Team Minesweeper-4</HeaderText>
+    <FooterText>Team Minesweeper-4, 2015</FooterText>
+    <HeaderText>
+    </HeaderText>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
-    <ProjectSummary>Minesweeper-4
-Team project for High-Quality Code course in Telerik Academy Season 2015-2016 Team Minesweeper-4.</ProjectSummary>
-    <ComponentPath>Documentation\</ComponentPath>
-    <WorkingPath>Documentation\</WorkingPath>
-    <HtmlHelp1xCompilerPath>Documentation\</HtmlHelp1xCompilerPath>
+    <ProjectSummary>Minesweeper-4 Team Project</ProjectSummary>
+    <ComponentPath>
+    </ComponentPath>
+    <WorkingPath>
+    </WorkingPath>
+    <HtmlHelp1xCompilerPath>
+    </HtmlHelp1xCompilerPath>
+    <CopyrightHref>https://github.com/Minesweeper-4</CopyrightHref>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="True" />
+<NamespaceSummaryItem name="Minesweeper" isDocumented="True" /></NamespaceSummaries>
+    <MissingTags>Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter, AutoDocumentDispose</MissingTags>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
