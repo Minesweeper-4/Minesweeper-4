@@ -1,13 +1,19 @@
-﻿using NUnit.Framework;
-using Minesweeper.Data;
-using Minesweeper.Enumerations;
-using Minesweeper.Interfaces;
-
-namespace NunitTests
+﻿namespace NunitTests
 {
+    using Minesweeper.Data;
+    using Minesweeper.Enumerations;
+    using Minesweeper.Interfaces;
+    using NUnit.Framework;
+
+    /// <summary>
+    /// Tests ran on the matrix Factory
+    /// </summary>
     [TestFixture]
     public class MatrixFactoryClassTests
     {
+        /// <summary>
+        /// Checks whether the factory properly returns a small matrix
+        /// </summary>
         [Test]
         public void MatrixFactoryReturnsProperSmallMatrix()
         {
@@ -25,6 +31,9 @@ namespace NunitTests
             Assert.AreEqual(expectedRows, matrix.Cols, "Actual number of matrix rows are different from expected");
         }
 
+        /// <summary>
+        /// Checks whether the matrix properly returns a medium matrix
+        /// </summary>
         [Test]
         public void MatrixFactoryReturnsProperMediumMatrix()
         {
@@ -38,6 +47,9 @@ namespace NunitTests
             Assert.AreEqual(expectedRows, matrix.Cols, "Actual number of matrix rows are different from expected");
         }
 
+        /// <summary>
+        /// Checks whether the factory properly returns a big matrix
+        /// </summary>
         [Test]
         public void MatrixFactoryReturnsProperBigMatrix()
         {
@@ -51,6 +63,9 @@ namespace NunitTests
             Assert.AreEqual(expectedRows, matrix.Cols, "Actual number of matrix rows are different from expected");
         }
 
+        /// <summary>
+        /// Checks whether the matrix properly returns a default matrix
+        /// </summary>
         [Test]
         public void MatrixFactoryReturnsProperDefaultMatrix()
         {

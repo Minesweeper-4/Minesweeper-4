@@ -1,11 +1,17 @@
-﻿using NUnit.Framework;
-using Minesweeper.Data.Player;
-
-namespace NunitTests
+﻿namespace NunitTests
 {
+    using Minesweeper.Data.Player;
+    using NUnit.Framework;
+
+    /// <summary>
+    /// Tests Ran on the players Proxy Class
+    /// </summary>
     [TestFixture]
     public class PlayerProxyClassTests
     {
+        /// <summary>
+        /// Checks whether the proxy constructor and the properties get and set work properly
+        /// </summary>
         [Test]
         public void PlayerProxyConstructorAndPropertriesGetterAndSetterWorksProper()
         {

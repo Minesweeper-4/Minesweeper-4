@@ -1,18 +1,24 @@
-﻿using Minesweeper.Helpers;
-using NUnit.Framework;
-using System;
-using System.IO;
-
-namespace NunitTests
+﻿namespace NunitTests
 {
+    using System;
+    using System.IO;
+    using Minesweeper.Helpers;
+    using NUnit.Framework;
+
+    /// <summary>
+    /// Test Ran on file creation
+    /// </summary>
     [TestFixture]
     public class SerializerTests
     {
+        /// <summary>
+        /// Expects to create a file, if the file does not exists
+        /// </summary>
         [Test]
         public void ExpectSerializeMethodToCreateFileIfTheFileDoesntExist()
         {
             var fileName = "testFile.txt";
-            var testObjectToSerialize = new Object();
+            object testObjectToSerialize = new object();
             var serializer = new Serializer();
 
             serializer.Serialize(testObjectToSerialize, fileName);
@@ -21,11 +27,14 @@ namespace NunitTests
             File.Delete(fileName);
         }
 
+        /// <summary>
+        /// Expects to return the object when the file exists
+        /// </summary>
         [Test]
         public void ExpectDeserializeMethodToReturnObjectWhenFileExist()
         {
             var fileName = "testFile.txt";
-            var testObjectToSerialize = new Object();
+            var testObjectToSerialize = new object();
             var serializer = new Serializer();
 
             serializer.Serialize(testObjectToSerialize, fileName);

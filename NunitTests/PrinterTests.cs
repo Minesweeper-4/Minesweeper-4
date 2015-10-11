@@ -1,16 +1,21 @@
-﻿using Minesweeper.Data;
-using Minesweeper.Data.Player;
-using Minesweeper.Logic.Draw;
-using NUnit.Framework;
-using System;
-using System.Diagnostics;
-using Minesweeper.Enumerations;
-
-namespace NunitTests
+﻿namespace NunitTests
 {
+    using System;
+    using Minesweeper.Data;
+    using Minesweeper.Data.Player;
+    using Minesweeper.Enumerations;
+    using Minesweeper.Logic.Draw;
+    using NUnit.Framework;
+
+    /// <summary>
+    /// Tests Ran on the Printer
+    /// </summary>
     [TestFixture]
     public class PrinterTests
     {
+        /// <summary>
+        /// Checks whether the expected print frame not to return an empty string
+        /// </summary>
         [Test]
         public void ExpectGetPrintFrameToReturntNotEmptyString()
         {
@@ -28,18 +33,21 @@ namespace NunitTests
             Assert.AreNotEqual(result.Length, 0);
         }
 
+        /// <summary>
+        /// Expects that the printer line will not throw
+        /// </summary>
         [Test]
         public void ExpectPrintLineNotToThrow()
         {
             var printer = new StandardPrinter();
             var message = "testMessage";
 
-
             Assert.DoesNotThrow(() => printer.PrintLine(message));
         }
 
-
-        // Console.Clear() breaks that test
+        /// <summary>
+        /// Expects the print Matrix not to throw
+        /// </summary>
         [Test]
         [Ignore]
         public void ExpectPrintMatrixNotToThrow()
@@ -52,6 +60,9 @@ namespace NunitTests
             Assert.DoesNotThrow(() => printer.PrintMatrix(matrix, player));
         }
 
+        /// <summary>
+        /// Expects the dark mode to work properly on the background
+        /// </summary>
         [Test]
         public void ExpectPrinterDarkModeToApplayBlackBackgroundToConsole()
         {
@@ -62,6 +73,9 @@ namespace NunitTests
             Assert.AreEqual(ConsoleColor.Black, resultColor);
         }
 
+        /// <summary>
+        /// Expects the dark mode to work properly on the foreground
+        /// </summary>
         [Test]
         public void ExpectPrinterDarkModeToApplayGrayForegroundColorToConsole()
         {
@@ -72,6 +86,9 @@ namespace NunitTests
             Assert.AreEqual(ConsoleColor.Gray, resultColor);
         }
 
+        /// <summary>
+        /// Expects the light mode to work properly on the background
+        /// </summary>
         [Test]
         public void ExpectPrinterLightModeToApplayWhiteBackgroundToConsole()
         {
@@ -83,6 +100,9 @@ namespace NunitTests
             Assert.AreEqual(ConsoleColor.Black, resultColor);
         }
 
+        /// <summary>
+        /// Expects the light mode to work properly on the foreground
+        /// </summary>
         [Test]
         public void ExpectPrinterLightModeToApplayBlackForegroundColorToConsole()
         {
@@ -94,6 +114,9 @@ namespace NunitTests
             Assert.AreEqual(ConsoleColor.Gray, resultColor);
         }
 
+        /// <summary>
+        /// Expects the set of the printer not to throw
+        /// </summary>
         [Test]
         public void ExpectSetPrinterNotToThrow()
         {
@@ -103,6 +126,9 @@ namespace NunitTests
             Assert.DoesNotThrow(() => lightPrinter.SetPrinter(darkPrinter));
         }
 
+        /// <summary>
+        /// Expects the printer line of the decorator not to throw
+        /// </summary>
         [Test]
         public void ExpectPrintLineOfPrinterDecoratorNotToThrow()
         {
@@ -115,6 +141,9 @@ namespace NunitTests
             Assert.DoesNotThrow(() => lightPrinter.PrintLine(message));
         }
 
+        /// <summary>
+        /// Expects the getter of the print frame of the decorator not to be an empty string
+        /// </summary>
         [Test]
         public void ExpectGetPrintFrameOfPrintDecoratorNotToBeEmptyString()
         {

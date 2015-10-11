@@ -1,15 +1,21 @@
-﻿using NUnit.Framework;
-using Minesweeper.Logic.Sorter;
-using Minesweeper.Data.Player;
-using System.Collections.Generic;
-using System.Linq;
-using Minesweeper.Interfaces;
-
-namespace NunitTests
+﻿namespace NunitTests
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Minesweeper.Data.Player;
+    using Minesweeper.Interfaces;
+    using Minesweeper.Logic.Sorter;
+    using NUnit.Framework;
+
+    /// <summary>
+    /// Tests ran on the sorting algorithm
+    /// </summary>
     [TestFixture]
     public class DefaultSortTests
     {
+        /// <summary>
+        /// Checks whether the sort methods sort properly by score
+        /// </summary>
         [Test]
         public void DefaultSortMethodSortsProperByScore()
         {
@@ -25,10 +31,12 @@ namespace NunitTests
 
             IList<IPlayer> actualPlayers = sorter.Sort(inputPlayers);
 
-            Assert.IsTrue(expectedPlayers.SequenceEqual(actualPlayers),
-                "The expected and the result lists of sorted Players are NOT equal!");
+            Assert.IsTrue(expectedPlayers.SequenceEqual(actualPlayers), "The expected and the result lists of sorted Players are NOT equal!");
         }
 
+        /// <summary>
+        /// Checks whether the sorting methods sort properly first by Score and then by Name
+        /// </summary>
         [Test]
         public void DefaultSortMethodSortsProperFirstByScoreSecondByName()
         {
@@ -44,8 +52,7 @@ namespace NunitTests
 
             IList<IPlayer> actualPlayers = sorter.Sort(inputPlayers);
 
-            Assert.IsTrue(expectedPlayers.SequenceEqual(actualPlayers),
-                "The expected and the result lists of sorted Players are NOT equal!");
+            Assert.IsTrue(expectedPlayers.SequenceEqual(actualPlayers), "The expected and the result lists of sorted Players are NOT equal!");
         }
     }
 }
